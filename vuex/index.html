@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>vue</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+
+<div id="app">
+    <one></one>
+    <three></three>
+</div>
+
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script src="./node_modules/vuex/dist/vuex.js"></script>
+<script>
+    (function(){
+
+        var one = {
+            template:"<div>{{no}} <input type='button' value='update' @click='update' > </div>",
+            computed:Vuex.mapGetters({
+                no:"MyNum"
+            }),
+            methods:{
+                update:function(){
+                    this.$store.dispatch("AINC",1)
+                }
+            }
+        }
+
+
+        var three = {
+            template:"<div>{{no}} <input type='button' value='update' @click='update'></div>",
+            computed:Vuex.mapGetters({
+                no:"MyNum"
+            }),
+            methods:{
+                update:function(){
+                    console.log("step2:当需要修改state.num的值的");
+                    //这个时候,因为组件内没有状态,只有发给store中的actions进行处理
+                    this.$store.dispatch("AINC",1);
+                }
+            }
+        }
+
+
+        //当我们需要在同级的组件内部共享数据时
+        //通过创建一个公共的类来存储这个状态 Veux store
+        //vuex有一个store(仓库)这个类,是用存放 state
+        var store = new Vuex.Store({
+            //把三个组中需要共享的属性拿出来
+            state:{
+                num:0
+            },
+            //是仓库中能够改变state的值的地址
+            mutations:{
+                //store.$on("INC",function(state,para))
+                "MINC":function(state,para){
+                     state.num +=para;
+                }
+            },
+            actions:{
+                //事件
+                //actions.on("INC",function(store,para))
+                "AINC":function(store,para){
+                    console.log("step3: 当dispath中的事件与actions中的事件名一致时候");
+                    //用来处理业务 ajax 获取数据
+                    return new Promise(function(resolve,reject){
+                        var state=9;
+                        store.commit("MINC",9);
+                        resolve("ok")
+                    });
+
+                }
+            },
+            getters:{
+                //这个事件是用来让外部获取num值的入口事件
+                "MyNum":function(state){
+                    console.log("step1:获取Num初始化状态值----:"+state.num);
+                    return state.num;
+                }
+            }
+        })
+
+
+        new Vue({
+            el:"#app",
+            store,
+            components:{
+                one,
+                three
+            }
+        })
+
+    })()
+</script>
+</body>
+</html>

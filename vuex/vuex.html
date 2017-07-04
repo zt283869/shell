@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+<div id="app">
+    <one></one>
+    <two></two>
+</div>
+</body>
+</html>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script src="node_modules/vuex/dist/vuex.js"></script>
+<script>
+    var one = {
+        template:"<div>{{no}} <input type='button' value='update' @click='update' > </div>",
+        computed:Vuex.mapGetters({
+            no:"MyNum"
+        }),
+        methods:{
+            update:function(){
+                this.$store.dispatch("AINC",1)
+            }
+        }
+    }
+    var two = {
+        template:"<div>{{no}} <input type='button' value='update' @click='update' > </div>",
+        computed:Vuex.mapGetters({
+            no:"MyNum"
+        }),
+        methods:{
+            update:function(){
+                this.$store.dispatch("AINC",1)
+            }
+        }
+    }
+
+        //当我们需要同级的组件内部共享数据时
+        //通过创建一个公共的类来存储这个状态 vuex store
+        //vuex有一个store（仓库）这个类，是用存放state
+        var store = new Vuex.Store({
+            //把三个组建中需要共享的数据拿出来
+            state:{
+                num:0
+            },
+            //改变仓库中、state值的方法
+            mutations:{
+                "MINC":function (state,para) {
+                    state.num+=para;
+                }
+            },
+            actions:{
+                //事件
+                "AINC":function (store,para) {
+                    return new Promise(function (resolve,reject) {
+                        store.commit("MINC",para);
+                        resolve("ok")
+                    })
+                }
+            },
+            getters:{
+                //这个事件是用来让外部获取num值的入口事件
+                "MyNum":function (state) {
+                    return state.num;
+                }
+            }
+        })
+       var vue = new Vue({
+            el:"#app",
+            store,
+            components:{
+                one,
+                two
+            }
+        })
+        
+</script>
