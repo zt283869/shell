@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="./node_modules/vue-swipe/dist/vue-swipe.css">
+    <style>
+        .my-swipe {
+            height: 200px;
+            color: #fff;
+            font-size: 30px;
+            text-align: center;
+        }
+        .slide1 {
+            background-color: #0089dc;
+            color: #fff;
+        }
+        .slide2 {
+            background-color: #ffd705;
+            color: #000;
+        }
+        .slide3 {
+            background-color: #ff2d4b;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <swipe class="my-swipe">
+        <swipe-item class="slide1">Slide1</swipe-item>
+        <swipe-item class="slide2">Slide2</swipe-item>
+        <swipe-item class="slide3">Slide3</swipe-item>
+    </swipe>
+
+    <br>
+
+    <swipe class="my-swipe" :speed="900" :auto="0" :show-indicators="false">
+        <swipe-item class="slide1">SINGLE SLIDE</swipe-item>
+    </swipe>
+
+    <br>
+
+    <swipe class="my-swipe" :speed="900" :auto="0" :show-indicators="false" :no-drag="true">
+        <swipe-item class="slide1">SINGLE SLIDE</swipe-item>
+    </swipe>
+</div>
+<script src="node_modules/vue-swipe/dist/vue-swipe.js"></script>
+
+</body>
+</html>
+<script>
+    const vueSwipe = VueSwipe.Swipe;
+    const vueSwipeItem = VueSwipe.SwipeItem;
+
+    new Vue({
+        el: '#container',
+        components: {
+            'swipe': vueSwipe,
+            'swipe-item': vueSwipeItem
+        }
+    });
+</script>

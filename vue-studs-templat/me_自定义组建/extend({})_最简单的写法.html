@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+<div id="app">
+<hello></hello>
+</div>
+</body>
+</html>
+<script src="../bower_components/vue/dist/vue.js"></script>
+<script>
+    //1. Vue.extend({}) 返回的是一个组件的构造器
+    var Hello = Vue.extend({
+        template:`<div class="well" @click="show">{{msg}}</div>`,
+        data:function(){
+           return {
+               msg : "hello 组建"
+           }
+        },
+        methods:{
+            show:function(){
+                alert(this.msg);
+            }
+        }
+    })
+            new Hello().$mount("#app")
+//    Vue.component("hello",Hello);
+</script>

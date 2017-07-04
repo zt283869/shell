@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>vue</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        .red {
+            background-color: red;
+        }
+
+        .black {
+            background-color: black;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="app">
+    <hl title="这是第一个内容" bg="red"></hl>
+    <hl bg="black" title="这是第2个内容"></hl>
+</div>
+
+<script src="../node_modules/vue/dist/vue.js"></script>
+
+<script>
+    (function(){
+
+        //flex flash <video>
+        //创建一个全局的组件，Hello
+        //declarative rendering
+        //怎么才能让一个组件更加灵活
+        var Hello = {
+            props:["title","bg"],
+            data:function(){
+                return {
+                    sl:"background:"+"bg"
+                }
+            },
+            template:"<div  :style='sl' class='well'>hello {{title}}</div>"
+        }
+
+
+        new Vue({
+            el:"#app",
+            components:{
+                "hl":Hello
+            }
+
+        })
+
+
+
+    })()
+</script>
+</body>
+</html>

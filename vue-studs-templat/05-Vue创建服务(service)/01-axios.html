@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>vue</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+
+<div id="app">
+    <ul>
+        <li v-for="n in lists">{{n.title}}</li>
+    </ul>
+</div>
+
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script src="../bower_components/axios/dist/axios.js"></script>
+<script>
+    (function(){
+
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                lists:[]
+            },
+            methods:{
+                getData:function(){
+                     axios.get("data/cart.json")
+                            .then((res)=>{
+                                console.log(res.data);
+                                this.lists = res.data;
+                            })
+                }
+            },
+            created:function(){
+                this.getData();
+            }
+        });
+
+
+    })()
+</script>
+</body>
+</html>

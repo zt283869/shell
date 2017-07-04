@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>vue</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body >
+
+<div id="app1" class="well">
+    {{msg}}
+</div>
+
+<script src="../node_modules/vue/dist/vue.js"></script>
+
+<script>
+
+//    1.vue创建的viewmodel只能绑定给body内的elememts.不能直接绑定在html,body上面
+//    只个是在vue2.0修改的
+//    Do not mount Vue to <html> or <body> - mount to normal elements instead.
+//
+//    2.vue里面创建viewmodel,只能整个项目创建一个viewmodel
+//
+    (function(){
+
+        //创建了一个viewModel
+       var vm = new Vue({
+           data:{
+               msg:"hello app1",
+               msg2:"hello app2"
+           }
+       });
+        vm.$destroy();
+        vm.$mount("#app1");
+
+    })()
+</script>
+</body>
+</html>

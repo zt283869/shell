@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>爱听-我的</title>
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0"/>
+    <link type="text/css" rel="stylesheet" href="../font/iconfont.css"/>
+    <link type="text/css" rel="stylesheet" href="../styles/mine.css"/>
+</head>
+<body>
+
+<!--头部-->
+<header>
+    <ul>
+        <li class="slide"><span class="iconfont icon-caidan"></span></li>
+        <li ><a class="active" href="mine.html">我的</a></li>
+        <li ><a href="../../index.html">乐库</a></li>
+        <li><a href="find.html">发现</a></li>
+        <li><a href="search.html"><span class="iconfont icon-wxbsousuotuiguang"></span></a></li>
+    </ul>
+</header>
+<!--container-->
+<ul class="content border">
+    <li>
+        <span class="iconfont icon-bendi"></span>
+        <span>本地歌曲</span>
+        <span>0</span>
+    </li>
+    <li>
+        <span class="iconfont icon-xiazai"></span>
+        <span>下载管理</span>
+        <span>0</span>
+    </li>
+    <li>
+        <span class="iconfont icon-zuijinbofang"></span>
+        <span class="near"><a href="nearListen.html">最近播放</a></span>
+        <span>0</span>
+    </li>
+    <li>
+        <span class="iconfont icon-zhenlingzheng-copy"></span>
+        <span>我的彩铃</span>
+        <span>0</span>
+    </li>
+</ul>
+<ul class="list border">
+   <li><span>我创建的歌单</span><span> (0)</span><i class="create">+新建歌单</i></li>
+    <li>
+        <img src="../images/mu.png"/>
+        <p>我喜欢的</p>
+        <span class="number">0首</span>
+    </li>
+</ul>
+
+
+
+
+<!--遮罩-->
+<div class="mark"></div>
+
+<!--弹框-->
+<div class="pop">
+    <p >新建歌单</p>
+    <div class="text"><input type="text" id="txt"/></div>
+    <span class="cancel">取消</span>
+    <span class="confirm">确定</span>
+</div>
+<!--sideslide-->
+
+<div class="sideSlide">
+    <div class="slideTop">
+        <div class="pic">
+           <a href="mymsg.html"><img src="../images/user.png"/></a>
+        </div>
+       <a href="login.html"> <i>未登录</i></a>
+        <span class="iconfont icon-22"></span>
+    </div>
+    <ul class="slideMiddle">
+        <li>
+            <span class="iconfont icon-m-members"></span>
+            会员
+        </li>
+        <li>
+            <span class="iconfont icon-youjiancaidanfufeixiazai"></span>
+            付费音乐
+        </li>
+        <li>
+            <span class="iconfont icon-yunpan"></span>
+            音乐云盘
+        </li>
+        <li>
+            <span class="iconfont icon-wodejifen"></span>
+            我的积分
+        </li>
+        <li>
+            <span class="iconfont icon-11178"></span>
+            在线听歌免流量
+        </li>
+        <li class="bg">
+            <span class="iconfont icon-pifu-copy"></span>
+            皮肤管理
+        </li>
+        <li class="last border">
+            <span class="iconfont icon-tingyinle"></span>
+            爱听咖
+        </li>
+        <li class="time">
+            <span class="iconfont icon-zuijinbofang"></span>
+            定时关闭
+            <span class="close"></span>
+        </li>
+        <li>
+            <span class="iconfont icon-liuyan-alt"></span>
+            意见反馈
+        </li>
+    </ul>
+    <ul class="slideBottom">
+        <li>设置</li>
+        <li>退出应用</li>
+    </ul>
+</div>
+
+
+<!--music-->
+
+<audio id="myAudio" autoplay src="../music/有点甜.mp3" loop></audio>
+
+<!--底部-->
+<footer class="footer border">
+    <div class="musicPlay  border1">
+        <div class="muicLeft">
+            <dl>
+                <dt>
+                    <img src="../images/tu53.jpg"/>
+                </dt>
+                <dd>
+                    <p>yes IDo</p>
+                    <p><span class="iconfont icon-wusunyinzhi"></span>Justin Biebar</p>
+                </dd>
+            </dl>
+        </div>
+        <ul class="musicRight">
+            <li>
+                <span class="iconfont icon-play-o play"></span>
+            </li>
+            <li>
+                <span class="iconfont icon-xiayishou"></span>
+            </li>
+            <li class="lishi">
+                <span class="iconfont icon-yinle"></span>
+            </li>
+        </ul>
+    </div>
+    <div class="scrollBar"> </div>
+</footer>
+
+<!--history列表-->
+<div class="left">
+    <div class="playType"><span class="iconfont icon-xunhuan single"></span></div>
+    <div class="clear">清空</div>
+    <ul class="songList">
+    </ul>
+</div>
+
+
+<!--定时关闭-->
+<div class="setTime">
+    <!--头部-->
+    <div class="header border hed">
+        <div class="left-btn"><a href="javascript:window.history.go(-1);"><span class="iconfont icon-fanhui"></span></a></div>
+        <div class="page-title">定时关闭</div>
+    </div>
+    <ul class="cont">
+        <li class="border"><p>关闭</p><span class="iconfont icon-selected"></span></li>
+        <li class="border"><p><i class="num">10</i>分钟</p><span class="iconfont "></span></li>
+        <li class="border"><p><i class="num">20</i>分钟</p><span class="iconfont "></span></li>
+        <li class="border"><p><i class="num">30</i>分钟</p><span class="iconfont "></span></li>
+        <li class="border"><p><i class="num">40</i>分钟</p><span class="iconfont "></span></li>
+        <li class="border"><p><i class="num">50</i>分钟</p><span class="iconfont "></span></li>
+        <li class="border"><p><i class="num">60</i>分钟</p><span class="iconfont "></span></li>
+        <li class="border"><p>自定义</p></li>
+    </ul>
+</div>
+
+<script src="../../js/jq.js"></script>
+<script src="../js/mine.js"></script>
+</body>
+</html>

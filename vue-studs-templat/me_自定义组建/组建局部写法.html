@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+<div id="app">
+    <one></one>
+    <two></two>
+</div>
+</body>
+</html>
+<script src="../bower_components/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{},
+        components:{
+            "one":{
+                template:"<div class='well'>one<one1></one1></div>",
+                components:{
+                    "one1":{
+                        template:"<div class='well'>one1<one11></one11></div>",
+                            components:{
+                                "one11":{
+                                    template:"<div class='well'>one11</div>"
+                                }
+                            }
+                    }
+                }
+            },
+            "two":{
+                template:"<div class='well'>two</div>"
+            }
+        }
+    });
+</script>

@@ -1,0 +1,8 @@
+npm install vue vue-router -S
+
+npm install webpack
+
+npm install babel-core babel-loader style-loader css-loader
+
+vue-loader
+

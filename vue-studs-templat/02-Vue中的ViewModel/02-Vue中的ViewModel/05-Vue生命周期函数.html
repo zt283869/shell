@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>vue</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+
+<div id="app"></div>
+
+<script src="../node_modules/vue/dist/vue.js"></script>
+
+<script>
+    (function(){
+
+        var vm = new Vue({
+            el:"#app",
+            template:`<div class="well">{{num}} <input type="button" @click="update" value="更新msg"></div>`,
+            data:{
+                num:0
+            },
+            methods:{
+                update:function(){
+                    ++this.num;
+                }
+            },
+
+            //第一个阶段
+            beforeCreate:function(){
+                console.log("beforCreate: " + this.$el);
+            },
+            created:function(){
+                console.log("created:" + this.$el);
+            },
+
+
+            //第二个阶段
+            beforeMount:function(){
+                console.log("挂载前:" + this.$el);
+            },
+            mounted:function(){
+                console.log("mounted:"+this.$el);
+            },
+
+            //第三个阶段
+            beforeUpdate:function(){
+                console.log("before update:");
+            },
+
+            updated:function(){
+                console.log("update:");
+            },
+
+            //第4个阶段
+            beforeDestroy:function(){
+                console.log("before destrory");
+            },
+
+            destroyed:function(){
+                console.log("destroyed");
+            }
+
+
+        });
+
+    })()
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+@charset "utf-8";
+@import "base";
+body{
+  box-sizing: border-box;
+}
+.header{
+  background-color:$whiteColor;
+  .page-title{
+    color:$fontColor;
+    font-weight:bold;
+  }
+  .left-btn{
+    a{
+      color:$fontColor;
+    }
+  }
+}
+
+.loginCon{
+  width:100%;
+  .top{
+    width:100%;
+    height:pxToRem(125);
+    line-height:pxToRem(125);
+    background:url(../images/tianyi.gif) no-repeat center;
+  }
+  .log{
+    width:pxToRem(290);
+    margin:0 auto;
+    background:$whiteColor;
+    li{
+      height:pxToRem(43);
+      line-height:pxToRem(43);
+      span{
+        padding:0 pxToRem(8) 0 pxToRem(16);
+        color:$font1Color;
+      }
+      input{
+        border:0;
+        outline: none;
+        font-weight:bold;
+      }
+    }
+  }
+
+  .forget{
+    width:100%;
+    height:pxToRem(62);
+    line-height:pxToRem(62) ;
+    text-align:right;
+    a{
+      color:#343434;
+      text-decoration:none;
+    }
+    a:nth-of-type(2){
+      padding-right:pxToRem(10);
+      color:#343434;
+      text-decoration:none;
+    }
+  }
+
+
+  .share{
+    width:100%;
+    display:flex;
+    height:pxToRem(95);
+    justify-content: space-around;
+    li{
+      vertical-align: bottom;
+      flex-grow:1;
+      text-align:center;
+      img{
+        margin:0 auto pxToRem(10);
+      }
+    }
+  }
+}

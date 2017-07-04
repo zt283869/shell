@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/css/index.css">
+</head>
+<body>
+<div  id="app">
+    <header>
+        <ul>
+            <li></li>
+            <li>购物车</li>
+            <li></li>
+        </ul>
+    </header>
+    <div class="all">
+        <ul>
+            <li>
+                <i>总件数:</i>
+                <span>{{totalCount}}</span>
+            </li>
+            <li>
+                <i>总价数:</i>
+                <span>{{formatCount}}</span>
+            </li>
+        </ul>
+    </div>
+    <aside>
+        <ul>
+
+            <li v-for="(n,index) in productLists">
+               <span class="span_1">
+                   <img src="./img/1.jpg" />
+                   <span>价格:{{n.price}}</span>
+               </span>
+                <span class="span_2" >
+                        <input type="button" value="+"  @click="addQal(index)">
+                 <input type="number" v-model="n.qal">
+                    <input type="button" value="-" @click="subQal(index)">
+                </span>
+            </li>
+
+        </ul>
+    </aside>
+    <footer>
+        <ul>
+            <li>首页</li>
+            <li>详情页</li>
+            <li>购物车</li>
+            <li>我的</li>
+        </ul>
+    </footer>
+</div>
+</body>
+</html>
+<script src="./bower_components/vue/dist/vue.js"></script>
+<script src="./bower_components/axios/dist/axios.js"></script>
+<script src="./js/index.js"></script>

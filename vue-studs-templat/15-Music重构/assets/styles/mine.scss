@@ -1,0 +1,256 @@
+@charset "utf-8";
+@import "base";
+
+//header
+header{
+  width:100%;
+  height:pxToRem(60);
+  font-size:$bigFont;
+  background-color: $whiteColor;
+  ul{
+    width:100%;
+    height:pxToRem(60);
+    display:flex;
+    justify-content: space-around;
+    line-height:pxToRem(60);
+    font-weight:bold;
+    li{
+      flex-grow:1;
+      text-align:center;
+      a{
+        color:$fontColor;
+        text-decoration: none;
+      }
+    }
+    li:nth-of-type(1){
+      font-size:20px;
+    }
+    li:nth-of-type(5){
+      font-size:20px;
+    }
+    li a.active{
+      color:$hoverColor;
+    }
+  }
+}
+.hed{
+  background: $whiteColor;
+    .left-btn{
+        a{
+          color:$fontColor;
+        }
+    }
+  .page-title{
+      color:$fontColor;
+  }
+}
+.content{
+  width:100%;
+  height:pxToRem(96);
+  display:flex;
+  justify-content: space-around;
+  li{
+  flex:1;
+    text-align: center;
+    span{
+      display:block;
+      line-height:pxToRem(32);
+      height:pxToRem(32);
+      color:#808080;
+    }
+    span.near a{
+      color:#808080;
+      text-decoration: none;
+    }
+    span:nth-of-type(1){
+      color:$hoverColor;
+    }
+  }
+}
+
+
+.list{
+  width:100%;
+  height:pxToRem(183);
+  padding:0 pxToRem(10);
+  li{
+    height:pxToRem(50);
+    line-height:pxToRem(50);
+    margin-bottom:pxToRem(12);
+    position:relative;
+    span:nth-of-type(1){
+      color:#818282;
+      font-size:$midFont;
+      float: left;
+    }
+    span:nth-of-type(2){
+      color:$fontColor;
+      font-size:$smFont;
+      float: left;
+    }
+    i{
+      float:right;
+      font-size:$midFont;
+      padding-right:pxToRem(20);
+      color:$hoverColor;
+    }
+    img{
+      float:left;
+      padding-right:pxToRem(10);
+    }
+    p{
+      float:left;
+      width:80%;
+      height:pxToRem(25);
+      line-height:pxToRem(25);
+    }
+    .number{
+      display:block;
+      float:left;
+      height:pxToRem(25);
+      line-height:pxToRem(25);
+    }
+    .menu{
+      position:absolute;
+      right:pxToRem(20);
+      top:pxToRem(1);
+      color:#999999;
+    }
+  }
+}
+
+
+.pop{
+  z-index:99;
+  display:none;
+  width:80%;
+  height:pxToRem(148);
+  position:absolute;
+  left:0;
+  right:0;
+  margin:0 auto;
+  top:30%;
+  border: 1px solid #9d9d9d;
+  background:$whiteColor;
+  p{
+    height:pxToRem(43);
+    line-height:pxToRem(43);
+    padding-left:pxToRem(25);
+    font-weight:bold;
+  }
+  .text{
+    padding:pxToRem(15) 0;
+    width:80%;
+    margin:0 auto;
+    input{
+      border: 1px solid #9d9d9d;
+      width:100%;
+      height:100%;
+      padding:pxToRem(5) 0;
+      outline: none;
+    }
+
+  }
+  span{
+    padding:pxToRem(5) pxToRem(10);
+    width:30%;
+    display:inline-block;
+    text-align:right;
+    font-weight:bold;
+    font-size:$midFont;
+  }
+  .confirm{
+    color:$hoverColor;
+  }
+}
+
+.setTime{
+  width:100%;
+  height:100%;
+  position:absolute;
+  left:pxToRem(320);
+  top:0;
+  background:$contentBg;
+  z-index:100;
+  .cont{
+    width:100%;
+    li{
+      height:pxToRem(44);
+      line-height:pxToRem(44);
+      p{
+        float:left;
+        padding:0 pxToRem(12);
+      }
+      span{
+        float:right;
+        padding-right:pxToRem(20);
+        color:$hoverColor;
+      }
+    }
+  }
+}
+
+
+//历史记录
+.left{
+  width:100%;
+  height:pxToRem(360);
+  overflow: hidden;
+  overflow-y: auto;
+  background-color: $whiteColor;
+  position:fixed;
+  left:0;
+  bottom:pxToRem(-360);
+  z-index:99;
+  .playType{
+    float:left;
+    height:pxToRem(34);
+    line-height:pxToRem(34);
+    text-align: center;
+    width:pxToRem(40);
+  }
+  .clear{
+    height:pxToRem(34);
+    line-height:pxToRem(34);
+    text-align: right;
+    color:$hoverColor;
+    padding-right:pxToRem(15);
+  }
+  .songList{
+    width:90%;
+    margin:0 auto;
+    li{
+      padding:pxToRem(10) 0 pxToRem(16) 0;
+      position:relative;
+    }
+    p.active{
+      color:$hoverColor;
+    }
+    i.active{
+      color:$hoverColor;
+    }
+    p{
+      width:70%;
+      height:pxToRem(20);
+      line-height:pxToRem(20);
+      font-size:$midFont;
+      color:#343434;
+    }
+
+    i{
+      height:pxToRem(18);
+      line-height:pxToRem(18);
+      font-size:$smFont;
+      color:#8f8f8f;
+    }
+    span{
+      float:right;
+      display: block;
+      color:$fontColor;
+      position:absolute;
+      right:pxToRem(10);
+      top:pxToRem(10);
+      font-size:$maxFont;
+    }
+  }
+}

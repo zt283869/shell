@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>vue</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+
+<div id="app">
+    <v-one></v-one>
+</div>
+
+<script src="../node_modules/vue/dist/vue.js"></script>
+
+<script>
+    (function(){
+
+        //props是vue2.x借鉴react中的this.props
+        //用来获取组件上自定义的属性值
+        var vTwo= {
+            props:{
+                //属性名:值类型(String)
+                title:{
+                    type:[String,Number],
+                    default:"xxxxxx"
+                }
+            },
+            template:`<div class="well">{{title}}</div>`
+        }
+
+        var vOne= {
+            template:`<div class="well">组件一<v-two title="helloxxxx"></v-two><v-two title="world" ></v-two></div>`,
+            components:{
+                vTwo
+            },
+            data:function(){
+                return {
+                    n:1,
+                    m:3
+                }
+            }
+        }
+
+
+        new Vue({
+            el:"#app",
+            components:{
+                vOne,
+                vTwo
+            }
+
+        })
+
+    })()
+</script>
+</body>
+</html>

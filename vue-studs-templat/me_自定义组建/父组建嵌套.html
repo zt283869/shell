@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <Father>
+        <Son></Son>
+        <Son></Son>
+        <Son></Son>
+        <Son></Son>
+        <Son></Son>
+    </Father>
+
+</div>
+</body>
+</html>
+<script src="../bower_components/vue/dist/vue.js"></script>
+<script>
+
+    var Son = {
+        template:"<div class='well'>son </div>"
+    } ;
+
+    var Father = {
+        template:"<div class='well'>father<slot></slot></div>",
+    } ;
+
+    new Vue({
+        el:"#app",
+        components:{
+            Father,
+            Son
+        }
+    })
+</script>

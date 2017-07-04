@@ -1,0 +1,350 @@
+@charset "utf-8";
+@import "base";
+
+body{
+  box-sizing: border-box;
+  height:100%;
+}
+
+.detail{
+  width:100%;
+  .bg{
+    width:100%;
+    img{
+      width:100%;
+      height:100%;
+    }
+  }
+  .header{
+    width:100%;
+    height:pxToRem(22);
+    line-height:pxToRem(22);
+    margin-top:pxToRem(18);
+    position:relative;
+    left:0;
+    top:0;
+      display: flex;
+      .left-btn{
+        width:pxToRem(50);
+        text-align:center;
+        a{
+          color:$font1Color;
+          text-decoration: none;
+          span{
+            font-size:20px;
+          }
+        }
+      }
+      .page-title{
+        flex:1;
+        text-align:center;
+        color:$whiteColor;
+      }
+      .right-btn{
+        @extend .left-btn;
+      }
+  }
+  .hea{
+    width:100%;
+    height:pxToRem(80);
+    position:absolute;
+    z-index:3;
+    left:0;
+    top:0;
+    span{
+      display:block;
+      height:pxToRem(18);
+      line-height:pxToRem(18);
+      width:100%;
+      text-align:center;
+      color:#bfb7ae;
+    }
+    p{
+      height:pxToRem(18);
+      line-height:pxToRem(18);
+      width:20%;
+      margin:0 auto;
+      text-align:center;
+      color:#bfb7ae;
+      border: 1px solid $whiteColor;
+      span{
+        display:inline;
+      }
+    }
+  }
+}
+
+.content{
+  width:100%;
+  position:absolute;
+  top:pxToRem(86);
+  bottom:pxToRem(100);
+  overflow: hidden;
+  min-height:pxToRem(372);
+}
+
+.left{
+    overflow: hidden;
+    overflow-y: auto;
+  .clear{
+    height:pxToRem(34);
+    line-height:pxToRem(34);
+    text-align: right;
+    color:$whiteColor;
+    padding-right:pxToRem(15);
+  }
+  .songList{
+    width:90%;
+    margin:0 auto;
+    li{
+      margin:pxToRem(10) 0 pxToRem(16) 0;
+      position:relative;
+    }
+    p.active{
+      color:$hoverColor;
+    }
+    i.active{
+      color:$hoverColor;
+    }
+    p{
+      width:70%;
+      height:pxToRem(20);
+      line-height:pxToRem(20);
+      font-size:$midFont;
+      color:$whiteColor;
+    }
+
+    i{
+      height:pxToRem(18);
+      line-height:pxToRem(18);
+      font-size:$smFont;
+      color:#8e8e8e;
+    }
+    span{
+      float:right;
+      display: block;
+      color:$fontColor;
+      position:absolute;
+      right:pxToRem(10);
+      top:pxToRem(10);
+      font-size:$maxFont;
+    }
+  }
+}
+
+
+
+.middle{
+  .ly{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 295px;
+    color: $whiteColor;
+  }
+ .photo{
+   .pic{
+     width:100%;
+     position:relative;
+     height:pxToRem(300);
+     img{
+       margin:pxToRem(25) auto 0;
+       vertical-align: middle;
+       width:pxToRem(257);
+       height:pxToRem(257);
+       border-radius:50%;
+       //animation:zhuan 6s  infinite;
+     }
+   }
+   .down{
+     display:flex;
+     justify-content: center;
+     padding:0 15%;
+     li{
+       flex:1 auto;
+       text-align: center;
+       span{
+         font-size:20px;
+         color:$whiteColor;
+       }
+     }
+   }
+ }
+  .lrc{
+    .songCon{
+      width:100%;
+      height:pxToRem(300);
+      overflow: hidden;
+      overflow-y:auto;
+      text-align: center;
+      color:$font1Color;
+      position:relative;
+      .lyric{
+        position:absolute;
+        left:0;
+        top:0;
+        width:100%;
+        text-align: center;
+        p{
+          line-height:pxToRem(24);
+          font-size:$midFont;
+        }
+        p.active{
+          color:$whiteColor;
+        }
+      }
+    }
+    .word{
+      width:pxToRem(220);
+      margin:0 auto;
+      height:pxToRem(55);
+      line-height:pxToRem(55);
+      display:flex;
+      justify-content: space-around;
+      text-align:center;
+      li{
+        flex:1;
+        span{
+          font-size:20px;
+          color:$whiteColor;
+        }
+      }
+    }
+  }
+}
+
+@keyframes zhuan {
+  0%{transform:rotate(0deg)}
+  100%{transform: rotate(360deg)}
+}
+
+.right{
+  dl{
+    width:100%;
+    padding-left:pxToRem(20);
+    height:pxToRem(54);
+    line-height:pxToRem(54);
+    dt{
+      float:left;
+      img{
+          margin-top:pxToRem(12);
+          padding-right:pxToRem(15);
+      }
+      span{
+        display: block;
+        padding-right:pxToRem(10);
+        text-align: center;
+        width:pxToRem(40);
+        color:$whiteColor;
+      }
+      .icon-gequ:before{
+        font-size:24px;
+
+      }
+    }
+    dd{
+      color:$whiteColor;
+    }
+    p{
+      padding-left:pxToRem(10);
+      color:$whiteColor;
+    }
+  }
+}
+
+
+
+.foot{
+  width:100%;
+  height:pxToRem(100);
+  background:#9d9d9d;
+  position:absolute;
+  left:0;
+  bottom:0;
+  .top{
+    width:pxToRem(290);
+    height:pxToRem(20);
+    margin:0 auto;
+    position:relative;
+    .init{
+      position:absolute;
+      left:0;
+      top:5px;
+      margin-right:pxToRem(5);
+      font-size:12px;
+      color:$whiteColor;
+    }
+    .wid{
+      width:pxToRem(210);
+      height:pxToRem(2);
+      position:relative;
+      background:#cccbca;
+      left:pxToRem(42);
+      top:pxToRem(12);
+    }
+    .wid1{
+      width:0;
+      height:pxToRem(2);
+      position:absolute;
+      background:$hoverColor;
+      left:pxToRem(42);
+      top:pxToRem(12);
+    }
+    .end{
+      position:absolute;
+      right:0;
+      top:5px;
+      margin-left:pxToRem(3);
+      font-size:12px;
+      color:$whiteColor;
+    }
+    .btn1{
+      position:absolute;
+      left:pxToRem(-5);
+      top:pxToRem(-7);
+      color:$whiteColor;
+      z-index:10;
+    }
+  }
+
+  .bottom{
+    width:pxToRem(290);
+    height:pxToRem(80);
+    line-height:pxToRem(80);
+    margin:0 auto;
+    display:flex;
+    justify-content:space-around;
+    li{
+      flex:1;
+      text-align:center;
+      font-size:20px;
+      color:$whiteColor;
+    }
+    li:nth-of-type(3){
+      flex:2;
+      font-size:pxToRem(60)
+    }
+    li:nth-of-type(2){
+      font-size:pxToRem(30)
+    }
+    li:nth-of-type(4){
+      font-size:pxToRem(30)
+    }
+  }
+}
+
+.swiper-pagination-bullet{
+  background:$whiteColor;
+  opacity:1;
+}
+
+.swiper-pagination-bullet-active{
+  width:pxToRem(15);
+  background:$whiteColor;
+  border-radius:35%;
+}
+
+
+.on{
+  display: block;
+}

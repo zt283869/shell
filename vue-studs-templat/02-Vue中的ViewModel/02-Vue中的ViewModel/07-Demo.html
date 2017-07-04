@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>vue</title>
+    <link rel="stylesheet" href="../bower_components/ionic/release/css/ionic.css">
+    <style>
+        .box span{
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            background-color: grey;
+            display: inline-block;
+            color: #fff;
+        }
+
+        .box input {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body >
+<div id="app">
+<div class="bar bar-header bar-assertive">
+    <div class="title">购物车</div>
+</div>
+<div class="bar bar-subheader bar-dark">
+    <div class="title">一共购买{{totalQal}}件  总金额：{{totalPrice}}</div>
+</div>
+<div  class="content scroll-content overflow-scroll has-header has-subheader has-footer">
+    <ul class="list">
+        <li class="item item-thumbnail-left" v-for="(n,index) in lists">
+            <img v-bind:src="n.pic">
+            <h2>{{n.title}}</h2>
+            <p>价格:{{n.price}}</p>
+            <p class="box">数量:
+                <span @click="subQal(index)">-</span>
+                <span><input type="number" v-bind:value="n.quality"></span>
+                <span @click="addQal(index)">+</span>
+            </p>
+        </li>
+    </ul>
+</div>
+<div class="tabs tabs-background-royal tabs-icon-top">
+    <div class="tab-item">
+        <i class="icon ion-ios-home"></i>
+        首页
+    </div>
+    <div class="tab-item">
+        <i class="icon ion-ios-home"></i>
+        首页
+    </div>
+    <div class="tab-item">
+        <i class="icon ion-ios-home"></i>
+        首页
+    </div>
+    <div class="tab-item has-badge">
+        <i class="icon ion-ios-home"></i>
+        首页
+        <span class="badge badge-assertive">1</span>
+    </div>
+    <div class="tab-item">
+        <i class="icon ion-ios-home"></i>
+        首页
+    </div>
+</div>
+</div>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    (function(){
+
+        var getCartList = function(){
+            return [
+                {"title":"【人气时尚T恤长裙】AGECENTRE时代","price":156,"quality":1,"pic":"assets/77f4.jpg"},
+                {"title":"【下单领券立减10元 仅限今日】白色","price":350,"quality":1,"pic":"assets/93b92.jpg"},
+                {"title":"香衣宠儿 2016秋装新款淑女长袖棉麻","price":56,"quality":1,"pic":"assets/a13.jpg"},
+                {"title":"络双叶2016秋装新款女装韩版呢子连","price":89,"quality":3,"pic":"assets/b358.jpg"},
+                {"title":"波柏龙 秋冬装新款街头欧美时尚毛衣","price":192,"quality":1,"pic":"assets/e2.jpg"}
+            ];
+        }
+
+
+        var vm = new Vue({
+            el:"#app",
+            created:function(){
+                this.lists = getCartList();
+                this.countT();
+
+            },
+            data:{
+                lists:[],
+                totalQal:0,
+                totalPrice:0
+            },
+            computed:{
+
+            },
+            methods:{
+                countT: function(){
+                    this.totalQal=0,
+                    this.totalPrice=0
+                    this.lists.forEach((v,index)=>{
+                        this.totalQal += v.quality;
+                    this.totalPrice += v.quality * v.price;
+                   })
+                },
+                addQal:function(index){
+                    this.lists[index].quality++;
+                    this.countT();
+
+                },
+                subQal:function(index){
+                    if(this.lists[index].quality <=1) {
+                        this.lists[index].quality =1;
+                    }else{
+                        this.lists[index].quality--;
+                        this.countT();
+                    }
+
+                }
+
+            }
+        });
+    })()
+</script>
+</body>
+</html>

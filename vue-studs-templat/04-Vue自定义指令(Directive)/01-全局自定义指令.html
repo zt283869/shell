@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>vue</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+<div id="app">
+<div v-bgcolor="red">adfadfasdfasdfasdf</div>
+<div v-bgcolor="'green'">adfadfasdfasdfasdf</div>
+<div v-bgcolor="'yellow'">adfadfasdfasdfasdf</div>
+
+
+
+</div>
+<script src="../node_modules/vue/dist/vue.js"></script>
+
+<script>
+    (function(){
+
+        //全局的指令:改变背景色 v-xxx
+        Vue.directive("bgcolor",function(el,binding){
+            console.log(el);
+            el.style.background = binding.value
+        })
+
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                red:"red"
+            }
+        });
+    })()
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+<div id="app">
+<div v-bg = "'red'">dadadasd</div>
+</div>
+</body>
+</html>
+<script src="../bower_components/vue/dist/vue.js"></script>
+<script>
+//全局注册指令改变颜色
+Vue.directive("bg",function(el,binding){
+console.log(el)
+el.style.background = binding.value;
+})
+var vm = new Vue({
+el:"#app",
+data:{
+}
+});
+</script>

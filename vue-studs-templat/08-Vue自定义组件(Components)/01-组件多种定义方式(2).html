@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>vue</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+
+</head>
+<body>
+
+<div id="app">
+    <one></one>
+    <two></two>
+</div>
+
+<script src="../node_modules/vue/dist/vue.js"></script>
+
+<script>
+    (function(){
+
+        //组件组成: html(template/vnode),css,js
+        //组件内部: mvvm
+        //vue 创建组件的几种方法
+        //1. Vue.extend({}) 返回的是一个组件的构造器
+        var Hello = Vue.extend({
+            template:`<div class="well" @click="show">{{msg}}</div>`,
+            data:function(){
+                return {
+                    msg:"Hello 组件"
+                }
+            },
+            methods:{
+                show:function(){
+                    alert(this.msg);
+                }
+            }
+        });
+
+        //new Hello().$mount("#app");
+
+        //第二种写法: Vue.component("组件名称",{})
+        //组件的命令: Pascal cameral kernel(-) = > v-hello
+        Vue.component("hello",Hello);
+
+
+
+        //第三种写法 : {}  const a = ()=>{return ""}
+        var world ={
+            template:`<div class="well" @click="show">{{msg}}</div>`,
+            data:function(){
+                return {
+                    msg:"Hello 最简单写法"
+                }
+            },
+            methods:{
+                show:function(){
+                    alert(this.msg);
+                }
+            }
+        }
+
+
+
+        //第四种:局部写法
+        new Vue({
+            el:"#app",
+            components:{
+                "one":{
+                    template:"<div class='well'>one<one1></one1></div>",
+                    components:{
+                        "one1":{
+                            template:"<div class='well'>one1<one11></one11></div>",
+                            components:{
+                                "one11":{
+                                    template:"<div class='well'>one11</div>",
+                                }
+                            }
+                        }
+                    }
+                },
+                "two":{
+                    template:"<div class='well'>two</div>"
+                }
+            }
+        })
+
+        //第5种，团队写法
+
+
+
+    })()
+</script>
+</body>
+</html>

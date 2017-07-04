@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>爱听-音乐专栏</title>
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0"/>
+    <link type="text/css" rel="stylesheet" href="../font/iconfont.css"/>
+    <link type="text/css" rel="stylesheet" href="../styles/onlyMusic.css"/>
+</head>
+<body>
+<!--头部-->
+<div class="header border">
+    <div class="left-btn"><a href="javascript:window.history.go(-1);"><span class="iconfont icon-fanhui"></span></a></div>
+    <div class="page-title">音乐专栏</div>
+</div>
+
+<!--content-->
+<div class="wrapper">
+    <div class="scroller">
+        <div id="pullDown">
+            <span class="pullDownIcon"></span>
+            <span class="pullDownLabel">下拉刷新...</span>
+        </div>
+        <div class="list">
+        </div>
+        <div id="pullUp">
+            <span class="pullUpIcon"></span>
+            <span class="pullUpLabel">查看更多</span>
+        </div>
+    </div>
+</div>
+
+<!--music-->
+
+<audio id="myAudio" autoplay src="../music/有点甜.mp3" loop></audio>
+
+<!--底部-->
+<footer class="footer border">
+    <div class="musicPlay  border1">
+        <div class="muicLeft">
+            <dl>
+                <dt>
+                    <img src="../images/tu53.jpg"/>
+                </dt>
+                <dd>
+                    <p>yes IDo</p>
+                    <p><span class="iconfont icon-wusunyinzhi"></span>Justin Biebar</p>
+                </dd>
+            </dl>
+        </div>
+        <ul class="musicRight">
+            <li>
+                <span class="iconfont icon-play-o play"></span>
+            </li>
+            <li>
+                <span class="iconfont icon-xiayishou"></span>
+            </li>
+            <li >
+                <span class="iconfont icon-yinle"></span>
+            </li>
+        </ul>
+    </div>
+    <div class="scrollBar"> </div>
+</footer>
+
+
+
+
+<script src="../../js/jq.js"></script>
+<script src="../../js/iscroll-probe.js"></script>
+<script src="../js/onlyMusic.js"></script>
+</body>
+</html>

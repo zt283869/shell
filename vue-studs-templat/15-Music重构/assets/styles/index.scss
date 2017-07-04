@@ -1,0 +1,516 @@
+@charset "utf-8";
+@import "base";
+
+.header1{
+    //header
+    header{
+        width:100%;
+        height:pxToRem(60);
+        font-size:$bigFont;
+      background-color: $whiteColor;
+        ul{
+            width:100%;
+            height:pxToRem(60);
+            display:flex;
+            justify-content: space-around;
+            line-height:pxToRem(60);
+            font-weight:bold;
+          li{
+            flex-grow:1;
+            text-align:center;
+            a{
+              color:$fontColor;
+              text-decoration: none;
+            }
+          }
+            li:nth-of-type(1){
+                font-size:20px;
+            }
+            li:nth-of-type(5){
+                font-size:20px;
+            }
+            li a.active{
+                color:$hoverColor;
+            }
+        }
+    }
+    //subheader
+    nav{
+        display:flex;
+        width:100%;
+        color:$font1Color;
+        height:pxToRem(30);
+        line-height:pxToRem(30);
+        justify-content:space-around;
+        li{
+            font-size:$midFont;
+            font-weight:bold;
+            text-align:center;
+            flex-grow:1;
+        }
+        li.active{
+            color:$hoverColor;
+            z-index:2;
+            border-bottom:2px solid $hoverColor;
+        }
+    }
+}
+
+
+//banner tu bufen
+.content{
+    width:100%;
+    position:absolute;
+    top:pxToRem(0);
+    bottom:pxToRem(50);
+    .con{
+        width:100%;
+        height:pxToRem(150);
+        img{
+            width:100%;
+            height:100%;
+        }
+        .page{
+            .swiper-pagination-bullet{
+                background:$whiteColor;
+                opacity:1;
+            }
+            .swiper-pagination-bullet-active{
+                background:$hoverColor;
+                opacity:1;
+            }
+        }
+    }
+    //tuijain
+    .icon{
+        display:flex;
+        justify-content: space-around;
+        padding-top:pxToRem(23);
+        height:pxToRem(26);
+        line-height:pxToRem(26);
+        span{
+            display:block;
+            font-size:pxToRem(26);
+            color:$hoverColor;
+            flex-grow:1;
+            text-align:center;
+        }
+    }
+    .recomm{
+        width:100%;
+        height:pxToRem(44);
+        display:flex;
+        line-height:pxToRem(44);
+        font-size:$midFont;
+        color:$fontColor;
+        font-weight:bold;
+        li{
+            flex-grow:1;
+            text-align:center;
+        }
+    }
+    /*推荐歌单*/
+    .reco{
+        overflow:hidden;
+        overflow-y:auto;
+    }
+    .musicList{
+        height:auto;
+    }
+    .musicList h3{
+        font-size:$midFont;
+        width:100%;
+        height:pxToRem(48);
+        line-height:pxToRem(48);
+        color:$fontColor;
+        text-align:center;
+      a{
+        color:$fontColor;
+        text-decoration: none;
+      }
+        span{
+            padding-left:pxToRem(5);
+        }
+    }
+    .List{
+        width:100%;
+        overflow: hidden;
+        justify-content: space-between;
+        display: flex;
+        flex-flow:row wrap;
+        dl{
+            flex:1 33%;
+            font-size:pxToRem(12);
+            height:pxToRem(150);
+            dt{
+                position: relative;
+            }
+            img{
+                width:pxToRem(100);
+                height:pxToRem(100);
+                margin:0 auto;
+            }
+            .num{
+                position: absolute;
+                right:pxToRem(5);
+                bottom:pxToRem(6);
+                font-size:10px;
+                color:$whiteColor;
+            }
+            dd{
+              width:pxToRem(100);
+              margin:0 auto;
+            }
+        }
+    }
+    .newList{
+        width:96%;
+        padding:0 pxToRem(2%);
+        margin:0 auto;
+        dl{
+            position: relative;
+            height:pxToRem(45);
+            padding-bottom:pxToRem(15);
+        }
+        dt{
+            float:left;
+            width:pxToRem(45);
+            height:pxToRem(45);
+            padding-bottom:pxToRem(15);
+            img{
+                width:100%;
+                height:100%;
+            }
+        }
+        dd:nth-of-type(1){
+            float: left;
+            width:75%;
+            padding-left:pxToRem(8);
+            p{
+                height:pxToRem(24);
+                line-height:pxToRem(24);
+            }
+            p:nth-of-type(1){
+                font-size:12px;
+                color:$fontColor;
+            }
+            p:nth-of-type(2){
+                font-size:10px;
+                color:#999999;
+            }
+        }
+        .menu{
+            position:absolute;
+            right:pxToRem(5);
+            top:pxToRem(18);
+            color:#999;
+        }
+    }
+    .List1{
+        height:pxToRem(150);
+        display: flex;
+        flex-flow:row wrap;
+        dl{
+            flex:1 33%;
+            font-size:pxToRem(12);
+            height:pxToRem(150);
+            dt{
+                position: relative;
+            }
+            img{
+                width:pxToRem(100);
+                height:pxToRem(100);
+                margin:0 auto;
+            }
+            .num{
+                position: absolute;
+                right:pxToRem(5);
+                bottom:pxToRem(6);
+                font-size:10px;
+                color:$whiteColor;
+            }
+          dd{
+            width:pxToRem(100);
+            margin:0 auto;
+          }
+        }
+    }
+
+    .MVList{
+        width:100%;
+        overflow: hidden;
+        display: flex;
+        flex-flow:row wrap;
+        justify-content: space-around;
+        dl{
+           flex:1 50%;
+            font-size:pxToRem(12);
+            height:pxToRem(150);
+            dt{
+                position: relative;
+                height:pxToRem(105);
+                width:pxToRem(155);
+                margin:0 auto;
+                .num{
+                    position: absolute;
+                    right:pxToRem(5);
+                    bottom:pxToRem(6);
+                    font-size:10px;
+                    color:$whiteColor;
+                }
+                img{
+                    width:100%;
+                    height:100%;
+                    float:left;
+                }
+            }
+            dd p:nth-of-type(2){
+                font-size:$smFont;
+                color:#999;
+                width:pxToRem(155);
+              margin:0 auto;
+            }
+            dd p:nth-of-type(1){
+                font-size:$midFont;
+                color:$fontColor;
+                width:pxToRem(155);
+                margin:0 auto;
+            }
+        }
+    }
+
+    .voice{
+        width:100%;
+        overflow:hidden;
+        p{
+            float:left;
+            width:25%;
+            height:pxToRem(66);
+            text-align:center;
+            font-size:$midFont;
+            span{
+                display:block;
+                font-size:24px;
+                color:$hoverColor;
+            }
+        }
+    }
+
+    //歌单
+    .top{
+        overflow:hidden;
+        .title{
+            height:pxToRem(50);
+            float:left;
+            line-height:pxToRem(50);
+            color:$fontColor;
+            padding-left:pxToRem(10);
+            span{
+                color:#999;
+            }
+        }
+        .fenlei{
+            float:right;
+            font-size: $midFont;
+            height:pxToRem(50);
+            color:$fontColor;
+            line-height:pxToRem(50);
+            padding-right:pxToRem(10);
+            li{
+                float:left;
+                padding:0 pxToRem(7);
+            }
+            li.active{
+                color:$hoverColor;
+            }
+        }
+
+    }
+    .MucList{
+        width:100%;
+        overflow: hidden;
+        display: flex;
+        flex-flow:row wrap;
+        dl{
+            flex:1 50%;
+            font-size:pxToRem(12);
+            margin-bottom:pxToRem(15);
+            dt{
+                position: relative;
+                width:pxToRem(150);
+                height:pxToRem(150);
+                margin:0 auto;
+                .num{
+                    position: absolute;
+                    right:pxToRem(5);
+                    bottom:pxToRem(6);
+                    font-size:10px;
+                    color:$whiteColor;
+                }
+                img{
+                    width:100%;
+                    height:100%;
+                    float:left;
+                    vertical-align: middle;
+                }
+            }
+            dd p:nth-of-type(2){
+                font-size:$smFont;
+                color:#999;
+                width:pxToRem(155);
+                margin:0 auto;
+                img{
+                  float:left;
+                  padding-right:pxToRem(12);
+                }
+            }
+            dd p:nth-of-type(1){
+                font-size:$midFont;
+                color:$fontColor;
+                width:pxToRem(155);
+                margin:0 auto;
+            }
+        }
+    }
+    .song{
+        width:100%;
+        //overflow-y:auto;
+        .wrapper{
+            width:100%;
+            height:100%;
+        }
+
+
+    }
+}
+
+
+//音乐排行
+.pai{
+  overflow:hidden;
+  overflow-y:auto;
+}
+
+.order{
+  width:94%;
+  padding:0 3%;
+  h3{
+    height:pxToRem(50);
+    line-height:pxToRem(50);
+  }
+  .paiCon{
+    width:100%;
+    dl{
+      margin-bottom:pxToRem(15);
+      overflow:hidden;
+      a{
+        color:#000;
+      }
+    }
+    dt{
+      width:pxToRem(75);
+      height:pxToRem(75);
+      float:left;
+      img{
+        width:100%;
+        height:100%;
+      }
+    }
+    dd{
+      width:72%;
+      float:right;
+      p{
+        width:100%;
+        white-space:nowrap;
+        text-overflow: ellipsis;
+        overflow:hidden;
+        font-size:$smFont;
+        color:$font1Color;
+        height:pxToRem(20);
+        line-height:pxToRem(20);
+      }
+    }
+  }
+}
+
+//电台
+.diantai{
+  overflow:hidden;
+  overflow-y:auto;
+  .dianCon{
+      width:92%;
+      padding:0 3% 0 5%;
+      .dianLeft{
+        width:pxToRem(70);
+        text-align:center;
+        float:left;
+        position:fixed;
+
+        li{
+          line-height:pxToRem(45);
+        }
+        li.active{
+          color:$hoverColor;
+          background:url(../images/bg.png) no-repeat left center;
+        }
+      }
+      .dianRight{
+        float:right;
+        width:pxToRem(224);
+        .theme1{
+          position: relative;
+         border:0;
+          height:pxToRem(28);
+        }
+        .theme1:after{
+          content:"";
+          position: absolute;
+          left:0;
+          bottom:0;
+          top:pxToRem(16);
+          width:100%;
+          height:1px;
+          border-bottom:1px solid #e4e4e4;
+          transform:scaleY(0.5);
+        }
+        .te{
+          position:absolute;
+          left:42%;
+          top:pxToRem(8);
+          background:$contentBg;
+          z-index:3;
+        }
+
+        .feature{
+          width:100%;
+          display: flex;
+          flex-flow:row wrap;
+          dl{
+            flex:1 50%;
+            dt{
+              width:pxToRem(100);
+              height:pxToRem(100);
+              position: relative;
+              margin:0 auto;
+              img{
+                width:100%;
+                height:100%;
+              }
+              .num{
+                position: absolute;
+                right:pxToRem(5);
+                bottom:pxToRem(3);
+                font-size:10px;
+                color:$whiteColor;
+              }
+            }
+            dd{
+              height:pxToRem(35);
+              line-height:pxToRem(35);
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+}

@@ -1,0 +1,7 @@
+<transition
+            name="fade"
+            enter-active-class="animated bounceInLeft"
+            leave-active-class="animated bounceInRight"
+    >
+        <div class="well" v-if="isShow"></div>
+    </transition>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../bower_components/animate.css/animate.css">
+    <style>
+        .fade-enter-active {
+            transition: opacity .3s ease;
+        }
+        .fade-leave-active {
+            transition: opacity .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+
+        }
+        .fade-enter, .fade-leave-active {
+            transform: translateX(10px);
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <a @click = "tagle">tagle</a>
+    <transition
+            name="fade"
+            enter-active-class="animated bounceInRight"
+            leave-active-class="animated bounceOutRight"
+    >
+        <div class="well" v-if="ishow">
+            hello
+        </div>
+    </transition>
+</div>
+</body>
+</html>
+<script src="../bower_components/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            ishow:true
+        },
+        methods:{
+            tagle:function(){
+                this.ishow = !this.ishow;
+            }
+        }
+    });
+</script>

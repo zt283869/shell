@@ -1,0 +1,120 @@
+@charset "utf-8";
+*{margin: 0;padding: 0}
+ul li{list-style: none}
+a{text-decoration: none};
+html{font-size: 31.25vw}
+html,body{
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100%;
+  height: 100%
+}
+#app{
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  header{
+    width: 100%;
+    height: .44rem;
+    background: palevioletred;
+    ul{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      li{
+        flex: 1;
+        font-size: .2rem;
+        text-align: center;
+        line-height: .44rem;
+        color: white;
+      }
+          }
+  }
+  .all{
+    width: 100%;
+    height: .44rem;
+    background: rgba(0,0,0,.5);
+    ul{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      li{
+        flex: 1;
+        display: flex;
+        i{
+          flex: 1;
+          font-size: .16rem;
+          line-height: .44rem;
+          text-align: center;
+        }
+        span{
+          flex: 1;
+          font-size: .16rem;
+          line-height: .44rem;
+          text-align: center;
+        }
+      }
+    }
+  }
+  aside{
+    flex:1;
+    ul{
+      width: 100%;
+      li{
+        width: 100%;
+        height: .44rem;
+        display: flex;
+        .span_1{
+          width: 40%;
+          height: 100%;
+          display: flex;
+          img{
+            width: 10%;
+            display: block;
+            height: 100%;
+            flex: 1;
+          }
+          span{
+            flex: 1;
+            font-size: .15rem;
+          }
+        }
+        .span_2{
+          flex: 1;
+          display: flex;
+          input{
+            flex: 1;
+            display: block;
+            width:30%;
+          }
+          span{
+            font-size: .2rem;
+            background: #aaabac;
+            line-height: .44rem;
+          }
+        }
+      }
+    }
+  }
+  footer{
+    width: 100%;
+    height: .44rem;
+    background: palevioletred;
+    ul{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      li{
+        flex: 1;
+        font-size: .2rem;
+        text-align: center;
+        line-height: .44rem;
+        color: white;
+      }
+    }
+  }
+}
+

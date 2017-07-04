@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+<div id="app">
+    <Father></Father>
+</div>
+</body>
+</html>
+<script src="../bower_components/vue/dist/vue.js"></script>
+
+<script type="text/x-template" id="twoTpl">
+        <div class="well">
+            你父亲给你：{{house}}
+            <input type="button" value="送老子" @click="sendfig">
+        </div>
+</script>
+
+<script type="text/x-template" id="oneTpl">
+    <div class="well">这是您儿子送你的东西：{{mygift}}
+        <Son :house="house" @myEvent="recive"></Son>
+    </div>
+</script>
+
+<script>
+    //子组建
+    var Son = {
+        props :{
+            house:String
+        },
+        template:"#twoTpl",
+        methods:{
+            sendfig:function(){
+                //子组件向上传递数据只能通过$emit的方式来传递
+                this.$emit("myEvent",this.house + "-" + this.gift)
+            }
+        },
+        data:function(){
+            return{
+                gift:"copd"
+            }
+        }
+    }
+    //父组建
+    var Father = {
+        //外联式模块
+        template:"#oneTpl",
+        methods:{
+            recive:function(s){
+                this.mygift = s;
+            }
+        },
+        data:function(){
+            return{
+                house:"2house",
+                mygift:""
+            }
+        },
+        components:{
+            //在父级里面注册子级
+            Son
+        }
+    }
+
+
+    new Vue({
+        el:"#app",
+        data:{},
+        components:{
+            Father,
+            Son
+        }
+    })
+</script>

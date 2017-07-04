@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>vue</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+
+<div id="app">
+    {{msg}} {{htmlmsg}}
+    <span v-text="htmlmsg"></span>
+    <span v-html="htmlmsg"></span>
+</div>
+
+<script src="../node_modules/vue/dist/vue.js"></script>
+
+<script>
+    //v-model这个指令主要是标记在input表单元素上面,
+    //双向数据绑定
+    (function(){
+
+        var vm = new Vue({
+            el:"#app",
+            //template:"<div><input type='text' v-model='msg'> {{msg}}</div>",
+            data:{
+                msg:"hello",
+                htmlmsg:"<h1>hello msg</h1>"
+            }
+        });
+
+    })()
+</script>
+</body>
+</html>

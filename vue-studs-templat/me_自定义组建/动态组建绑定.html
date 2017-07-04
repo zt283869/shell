@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+<div id="app">
+    <a @click="change(1)">one</a>
+    <a @click="change(2)">two</a>
+    <div :is = "cc"></div>
+</div>
+</body>
+</html>
+<script src="../bower_components/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            cc:"two"
+        },
+        methods:{
+            change:function(idex){
+                if(idex ==1){
+                    this.cc = "one"
+                }else{
+                    this.cc = "two"
+                }
+            }
+        },
+        components:{
+          "one":{
+              template:"<div class='well'>one1</div>"
+          },
+           "two":{
+              template:"<div class='well'>two2</div>"
+           }
+        }
+    })
+</script>

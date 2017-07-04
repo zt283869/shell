@@ -1,0 +1,77 @@
+@import "base";
+
+
+body{
+  box-sizing: border-box;
+}
+
+.head{
+  width:100%;
+  height:pxToRem(45);
+  line-height:pxToRem(45);
+  display:flex;
+  background: $whiteColor;
+  span{
+    flex:1;
+    text-align: center;
+    font-size:$maxFont;
+  }
+  .txt{
+    flex:4;
+    position:relative;
+    margin-right:pxToRem(8);
+    input{
+      width:100%;
+      padding:pxToRem(8) 0;
+      border:0;
+      background:$whiteColor;
+      display:inline-block;
+      border-bottom:1px solid #999;
+      outline: none;
+    }
+    span{
+      position:absolute;
+      right:pxToRem(10);
+      top:0;
+    }
+  }
+}
+
+.content{
+  padding:0 pxToRem(10);
+  width:100%;
+  height:100%;
+  position:absolute;
+  left:0;
+  top:pxToRem(45);
+  background:$contentBg;
+  .top{
+      height:pxToRem(40);
+      line-height:pxToRem(40);
+      padding-top:pxToRem(8);
+      h3{
+        float:left;
+        width:80%;
+      }
+      span{
+        float:left;
+        color:$hoverColor;
+        font-weight:bold;
+      }
+  }
+  .list{
+     display: flex;
+     justify-content: space-between;
+     flex-flow: row wrap;
+     padding-right:pxToRem(20);
+     li{
+       flex:1 50%;
+       text-align: center;
+       height:pxToRem(45);
+       line-height:pxToRem(45);
+       margin-bottom:pxToRem(10);
+     }
+
+
+  }
+}

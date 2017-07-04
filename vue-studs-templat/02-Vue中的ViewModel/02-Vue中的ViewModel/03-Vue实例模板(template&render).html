@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>vue</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+
+<div id="app">
+</div>
+
+<script type="text/x-template" id="tpl">
+  <div><h1> hello template outer</h1></div>
+</script>
+
+<script src="../node_modules/vue/dist/vue.js"></script>
+
+<script>
+    (function(){
+        var vm= new Vue({
+            el:"#app",
+            //render, vnode//我们可通过直接创建vnode的render页面，这种方式性能最好的
+            // el ,template => render -> vnode -> diff->render page
+            render:function(createElement){
+//                var ul= document.createElement("ul");
+//                ul.textContent = "hello";
+//                document.body.appendChild(ul)
+                //创建vnode tree
+               return createElement("h1","this is vnode rendering")
+            }
+            //行内的模板,也可以是外部
+            //当我们在实例内部指定了绑定的view,那么这个template中的内容将替换el的内容
+            //template:"#tpl"  //外联式的模板,需要通过 "# ."
+//            template:`<div class="well"><h1>hello template vue2</h1></div>`
+        });
+
+    })()
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+<div id="app">
+    <one>
+        <two :gift="toson"></two>
+    </one>
+</div>
+</body>
+</html>
+<script src="../bower_components/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            toson:"giftvue "
+        },
+        components:{
+            "one":{
+                template:"<div class='well'>{{msg}}<slot></slot></div>",
+                data:function(){
+                    return {
+                        toson:"gift to son",
+                        msg:"hello one"
+                    }
+                }
+            },
+            "two":{
+                props:{
+                    gift:String
+                },
+                template:"<div  class='well'>{{msg}} -{{gift}}</div>",
+                data:function(){
+                    return {
+                        msg:"hello two"
+                    }
+                }
+            }
+        }
+    })
+</script>

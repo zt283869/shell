@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+
+
+    <div id="app">
+        {{ namemon}}<br/>
+        {{ msg}}
+        <div @click="show">show .e</div>
+        <div @click="hidd">show .m</div>
+        <input v-model="msg">
+    </div>
+
+</body>
+</html>
+<script src="../../bower_components/vue/dist/vue.js" type="text/javascript"></script>
+<script>
+    (function(){
+        var vm = new Vue({
+            //el:(element)指管理的实例
+            //el:querySelet
+            el:"#app",
+            data:{
+                msg:"hello vue2.0",
+                mdd:"hello me"
+            },
+            computed:{
+                namemon:function(){
+                    return this.mdd+"--you"
+                   }
+            },
+            methods:{
+                show:function(){
+                    console.log(this.msg)
+                },
+                hidd:function(){
+                    console.log(this.mdd)
+                }
+            }
+        })
+    })()
+</script>

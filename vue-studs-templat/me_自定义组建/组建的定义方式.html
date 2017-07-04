@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .red {
+        background-color: red;
+    }
+
+    .black {
+        background-color: black;
+    }
+</style>
+<body>
+<div id="app">
+<str title = "这是第一个内容" bg = "red"></str>
+</div>
+</body>
+</html>
+<script src="../bower_components/vue/dist/vue.js"></script>
+<script>
+    var Hello = {
+        props:["title","bg"],
+        data:function(){
+            return {
+                sl:"background:"+"bg"
+            }
+        },
+        template:"<div  :style='sl' class='well'>hello {{title}}</div>"
+    }
+    new Vue({
+        el:"#app",
+        data:{},
+        components:{
+            "str":Hello
+        }
+    })
+</script>

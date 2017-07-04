@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>vue</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+
+<div id="app">
+    {{money | dd("asdfadfa",1)}}
+</div>
+
+<script src="../node_modules/vue/dist/vue.js"></script>
+
+<script>
+    //linux | rm | grep
+    (function(){
+
+        //全局的过滤器
+        Vue.filter("ff",function(value,arg){
+            console.log(value);
+            return value + arg
+        });
+        new Vue({
+            el:"#app",
+            data:{
+                money:332232323.33
+            },
+            computed:function(){
+
+            },
+            filters:{
+                dd:function(value,arg,ar1){
+                    return value+ arg + ar1
+                }
+            }
+        })
+    })()
+</script>
+</body>
+</html>

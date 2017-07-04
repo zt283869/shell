@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title></title>
+</head>
+<body>
+
+<!--onClick- viewmodel a model of view->
+<!--view (html+css+js): 抽象:(静态的属性，和动态方法)-->
+  <div id="app">
+     {{msg}} {{1+1}}
+     {{name}}
+     {{formatmoney}}
+     <div @click="show">show me  {{formatmoney}}</div>
+  </div>
+
+  <!--msg属性-->
+
+<!--  mvvm/mvc思路
+  step1: 创建html（视图）
+  step2: 分析视图 （属性，方法）,对视图进行建模过程 UML
+  step3: 向mvvm的框架里里套
+-->
+
+<!--引用vue.js-->
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+  (function(){
+       //创建vue的一个实例: ViewModel
+       var vm = new Vue({
+          //el:(element) 指VUE实例所管理的边界位置
+          //el == document.querySelector("")
+//           el:"#app", // # .
+           //当前管理的视图的静态属性
+           //vue中，data表示定义静态属性的 REACT state
+           data:{
+             msg:"hello vue2.0",
+             money:3000,
+             name:"zhangsan"
+           },
+           //计算属性
+           computed:{
+                 formatmoney:function(){
+                   return this.money + "元"
+                 }
+           },
+           //用来定义view的方法
+           methods:{
+             show: function(){
+               console.log(this.msg);
+             }
+
+           }
+       });
+
+
+     //sizzle
+       console.log(vm.$el === document.getElementById("app"));
+       console.log(vm.$data);
+  })()
+</script>
+</body>
+</html>

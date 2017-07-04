@@ -1,0 +1,87 @@
+@charset "utf-8";
+@import "base";
+body{
+  box-sizing: border-box;
+}
+.header{
+  background-color:$whiteColor;
+  .page-title{
+    color:$fontColor;
+    font-weight:bold;
+  }
+  .left-btn{
+    a{
+      color:$fontColor;
+    }
+  }
+}
+
+.content{
+ width:100%;
+  overflow:hidden;
+  position:absolute;
+  bottom:pxToRem(55);
+  top:pxToRem(55);
+  overflow-y:auto;
+}
+
+.head{
+  width:100%;
+  height:pxToRem(50);
+  line-height:pxToRem(50);
+  .playBtn{
+    padding-left:pxToRem(10);
+  }
+  i{
+    font-size: $smFont;
+    color:#9d9d9d;
+  }
+  .sui{
+    color:$fontColor;
+    font-weight:600;
+  }
+  .link{
+    float:right;
+    padding-right:pxToRem(10);
+    color:#9d9d9d;
+  }
+}
+.musicList{
+  width:100%;
+  margin:0 auto;
+  dl{
+    padding:0 3% pxToRem(15);
+    position: relative;
+    height:pxToRem(45);
+    .wusun{
+      color:$hoverColor;
+    }
+  }
+  dd:nth-of-type(1){
+    float: left;
+    width:75%;
+    padding-left:pxToRem(8);
+    p{
+      height:pxToRem(24);
+      line-height:pxToRem(24);
+    }
+    p:nth-of-type(1){
+      font-size:12px;
+      color:$fontColor;
+    }
+    p:nth-of-type(2){
+      font-size:10px;
+      color:#999999;
+    }
+  }
+  .menu{
+    position:absolute;
+    right:pxToRem(5);
+    top:pxToRem(18);
+    color:#999999;
+  }
+}
+
+.active{
+ border-left:3px solid $hoverColor;
+}
