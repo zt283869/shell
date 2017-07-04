@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		请输入数字<input type="text" name="text1" id="text1" value="" /><br />
+		<script>
+		function getId(str){
+			return document.getElementById(str);
+		}
+	
+			function e(){
+			var num = 15;
+			var m=0;
+			while(num<50){
+				num+=5;
+				m++;
+			}
+			return m;
+			}
+			alert("50升的岗，缸里有15升，一次打5升，小和尚要打水"+e()+"次");			
+			var num;
+			function num3(){
+				
+				for(var i=100;i<200;i++){										
+					num = i;
+				if(num%3==0){
+						document.write(num+","+"<br />");
+				}else if(num%7==0){
+					document.write(num+",");
+				}
+				}
+			}
+			window.num3();
+		</script>
+	</body>
+</html>

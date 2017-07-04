@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{position: relative;}
+			img{position: absolute;top: 0px;left: 0px;}
+			dfsf<br />
+
+		</style>
+	</head>
+	<body>
+		<img src="wk.jpg" id="Omg"/>
+		<br />
+		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+		<script>
+			
+			onmousemove = function(event){
+				var evt = event||window.event;
+				var x = evt.clientX-90;
+				var y = evt.clientY-170;
+				//上面的client不识别浏览器的高度
+				var w = evt.pageX-90;
+				var z = evt.pageY-170;
+				//page可以识别浏览器的高度
+				var t = evt.screenX-90;
+				var d = evt.screenY-170;
+				
+				var omg = document.getElementById("Omg");
+				omg.style.left = w+"px";
+				omg.style.top = z+"px";
+			}
+		</script>
+	</body>
+</html>

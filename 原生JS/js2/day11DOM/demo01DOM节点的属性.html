@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>		
+		<style type="text/css">
+			*{
+				margin:0px;
+				padding:0px;
+			}
+			
+			#box{
+				position:relative;
+				width:500px;
+				height:300px;
+				border:1px solid #f7f7f7;
+				overflow:hidden;
+			}
+		
+		</style>
+	</head>
+	
+	<body onload="init();startTimer()">
+		<div id="box" onmouseover="stopTimer()" onmouseout="startTimer()">
+			ddd
+		</div>
+		<input type="button" value="测试" onclick="testF()"/>
+	</body>
+
+</html>
+<script type="text/javascript" >
+
+function testF(){
+	//document
+	//document.getElementById("box").ownerDocument;
+	
+	//nodeName；
+	//alert(document.getElementById("box").nodeName);
+	
+	//nodeType
+	//lert(document.getElementById("box").nodeType);
+	
+	alert(document.getElementById("box").nodeValue);
+	
+	
+}
+
+
+</script>

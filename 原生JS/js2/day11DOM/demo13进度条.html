@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>		
+		<style type="text/css">
+			*{
+				margin:0px;
+				padding:0px;
+			}
+			
+			#box{
+				position:relative;
+				width:500px;
+				height:30px;
+				border:1px dashed black;
+			}
+			
+			
+			#inBox{
+				width:0px;
+				height:30px;
+				background-color:red;
+			}
+		
+		
+		</style>
+	</head>
+	
+	<body id="bodyId">
+		<div id="box">
+			<div id="inBox">
+			</div>
+		</div>
+		<span id="spanId"></span>
+		<input id="btn01" type="button" value="开始走" onclick="testF()"/>
+	</body>
+
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript" >
+
+//children：只获取标签节点
+var myTimer;
+function testF(){
+	myTimer = setInterval("inc()",10);
+}
+
+var progress = 0;
+function inc(){
+	progress++;
+	if(progress>=500){
+		progress =500;
+		clearInterval(myTimer);
+	}
+	$("spanId").innerHTML = parseInt(progress/500*100)+"%";
+	var inBox = $("inBox");
+	inBox.style.width  = progress+"px";
+}
+
+</script>

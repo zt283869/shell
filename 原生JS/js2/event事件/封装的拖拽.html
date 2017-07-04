@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		*{margin: 0;padding: 0;}
+		div:nth-child(1){width: 50px;height: 50px;background: red;border-radius: 50%;position: absolute;top: 0;left: 0;}	
+		div:nth-child(2){width: 50px;height: 50px;background: red;border-radius: 50%;position: absolute;top: 0;left: 55px;}	
+		div:nth-child(3){width: 50px;height: 50px;background: red;border-radius: 50%;position: absolute;top: 0;left: 115px;}	
+		div:nth-child(4){width: 50px;height: 50px;background: red;border-radius: 50%;position: absolute;top: 0;left: 175px;}	
+		div:nth-child(5){width: 50px;height: 50px;background: red;border-radius: 50%;position: absolute;top: 0;left: 240px;}
+		
+
+		div:nth-child(9){width: 50px;height: 50px;background: red;border-radius: 50%;position: absolute;top: 60;left: 240px;}
+		div:nth-child(10){width: 50px;height: 50px;background: red;border-radius: 50%;position: absolute;top: 60;left: 175px;}	
+			div:nth-child(11){width: 50px;height: 50px;background: red;border-radius: 50%;position: absolute;top: 60;left: 115px;}		
+			div:nth-child(12){width: 50px;height: 50px;background: red;border-radius: 50%;position: absolute;top: 60;left: 55px;}	
+			div:nth-child(13){width: 50px;height: 50px;background: red;border-radius: 50%;position: absolute;top: 60;left: 0;}	
+						
+		</style>
+	</head>
+	<body>
+		<div id="d1" onmouseover="a('d1')">1</div>
+		<div id="d2" onmouseover="a('d2')">2</div>
+		<div id="d3" onmouseover="a('d3')">3</div>
+		<div id="d4" onmouseover="a('d4')">4</div>
+		<div id="d5" onmouseover="a('d5')">5</div><br /><br /><br />
+		<div id="d6" onmouseover="a('d6')">6</div>
+		<div id="d7" onmouseover="a('d7')">7</div>
+		<div id="d8" onmouseover="a('d8')">8</div>
+		<div id="d9" onmouseover="a('d9')">9</div>
+		<div id="d10" onmouseover="a('d10')">10</div>
+		
+	</body>
+	<script src="cookie.js"></script>
+	<script type="text/javascript">					
+			var flag=0;
+			var _left;
+			var _top;
+		function a(str){
+			var att = document.getElementById(str);
+			att.onmousedown = function(event){
+				var evt = event||window.event;
+				flag=1;
+				_left = evt.pageX-att.offsetLeft;
+				_top = evt.pageY-att.offsetTop;
+				savecookie("cookieleft",_left,5)
+				savecookie("cookietop",_top,5)
+				}
+			
+			onmousemove = function(event){
+			var evt = event||window.event;
+			var getcookieLeft = getCookie("cookieleft");			
+			var getcookieTop = getCookie("cookietop");
+			console.log(getcookieLeft,getcookieTop);
+			if(flag){
+				att.style.left = evt.pageX-getcookieLeft+"px";
+				att.style.top = evt.pageY-getcookieTop+"px";
+			}
+			}
+			att.onmouseup = function(){
+				flag=0;
+			}
+		}
+	</script>
+</html>

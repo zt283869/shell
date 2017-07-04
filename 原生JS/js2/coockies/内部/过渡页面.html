@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		还有<span id="sap" style="color: red;"></span>秒跳转到注册页面！
+		<script>
+		var sap = document.getElementById("sap");
+		var a = 10;
+			function j(){
+				sap.innerHTML = a;
+				
+				a--;
+				
+				if(a>-1){
+				setTimeout('j()',1000);	
+				}
+				if(a==0){
+					window.location = "../1第一步运行cookie.html";
+				}
+			}
+			setTimeout('j()',1000);
+		</script>
+	</body>
+</html>

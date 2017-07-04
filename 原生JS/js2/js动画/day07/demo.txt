@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin:0;padding:0}
+			#box{
+				position:relative;
+			}
+			
+			li{
+				list-style:none;
+				position:absolute;
+				left:0px;
+				top:0px;
+			}
+			
+			img{
+				filter:alpha(opacity=50);
+				opacity:1;
+			}
+			
+		</style>
+		<script type="text/javascript" src="js/tools.js"></script>
+		<script type="text/javascript" src="js/Dragtools.js"></script>
+		<script type="text/javascript">
+			var myTimer;
+			var t = 0;//透明度
+			var ord = 0;
+			
+			//一组图片的渐隐渐现；
+			function fadeOut(){
+				t = t+0.05;
+				console.log("t="+t);
+				$("img")[5-ord].style.opacity = t;//让该图片清晰
+				if(ord==0){
+					$("img")[0].style.opacity = 1-t;//让该图片消失
+				}else{
+					$("img")[6-ord].style.opacity = 1-t;//让该图片消失				
+				}
+				
+				if(t>=1.0){ //渐隐渐现完成
+					clearInterval(myTimer);
+					t = 0;					
+					//当渐隐渐现完成，需要把上面的图片隐藏（display="none"）
+					if(ord==0){
+						$("img")[0].style.display = "none";
+					}else{
+						$("img")[6-ord].style.display = "none";
+					}
+				}
+			}
+			
+			//改变图片；
+			function changeImg(){
+				ord++; //1      4清晰   5消失；  ord=2   3清晰；4消失  ord = 3；2清晰；3消失
+				if(ord>5){  // 1  2   3   4   5  0
+					ord=0;
+				}
+				$("img")[5-ord].style.display = "block";//在渐隐渐现图片前，让下面的那张图片显示（display）
+				if(myTimer){
+					clearInterval(myTimer);				
+				}
+				myTimer = setInterval(fadeOut,100);//换图片
+			}
+			
+			window.onload = function(){
+				setInterval(changeImg,3000);				
+			}		
+		</script>
+	</head>
+	<body>
+		<ul id="box">
+			<li><img src="images/a0.jpg"/></li>
+			<li><img src="images/a1.jpg"/></li>
+			<li><img src="images/a2.jpg"/></li>
+			<li><img src="images/a3.jpg"/></li>
+			<li><img src="images/a4.jpg"/></li>
+			<li><img src="images/a5.jpg"/></li>        
+		</ul>
+	</body>
+</html>

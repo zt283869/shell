@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="gys.js"></script>
+		<script>
+//		var str = 'aabcdd';
+//			//字符循环找出最多的一个字符。
+////			console.log(getString(str));
+//			//字符用循环的方法找出最多字符。
+//			console.log(getArray(str));
+		var stt = '7234567789';
+//			console.log(getMark(stt));
+			//普通
+//			var re = /zs/g;
+//			str = str.replace(re,"*");
+//			alert(str);
+//			前项声明
+//			var re = /z(?=s)/g;
+//			str = str.replace(re,"*");
+//			alert(str);
+//			//反前项声明
+//			var re = /z(?!s)/g;
+//			str = str.replace(re,"*");
+//			alert(str);
+			//正则打印千分符
+			var we = /(?=(?!\b)(\d{3})+$)/g;
+				 stt = stt.replace(we,",");
+				alert(stt);
+		</script>
+	</body>
+</html>

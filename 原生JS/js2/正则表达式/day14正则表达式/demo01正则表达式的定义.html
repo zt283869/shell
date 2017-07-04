@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+<body>
+</body>
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript">
+	//1、用构造函数的方式 定义了一个正则表达式(描述规则)
+	//var reg = new RegExp("study");	
+	//var str="good good study ,day day up";	
+	//alert(reg.test(str));
+	
+	
+	//var patternStr = "study";
+	//var reg = new RegExp(patternStr,"i");//构造函数的方式定义时，模式字符串是变量也是可以的。
+	//var reg = new RegExp("study","i");	
+	//var str="good good Study ,day day up study";	
+	//alert(reg.test(str));
+	
+
+	//2、用常量（双斜杠）的方式定义正则；
+//	var reg = /study/;	
+//	var str="good good study ,day day up";	
+//	alert(reg.test(str));
+
+	//var patternStr = "study";	
+	//var reg = /patternStr/i;	//var reg = eval("/"+patternStr+"/i");
+	
+	var reg = /study/i;	
+	var str="good good Study ,day day up";
+	alert(reg.test(str));
+	
+	alert(reg.ignoreCase);
+	alert(reg.global);
+	
+</script>

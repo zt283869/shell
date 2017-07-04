@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			img{width: 200px;height: 200px;}
+		</style>
+	</head>
+	<body>
+		<img src="../img/1.jpg" id="img1"/>
+		<input type="button" name="text1" id="text1" value="1" />
+		<input type="button" name="text1" id="text2" value="2" />
+		<input type="button" name="text1" id="text3" value="3" />
+		<input type="button" name="" id="but" value="下一张" />
+		<script>
+			function getId(str){
+				return document.getElementById(str);
+			}
+			var i = 1;
+			getId("but").onclick = function (){
+				var _img = getId("img1");
+				
+					i++;				
+				if(i==6){
+					i=1;
+				}
+				_img.src = "../img/"+i+".jpg";
+				
+				
+			}
+			 
+		</script>
+	</body>
+</html>

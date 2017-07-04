@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="new_file.css"/>
+	</head>
+	<body>
+		<table id="calculater" onClick="calculater()">
+        <tr>
+            <td id="display" colspan="5">0</td>
+        </tr>
+        <tr>
+            <td class="numberkey" >1</td>
+            <td class="numberkey" >2</td>
+            <td class="numberkey" >3</td>
+            <td class="numberkey" >+</td>
+            <td class="numberkey" id="deletesign">c</td>   
+        </tr>
+        <tr>
+            <td class="numberkey" >4</td>
+            <td class="numberkey" >5</td>
+            <td class="numberkey" >6</td>
+            <td class="numberkey" >-</td>
+            <td rowspan="3" id="equality" onclick="resultscalcaulte()">=</td> 
+        </tr>
+        <tr>
+            <td class="numberkey" >7</td>
+            <td class="numberkey" >8</td>
+            <td class="numberkey" >9</td>
+            <td class="numberkey" >*</td>
+        </tr>
+        <tr >
+            <td class="numberkey" >←</td>
+            <td class="numberkey" >0</td>
+            <td class="numberkey" >.</td>
+            <td class="numberkey" >/</td>            
+        </tr>
+        </table>
+        <script>
+        	var results="";
+   			var calresults="";
+   			
+		    function calculater(){
+		        if (event.srcElement.innerText=="=") {
+		            return;
+		       
+		        }
+		        if(event.srcElement.innerText=="c"){
+		        	results="";
+		        	display.innerText="";
+		        	 return;
+		        	
+		        }
+		        if(event.srcElement.innerText=="←"){
+		        	results = results.substring(0,results.length-1);
+		        	
+		        	return;
+		        }
+			       results+=event.srcElement.innerText;
+			       display.innerText=results;
+		 	   }
+		    function resultscalcaulte(){
+		      	calresults=eval(results);
+		      	display.innerText=calresults;
+		   	 }
+
+		    
+        </script>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+<body>
+	<div id="box">
+	</div>
+	
+</body>
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript">
+/*
+	var str="what are you 弄啥哩 how Are you ，how old ARE you";
+	
+	//定义正则对象。
+	var reg = /are/ig;
+	
+	var arr = str.match(reg);
+	
+	for(var i in arr){
+		$("box").innerHTML = $("box").innerHTML+arr[i]+",";
+	}
+	
+	*/
+	
+	/*
+	var str="what Are you 弄啥哩 how are you ，how old ARE you";
+	
+	//定义正则对象。
+	//var reg = /are/ig;
+	
+	//str.indexOf("are");
+	alert(str.search(/are/i));
+	*/
+	/*
+	var str="what Are you 弄啥哩 how are you ，how old ARE you";
+	var reg = /are/ig;
+	var strNew = str.replace(reg,"old are");
+	
+	alert(strNew);
+	*/
+	
+	var str="what Are you 弄啥哩 how are you ，how old ARE you";
+	
+	var reg = /are/ig;
+	
+	var arr = str.split(reg);
+	
+	for(var i in arr){
+		$("box").innerHTML = $("box").innerHTML+arr[i]+",";
+	}
+	
+</script>

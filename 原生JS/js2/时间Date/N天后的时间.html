@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="txt" id="txt" value="" onblur="getdate('txt','sp1')"/>
+		<span id="sp1"></span>
+		<script>
+			function getdate(str,str2){
+				var _str = document.getElementById(str);
+				var _sp1 = document.getElementById(str2)
+				var d = new Date();
+					d.setDate(Number(d.getDate())+Number(_str.value));						
+					var ff = d.getFullYear();
+					var mm = d.getMonth()+1;
+					var dd = d.getDate();
+					var day = d.getDay();
+					return _sp1.innerHTML = "你输入的是"+_str.value+"天后的日期是"+ff+'年'+mm+'月'+dd+'日';
+			}
+		</script>
+	</body>
+</html>

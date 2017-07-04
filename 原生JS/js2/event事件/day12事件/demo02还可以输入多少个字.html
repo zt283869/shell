@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+		
+	</style>
+
+<script type="text/javascript">
+
+function testDown(){
+/*
+	var str = document.getElementById("txtId").value;
+	var remainCount = 20-str.length;
+	document.getElementById("remainCount").innerHTML = "还可以输入"+remainCount+"个字";
+	*/
+}
+
+function testUp(){
+	var str = document.getElementById("txtId").value;
+	var remainCount = 20-str.length;
+	document.getElementById("remainCount").innerHTML = "还可以输入"+remainCount+"个字";
+}
+	
+</script>
+   
+<body>
+
+	<textarea id="txtId" type="text" rows="20" cols="50"  onkeyDown="testDown()"  onkeyUp="testUp()"></textarea><br/>
+	<span id="remainCount">还可以输入20个字</span>
+	
+</body>
+</html>

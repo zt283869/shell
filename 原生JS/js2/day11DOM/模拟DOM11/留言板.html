@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+		
+			
+		</div>
+		标题：<input id="titleId" type="text" /><br/>
+		昵称：<input id="nickId" type="text" /><br/>
+		内容：<textarea id="contentId" rows="10" cols="30"></textarea>		
+		<br/>
+		<input id="btn01" type="button" value="留言" onclick="addMessage()"/>
+		<script>
+			function $(str){
+				return document.getElementById(str);
+			}
+			function addMessage(){
+				var boxObj = $("box");
+				var pobj = document.createElement("p");
+				boxObj.appendChild(pobj);
+				var title = document.createTextNode('标题:'+$("titleId").value);
+				pobj.appendChild(title)
+				 pobj = document.createElement("p");
+				boxObj.appendChild(pobj);
+				 title = document.createTextNode("昵称："+$("nickId").value);
+				pobj.appendChild(title)
+				pObj = document.createElement("p");
+				boxObj.appendChild(pObj);
+				var content = document.createTextNode("内容："+$("contentId").value);
+				pObj.appendChild(content);
+				pObj = document.createElement("p");
+				boxObj.appendChild(pObj);
+				var dateStr = (new Date()).toLocaleString();
+				var dateTime = document.createTextNode("时间："+dateStr);
+				pObj.appendChild(dateTime);
+				hrObj = document.createElement("hr");
+				boxObj.appendChild(hrObj);
+			}
+			
+		</script>
+	</body>
+</html>

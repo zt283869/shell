@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div style="margin-left: 40%">
+			石头<input type="radio" name="bot2" id="ch1" value="石头" /> 剪刀
+			<input type="radio" name="bot2" id="ch2" value="剪刀" /> 布
+			<input type="radio" name="bot2" id="ch3" value="布" />
+			<p id="p1" style="width: 140px;height: 20px;border:1px solid darkred;text-align: center;"></p>
+			<input type="submit" name="sub1" id="sub1" value="重新开始吧！" style="margin-left: 20px;" />
+		</div>
+
+		<script>
+		
+			function getId(str) {
+				return document.getElementById(str);
+			}
+			var timer;
+			
+			//電腦的函數名
+			function compet() {
+				clearInterval(timer);				
+				timer = setInterval(function w() {
+					_p = getId("p1");
+					var a = new Array;
+					a.push("石头", "剪刀", "布","石头", "剪刀", "布");
+					res = "";
+					res = a[parseInt(Math.random() * a.length)];
+					_p.innerHTML = res;
+					//						console.log(res);
+				}, 10);
+
+				var _ch1 = getId("ch1");
+				var _ch2 = getId("ch2");
+				var _ch3 = getId("ch3");
+
+				//石头
+				
+				_ch1.onclick = function a() {
+					
+					clearInterval(timer);
+					if (_ch1.value === _p.innerHTML) {
+						alert("好可惜,这局平");
+					} else if (_p.innerHTML === "剪刀") {
+						alert("你好厉害，电脑输都被你打败了，再接再厉。");
+					} else if (_p.innerHTML === "布") {
+						alert("电脑打败了你，别灰心，再来一次把。");
+					}
+					
+					_ch1.disabled = true;
+					_ch2.disabled = true;
+					_ch3.disabled = true;
+					
+				}
+
+				//剪刀
+				
+				_ch2.onclick = function b() {
+					clearInterval(timer);
+					if (_ch2.value === res) {
+						alert("好可惜,这局平");
+
+					} else if (_p.innerHTML === "布") {
+						alert("电脑打败了你，别灰心，再来一次把。");
+					} else if (_p.innerHTML === "石头") {
+						alert("你好厉害，电脑输都被你打败了，再接再厉。");
+					}
+					_ch1.disabled = true;
+					_ch2.disabled = true;
+					_ch3.disabled = true;
+					
+				}
+
+				//布
+
+				_ch3.onclick = function c() {
+					clearInterval(timer);
+					if (_ch3.value === res) {
+						alert("好可惜,这局平");
+
+					} else if (_p.innerHTML === "石头") {
+						alert("电脑打败了你，别灰心，再来一次把。");
+					} else if (_p.innerHTML === "剪刀") {
+						alert("你好厉害，电脑输都被你打败了，再接再厉。");
+					}
+					_ch1.disabled = true;
+					_ch3.disabled = true;
+					_ch2.disabled = true;
+				}
+				//_ch3.style.cssText = "";
+				
+			}
+
+			window.compet();
+
+			//重新加载
+			getId("sub1").onclick = function() {
+				//window.reload();
+				//document.reload();
+				document.location = "石头剪刀布.html";
+			}
+
+			//		function aa(num1,num2){
+			//			return num1+num2;
+			//		}
+			//		function bb(q,w){
+			//			return aa.apply(this,arguments);
+			//		}
+			//		console.log(bb(10,10));
+			//		
+			//		window.color = "red";
+			//		var o = {
+			//			color:"blue"
+			//		};
+			//		function say(){
+			//			console.log(this.color) ;
+			//		}
+			//		say();
+			//		say.call(o);
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+	 
+	</style>
+   
+<body>
+	<textarea id="allInfo" type="text" rows="20" cols="50" ></textarea><br/>
+	<input id="txtId" type="text"  />
+	<input id="btnSend" type="button" value="发送"  />
+	
+	
+	
+</body>
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript">
+	$("btnSend").onclick = function(){
+		sendInfo();	
+	}
+	
+	
+	$("txtId").onkeydown = function(event){
+		var evt = event||window.event;
+		if(evt.keyCode==13 && evt.ctrlKey==true){
+			sendInfo();
+		}
+	}
+	
+	function sendInfo(){
+		$("allInfo").value += $("txtId").value+"\n";
+		$("txtId").value="";	
+	}
+	
+
+	
+</script>

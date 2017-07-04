@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+		//芝麻
+		(function a(){
+		    var num = 1;
+		    var sum =0;
+			for(var i=0;i<64;i++){
+				num*=2;
+				sum = sum+num;
+			}
+			
+			alert("芝麻的重量"+sum*0.00001) ;
+		})();
+		
+		//篮球
+		(function b(){
+			var gd = 5;
+			var cs = 0;
+			while(true){
+				cs++;
+				gd = gd*0.3;
+				if(gd<0.1){
+					break;
+				}
+			}
+			alert(cs+"次");
+		})();
+		</script>
+	</body>
+</html>

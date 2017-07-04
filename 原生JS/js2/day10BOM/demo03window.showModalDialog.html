@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script type="text/javascript">
+function openWin(){
+	//window.showModalDialog("sub.html");	
+	var num=250;
+	var temp = window.showModalDialog("sub.html",num,"dialogWidth=200px dialogHeight=250px");	
+	alert("儿子给了我"+temp+"元人民币");
+}
+
+</script>
+</head>
+
+<body >
+	<input type="text" id="txtId"/>
+	<input type="button" value="打开窗口" onclick="openWin()"/>
+</body>
+</html>

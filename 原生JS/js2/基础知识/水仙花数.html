@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	请输入100以上的数字：<input type="text" name="text1" id="text1" value="" />
+	<div id="p1">
+		
+	</div>
+	<script>
+		function getId(str){
+			return document.getElementById(str);
+		}
+		function a(){
+			var _text1 = getId("text1");
+			var _p1 = getId("p1");
+			var a,b,c;
+			var str;
+			for(var i=100;i<parseInt(_text1.value);i++){
+				a = parseInt(i%10);			
+				b = (parseInt(i/10)%10);
+				c = parseInt(i/100);
+				if(a*a*a+b*b*b+c*c*c==i){
+				_p1.innerHTML+=i+"是水仙花数"+"<br />";
+//					document.write(i+"是水仙花数"+"<br />");
+//				alert(i+"是水仙花数"+"<br />");
+				
+				}
+			
+		}
+		
+		}
+		getId("text1").onblur = function(){
+			a();
+			
+		}
+		getId("text1").onfocus = function (){
+			getId("text1").value = "";
+			var _p1 = getId("p1");
+			_p1.innerHTML="";
+			
+		}
+	</script>
+	</body>
+</html>

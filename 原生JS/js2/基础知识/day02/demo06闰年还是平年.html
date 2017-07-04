@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+	
+	</style>
+	<script type="text/javascript">
+		function exchange(){			
+			var year = parseInt(document.getElementById("yearId").value);
+			var str="";
+			if((year%4==0 && year%100!=0) || (year%400==0)){
+				str="闰";
+			}else{
+				str="平";
+			}
+			
+			document.getElementById("result").value=str;
+			
+			
+		}
+	</script>
+	
+	<body>
+		<input id="yearId" type = "text" />
+		<input type="button" value="  是  "  onclick="exchange()" />
+		<input id="result" type = "text" />年<br/>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+		</style>
+	</head>
+	<body>
+		<table border="1px" width="500px" height="200px">
+			<tr>
+				<td>商品</td>
+				<td>单价</td>
+				<td>数量</td>
+				<td>总价</td>
+			</tr>
+			<tr>
+				<td>商品1</td>
+				<td>
+					<span id="1span">45</span>
+				</td>
+				<td>
+					<input type="button" value="-" id="1bjian" style="width: 40px;height: 30px;"/>
+					<input type="text" value="1" id="1txt"/ style="width: 40px;height: 30px;">
+					<input type="button" value="+" id="1bjia" style="width: 40px;height: 30px;"/>
+				</td>
+				<td>
+					<span id="sp1price">
+					
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<td>商品2</td>
+				<td>
+					<span id="2span">45</span>
+				</td>
+				<td>
+					<input type="button" value="-" id="2bjian" style="width: 40px;height: 30px;"/>
+					<input type="text" value="1" id="2txt"/ style="width: 40px;height: 30px;">
+					<input type="button" value="+" id="2bjia" style="width: 40px;height: 30px;"/>
+					
+				</td>
+				<td>
+					<span id="sp2price">
+					
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<a style="margin-left: 350px;">合计金额：<span id="comf"></span></a>
+				</td>
+			</tr>
+		</table>
+		<script src="内部/cookie.js"></script>
+		<script src="购物车.js"></script>
+		
+	</body>
+</html>

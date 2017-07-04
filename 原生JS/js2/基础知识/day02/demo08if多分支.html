@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+	
+	</style>
+	<script type="text/javascript">
+		function exchange(){			
+			var  x = parseInt(document.getElementById("xId").value);
+			var y ;
+			/*
+			if(x<1){
+				y = x;
+			}else if(x>=1 && x<10){
+				y = 2*x+1;
+			}else if(x>=10){
+				y = 5*x-17;
+			}
+			*/
+			
+			
+			if(x<1){
+				y = x;
+			}else if(x<10){
+				y = 2*x+1;
+			}else{
+				y = 5*x-17;
+			}
+			
+			document.getElementById("yId").value = y;
+			
+		}
+	</script>
+	<body>
+		
+		请输入x：<input id="xId" type = "text" /><br/>
+		<input type="button" value="  求y  "  onclick="exchange()" />
+		y=<input id="yId" type = "text" />
+		
+		
+	</body>
+</html>

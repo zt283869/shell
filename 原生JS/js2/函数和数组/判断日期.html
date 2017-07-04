@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		年1977-2029<input type="text" name="text1" id="text1" value="" />
+		月1-12<input type="text" name="text1" id="text2" value="" />
+		日<input type="text" name="text1" id="text3" value="" />
+		<input type="button" name="text1" id="text4" value="识别" onclick="a()"/>
+		<script src="工资.js"></script>
+		<script>
+			function getId(str){
+				return document.getElementById(str);
+			}
+			function a(){
+				var _text1 = getId("text1").value;
+				var _text2 = getId("text2").value;
+				var _text3 = getId("text3").value;
+				if(isDate(Number(_text1),Number(_text2),Number(_text3))==true){
+					alert("数值正确");
+				}else{
+					alert("数值不正确");
+				}
+			}
+		</script>
+	</body>
+</html>

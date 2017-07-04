@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var way = document.write;
+			var con = console.log;
+//			con("hello");
+			con.bind(this)("hello");
+			way.call(document,"hello");
+		</script>
+	</body>
+</html>

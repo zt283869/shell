@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+		//无第三个变量的情况下，转换变量的值
+		//适应性不广
+//			var a = 5;
+//			var b = 6;
+//				a = a+b;
+//				b = a-b;
+//				a = a-b;
+//				console.log(a,b);
+//			//试用性更广	
+//			var a = "hello";
+//			var b = "hi";
+//				a = [a,b];
+//				b = a[1];
+//				a = a[0];
+//			console.log(a,b);
+//			// n = 5,不用for循环输出；
+//			var n = 5;
+//			function show(n){
+//				var arr = [];
+//				return (function(){
+//					arr.unshift(n);
+//					n--;
+//					if(n!=0){
+//						arguments.callee();//递归多次遍历
+//					}
+//					return arr;
+//				})();
+//			}
+//			//replace达到效果
+//			console.log(show(n));
+//			function getExp(n){
+//				var arr = [];
+//				arr.length = n+1;
+//				var str = arr.join('a');
+//				var arr2 = [];
+//					str.replace(/a/g,function(){
+//						arr2.unshift(n--);
+//					});
+//					return arr2;
+//			}
+//			console.log(getExp(n))
+			//小于100就返回m，否则返回100；
+			var m = 150;
+			function show2(m){
+//				return Math.min(m,100);
+				var arr = [m,100];
+				arr.sort(function(n1,n2){
+					return n1 - n2;
+				})
+				return arr[0];
+			}
+//			console.log(show2(150));
+			function show3(m){
+				var t = m>=100&&100;
+				return t = t||m;
+			}
+			console.log(show2(m));
+		</script>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+	 
+		#box{
+			width:300px;
+			height:250px;
+			border:1px solid red;
+		}
+	</style>
+
+
+   
+<body>
+	<input id="btn" type="button" value="点我" />
+	<br/><br/><br/><br/><br/><br/>
+	<div id="box">
+		
+	</div>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	
+	
+	
+</body>
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript">
+
+document.body.onclick = function(event){
+	var evt = event||window.event;
+	
+	var scrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
+	var scrollTop= document.body.scrollTop || document.documentElement.scrollTop;
+	
+	$("box").innerHTML = (evt.clientX+scrollLeft)+","+(evt.clientY+scrollTop);
+}
+
+	
+</script>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#d1{width: 100px;height: 100px;border-radius: 50%;background: #8B0000;box-shadow: 0 0 50px #2371D3;position: absolute;}
+			#d2{width: 50px;height: 50px;border-radius: 50%;background: #E84A7E;box-shadow: 0 0 50px #EA6F30;position: absolute;top: 200px;left: 100px;}
+		</style>
+	</head>
+	<body onload="moveball('d1'),moveball('d2')">
+		<div id="d1"></div>
+		<div id="d2"></div>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br /><br />
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<br /><br />
+		<br /><br />
+		<br /><br />
+		<br /><br />
+		<br /><br />
+		<br /><br />
+		<br /><br />
+		<br /><br />
+		<br />
+		<br /><br />
+		<br /><br /><br />
+		<script>
+		"use strict"
+			function getStyle(obj,att){
+					if(obj.currentStyle){
+						return obj.currentStyle[att];
+					}else{
+						return getComputedStyle(obj,null)[att];
+					}
+				}
+			function moveball(str){				
+				let d1 = document.getElementById(str)
+				let imgWidth = getStyle(d1,"width");
+				let imgHeight = getStyle(d1,"height");
+				let reg = /px/gi;
+				let imgWidth_px = imgWidth.replace(reg,"");
+				let imgHeight_px = imgHeight.replace(reg,"");
+				let _left = 1;
+				let _top = 1;
+				let leftInc = 1;
+				let topInc = 1;								
+				setInterval(function(){
+					
+					_left+=leftInc;
+					_top+=topInc;
+				
+					let winHeight = document.documentElement.clientHeight || document.body.clientHeight;//屏幕的可视区域的高度
+					let winWidth =  document.documentElement.clientWidth || document.body.clientWidth;//屏幕的可视区域的高度;
+					let scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+					let scrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
+					
+					if(_left-scrollLeft<=0){
+						leftInc=1;
+					}else if((_left-scrollLeft+Number(imgWidth_px))>=winWidth){
+						leftInc=-1;
+					}
+					if(_top-scrollTop<=0){
+						topInc=1;
+					}else if((_top-scrollTop+Number(imgHeight_px))>=winHeight){
+						topInc=-1;
+					}
+
+					d1.style.left = _left+"px";
+					d1.style.top = _top+'px';
+					
+				},1)								
+			}
+			
+		</script>
+	</body>
+</html>

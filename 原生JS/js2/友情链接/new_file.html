@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<select id="se1" onchange="chenge()">
+			<option>友情链接</option>
+			<option value="http://www.baidu.com">百度</option>
+			<option value="http://www.taobao.com">淘宝</option>
+			<option value="http://www.tianmao.com">天猫</option>
+			<option value="http://www.tengxun.com">腾讯</option>
+		</select>
+		
+		<script>
+		function chenge(){
+			var url = document.getElementById("se1").value;
+			location.href = url;
+		}
+		</script>
+	</body>
+</html>

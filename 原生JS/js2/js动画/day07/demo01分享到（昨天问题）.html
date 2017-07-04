@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin:0;padding:0}
+			#box{
+				width:150px;
+				height:100px;
+				background:blue;
+				position:absolute;
+				top:0;
+				left:-150px;
+				}
+			#share{
+				width:25px;
+				height:60px;
+				background:green;
+				font-size:16px;
+				position:absolute;
+				top:10px;
+				left:0px;
+				}
+			
+		</style>
+		<script type="text/javascript">
+			function $create(str){
+				return document.createElement(str);
+			}
+
+			function $(idStr){
+				return document.getElementById(idStr);
+			}
+			var outPic = 1;//展开的速度
+			var inPic = -1;//收回的速度
+			var picLeft = -150;//box的left
+			var shareLeft = 0;//分享到的left
+			
+			function open(){
+					picLeft +=outPic;
+					shareLeft += outPic;
+					if(picLeft>=0 && shareLeft >=150){//边界
+						picLeft=0;
+						shareLeft=150;
+						window.clearInterval(myTimerOpen);
+					}	
+					$("share").style.left = shareLeft +"px";
+					$("box").style.left = picLeft +"px";
+			}
+			
+			function close(){
+					picLeft --;
+					shareLeft --;
+					if(picLeft<=-150 && shareLeft <=0){
+						picLeft=-150;
+						shareLeft=0;
+						window.clearInterval(myTimerIn);
+					}
+					$("share").style.left = shareLeft +"px";
+					$("box").style.left = picLeft +"px";				
+			}
+			
+			var myTimerOpen = null;
+			var myTimerIn = null;
+			
+			window.onload = function(){
+				$("box").onmouseover = openShare;
+				$("share").onmouseover = openShare;
+				
+				$("box").onmouseout = closeShare;				
+				$("share").onmouseout =closeShare;
+			}
+			
+			function openShare(){				
+				clearInterval(myTimerIn);//关闭收缩的定时器
+				myTimerOpen = setInterval(open,10);//打开展开的定时器
+			}
+				
+			function closeShare(){
+				clearInterval(myTimerOpen);//关闭展开的定时器
+				myTimerIn = setInterval(close,10);//打开关闭的定时器
+			}	
+			
+		
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+		<div id="share">分享到</div>
+	</body>
+</html>

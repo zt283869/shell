@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1 style="color: red;font-size: 40px;"><marquee scrollamount="20px" behavior="alternate">数据类型</marquee></h1>
+		<h2>1.1)  ECMAScript中有5种简单数据类型（也称为基本数据类型）</h2>
+		<h3 style="margin-left: 50px">Undefined,Null,Boolean,Number,string。还有一种复杂数据类型Object.</h3>
+		<h2>1.2)  typoe操作符</h2>
+		<h3 style="margin-left: 50px">鉴于ECMAScript是松散型的，因此需要有一种手段来检测给定变量的数据类型---typeof就是负责提供这方面信息的操作符。</h3>
+		<h3 style="margin-left: 50px">undefined------未定义<br />boolean------布尔值<br />string-------字符串<br />number--------数值<br />object--------对象或null<br />function-------函数<br /><hr />typeof例子：<br />var message = "some string";<br />alert (typeof message);    //"string"<br />alert (typeof (message));        //"string"<br />alert (typeof 95);     //"number"<br /> alert (typeof null)  //object 空对象;</h3><hr />
+		<h2>1.3)  Undefined类型<br /><h3 style="margin-left: 50px">在使用var声明变量但未对其加以初始化时，这个变量的值就是undefined<br />var message;<br />alert (message == undefined); //true<br /><br />例子：<br />var message; //这个变量声明<br />var age //这个变量没有声明<br /><br />alert(message);//"undefined";<br />alert(age);//产生错误<br /><br />alert(typeof message);//"undefined"<br />alert(typeof age);//"undefined"</h3></h2>
+		<h2>1.4)  Null类型</h2>
+		<h3 style="margin-left: 50px">var car = null;设置为null将来要保存对象<br />alert(typeof car);//object空对象<br /><hr />实际上undefined是派生字null值的，因此、ECMAScript-262相等性测试：<br /> alert(undfined == null); //true;</h3>
+		<h2>1.5)  Boolean类型</h2><h3 style="margin-left: 50px">Boolean是ECMAScript用的最多的一种类型，该类型只有两个字面值：true&&false,true不一定等于1，false不一定等于0<br />var found = true;<br />var lost = fales;<br />var message = "Hello world";<br />var messageAsBoolean = Boolean(message);<br />可以对任何数据类型的值调用Boolean函数<br />
+		自动执行Boolean非常重要。
+		var message = "Hello world";<br />if(message){<br/>alert("value is true");<br/>}</h3>
+		<h2>1.6)  Number 类型</h2><h3 style="margin-left: 50px">
+			不要做这样的测试：<br />
+			0.1+0.2的结果不是0.3，而是0.30000000004。<br />
+			if(0.1+0.2 == 0.3){<br />
+				alert("you got 0.3");<br />
+			}<br />
+			数值转换；<br />
+			var num1 = Number("Hello world"); //NaN<br />
+			var num2 = Number(""); //0<br />\
+			var num3 = Number("00001"); //1<br />
+			var num4 = Number(true); //1<br />
+			var num5 = Number(false); //0<br />
+			由于Number()函数在转换字符串时比较复杂而且不够合理,所有一半处理整数用parseInt
+			
+			<hr />
+			<h2>1.7)  String类型</h2>
+			<h3 style="margin-left: 50px">字符串可以由双引号""和单引号表示''表示<br />
+				PHP中的双引号和单引号会影响对字符串的解释方式不同。<br />
+				转换为字符串：.toString()和 String();<br />
+				toString输入进制<br />
+				var num = 10;<br />
+				alert (num.toString()); //"10"<br />
+				alert (num.toString(2)); //"1010"<br />
+				alert (num.toString(8)); //"12"<br />
+				alert (num.toString(10)); //"10"<br />
+				alert (num.toString(16)); //"a"<br />
+				<br />
+				var value1;<br />
+				alert(string(value1));//"undefined"<br />
+			</h3>
+		</h3>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var num = 0;
+			var max = 10;
+			function inNum(){
+				num++;
+				if(num<max){
+					setTimeout(inNum,500);
+				}else{
+					alert('Done');
+				}
+			}
+			setTimeout(inNum,500);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="ip1"/>
+		<input type="button" id="ip2" value="<->"
+			onclick="rever('ip1','ip3')"/>
+		<input type="text" id="ip3"/>
+		<script>
+		
+//				var num2 = document.getElementById("ip2");
+//				num2.onclick = function(){
+//				var num1 = document.getElementById("ip1").value;
+//				
+//				var num3 = document.getElementById("ip3").value;
+//				var temp = num1;
+//					num1 = num3;
+//					num3 = temp;
+//					document.getElementById("ip1").value = num1;
+//					document.getElementById("ip3").value = num3;
+//			}
+			
+			function rever(num1,num2){
+					var Num1 = document.getElementById(num1).value
+					var Num2 = document.getElementById(num2).value;
+					var temp = Num1;
+						Num1 = Num2;
+						Num2 = temp;
+						document.getElementById(num1).value = Num1;
+						document.getElementById(num2).value = Num2;
+			}
+		</script>
+	</body>
+</html>

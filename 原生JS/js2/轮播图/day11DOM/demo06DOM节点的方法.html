@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>		
+		<style type="text/css">
+			*{
+				margin:0px;
+				padding:0px;
+			}
+			
+			#box{
+				position:relative;
+				width:500px;
+				height:300px;
+				border:1px solid black;
+				overflow:hidden;
+			}
+		
+		</style>
+	</head>
+	
+	<body>
+		<div id="box"></div>
+		<input id="btn01" type="button" value="测试" onclick="testF()"/>
+	</body>
+
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript"  >
+
+function testF(){
+	//1、创建p元素（标签）
+	var pObj = document.createElement("p");
+	//2、把p标签放在div里
+	$("box").appendChild(pObj);
+	
+	//3、创建文本节点，
+	var textObj = document.createTextNode("我在p中");
+	
+	//4、把文本节点作为 p标签的子节点
+	pObj.appendChild(textObj);
+	
+}
+
+
+</script>

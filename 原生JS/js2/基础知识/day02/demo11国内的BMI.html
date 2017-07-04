@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+	
+	</style>
+	<script type="text/javascript">
+		function exchange(){			
+			//1、获取界面的数据（输入），成绩
+			var  height = parseFloat(document.getElementById("heightId").value);
+			var  weight = parseFloat(document.getElementById("weightId").value);
+			var result ;
+			
+			//2、根据用户是输入进行数据处理（逻辑判断）
+			//身高减去105，上下浮动5kg。
+			var standardWeight = height-105;
+			if(weight<standardWeight-5){
+				result="亲，您该多吃点肉了";
+			}else if(weight>standardWeight+5){
+				result="亲，您该少吃点";			
+			}else{
+				result="亲，魔鬼身材，好崇拜噢！";			
+			}
+			
+			//3、输出
+			document.getElementById("resultId").value = result;
+			
+		}
+	</script>
+	<body>
+		
+		请输入您的身高：<input id="heightId" type = "text" />cm<br/>
+		请输入您的体重：<input id="weightId" type = "text" />kg<br/>
+		<input type="button" value="  计算您的BMI  "  onclick="exchange()" />
+		您的BMI是：<input id="resultId" type = "text" />
+		
+		
+	</body>
+</html>

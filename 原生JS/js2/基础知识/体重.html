@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		请输入数字<input type="text" name="text1" id="text1" value="" /><br />
+		请输入数字<input type="text" name="text2" id="text2" value="" /><br />
+		请输入体重<input type="text" name="text3" id="text3" value="" />
+		<script>
+			function getId(str){
+				return document.getElementById(str);
+			}
+			
+			var _text1 = getId("text1");
+				_text1.onblur = function(){
+					var a = Number(getId("text1").value);
+					if(a>0){
+						_text1.value = "大于0";
+					}else if(a==0){
+						_text1.value = "等于0";
+				}else if(a<0){
+					_text1.value = "小于0";
+				}else{
+					alert("你输入的不是一个合法的数值，请重新输入！");
+				}
+					
+					}
+				var _text2 = getId("text2");
+					_text2.onblur = function(){
+						if(getId("text2").value%2==0){
+							getId("text2").value = "偶数";
+						}else{
+							getId("text2").value = "奇数";
+						}
+					}
+				var _text3 = getId("text3");
+				_text3.onblur = function(){
+					var leng = (Number(getId("text3").value)-108)*2;
+					if(leng>=Number(200)){
+						getId("text3").value = "超重";
+					}else if(Number(150)<=leng<Number(200)){
+						getId("text3").value = "肥胖";
+					}else if(Number(100)<=leng<Number(150)){
+						getId("text3").value = "均衡";
+					}else if(Number(80)<=leng<Number(100)){
+						getId("text3").value = "太瘦了";
+					}else{
+						getId("text3").value = "请输入正确数值！";
+					}
+				}
+					
+		</script>
+	</body>
+</html>

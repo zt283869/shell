@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="text1" id="text1" value="" />
+		<script>
+//			var num = parseInt(document.getElementById("text1").value);
+//				for(var i=0;i<num;i++){
+//					if(num%i==0){
+//						alert(i+"不是素数");
+//						break;
+//					}
+//				}
+				function a(){
+					var num = parseInt(document.getElementById("text1").value);
+					var isr = true;
+					for(var i=0;i<num;i++){
+						if(num%i==0){
+							isr = false;	
+						}
+					}
+					if(isr = true){
+						alert(i+"不是素数")
+					}else{
+						alert(i+"是素数")
+					}
+				}
+				document.getElementById("text1").onblur = function(){
+					a();
+				}
+		</script>
+	</body>
+</html>

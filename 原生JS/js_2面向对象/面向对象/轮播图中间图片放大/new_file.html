@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		*{
+			margin: 0;padding: 0;
+		}
+		ul li{
+			list-style: none;						
+		}
+			#box{
+				width: 868px;
+				height: 450px;
+				background: black;
+				margin: 0 auto;
+				position: relative;
+				
+				overflow: hidden;
+			}
+			#banner{
+				width: 9900px;
+				position: absolute;
+				left: 0;			
+				height: 358px;				
+			}
+			#banner li{
+				
+				float: left;
+			}
+			#banner img{
+				/*-webkit-box-reflect:below 5px;*/
+				-webkit-box-reflect: below 5px linear-gradient(transparent, white);
+			}
+											
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul id="banner">
+				<li><img src="images/1a.jpg"/></li>
+				<li><img src="images/2a.jpg"/></li>
+				<li><img src="images/3a.jpg"/></li>
+				<li><img src="images/4a.jpg"/></li>
+				<li><img src="images/5a.jpg"/></li>
+				<li><img src="images/big0.jpg"/></li>
+				<li><img src="images/big1.jpg"/></li>
+				<li><img src="images/1a.jpg"/></li>
+				<li><img src="images/2a.jpg"/></li>
+				<li><img src="images/3a.jpg"/></li>
+				<li><img src="images/4a.jpg"/></li>
+				<li><img src="images/5a.jpg"/></li>
+				
+			</ul>
+		</div>
+		<script src="new_file.js"></script>
+		<script>		
+			//初始化界面
+			function interface(){
+			$("banner").children[0].getElementsByTagName("img")[0].style.cssText = "width:100px;height: 100px;margin-top: 296px;margin-left: 5px;";
+			$("banner").children[1].getElementsByTagName("img")[0].style.cssText = "width:100px;height: 100px;margin-top: 296px;margin-left: 5px;";
+			$("banner").children[2].getElementsByTagName("img")[0].style.cssText = "width:439px;height: 355px;margin-top: 42px;margin-left: 5px;";
+			$("banner").children[3].getElementsByTagName("img")[0].style.cssText = "width:100px;height: 100px;margin-top: 296px;margin-left: 5px;";
+			$("banner").children[4].getElementsByTagName("img")[0].style.cssText = "width:100px;height: 100px;margin-top: 296px;margin-left: 5px;";
+			$("banner").children[5].getElementsByTagName("img")[0].style.cssText = "width:100px;height: 100px;margin-top: 296px;margin-left: 5px;";
+			$("banner").children[6].getElementsByTagName("img")[0].style.cssText = "width:100px;height: 100px;margin-top: 296px;margin-left: 5px;";
+			$("banner").children[7].getElementsByTagName("img")[0].style.cssText = "width:100px;height: 100px;margin-top: 296px;margin-left: 5px;";
+			$("banner").children[8].getElementsByTagName("img")[0].style.cssText = "width:100px;height: 100px;margin-top: 296px;margin-left: 5px;";
+			}
+
+			
+			//调用
+			window.onload = function(){
+				interface();
+				LBmove();
+			}
+			
+			
+		</script>
+	</body>
+</html>

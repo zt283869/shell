@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="txt1" id="txt1" value="" />
+		<script>
+			document.getElementById("txt1").onkeydown = function(event){
+				var evt = event||window.event;
+//				alert(evt.keyCode);
+			}
+			document.body.onmousemove = function(event){
+				var evt = event||window.event;
+//				console.log(evt.clientX+","+evt.clientY);
+			}
+			document.body.onmousemove = function(event){
+				var evt = event||window.event;
+//				console.log(evt.screenX+","+evt.screenY);
+			}
+			onmousemove = function(event){
+				var evt = event||window.event;
+//				console.log(evt.offsetX+","+evt.offsetY);
+			}
+		</script>
+	</body>
+</html>

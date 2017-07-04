@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin:0;padding:0}
+			#box{
+				width:20px;
+				height:20px;
+				background:blue;
+				position:absolute;
+				top:100px;
+				left:100px;
+				border-radius:50%;
+			}	
+			#startDot{
+				width:5px;
+				height:5px;
+				background:red;
+				position:absolute;
+				left:200px;
+				top:150px;
+				border-radius:50%;
+			}	
+			#endDot{
+				width:50px;
+				height:50px;
+				background:red;
+				position:absolute;
+				left:500px;
+				top:300px;
+				border-radius:50%;
+			}			
+		</style>
+		<script type="text/javascript" src="js/tools.js"></script>
+		<script type="text/javascript" src="js/Dragtools.js"></script>
+		<script type="text/javascript">
+			//1、运动：让静止的元素动起来。
+			
+			//1)、线性运动：
+			//让某个元素从某个点到另一个点；
+			//包括：起始点，当前点，结束点，速度，方向；
+			//运动肯定要用到定时器；	
+			
+			var startLeft;
+			var startTop ;
+			var endLeft  ;
+			var endTop   ;
+			var currLeft;
+			var currTop;
+			var speed    ;
+			var myTimer ;
+			var rowInc;
+			var colsInc;
+			
+			//初始化
+			function init(){
+				startLeft = 200;
+			    startTop =150;
+				currLeft = startLeft;
+				currTop = startTop;
+			    endLeft = 350;
+				endTop = 0;
+			    speed = 5;
+				
+				calDirection();
+				
+				$("#startDot").style.left = startLeft+"px";
+				$("#startDot").style.top = startTop+"px";
+				$("#endDot").style.left = endLeft+"px";
+				$("#endDot").style.top = endTop+"px";
+				$("#box").style.left = currLeft+"px";
+				$("#box").style.top = currTop+"px";				
+			}
+			
+			function calDirection(){
+				//计算横向和纵向的比率；
+				var rate = Math.abs((endLeft-startLeft)/(endTop-startTop));//1;
+				
+				rowInc = speed*rate*(endLeft<startLeft?-1:1);
+				colsInc = speed*(endTop<startTop?-1:1);
+			}
+			
+			function moveBox(){
+				currLeft+=rowInc;
+				currTop+=colsInc;
+				
+				if(currLeft>=endLeft && currTop>=endTop){
+					currLeft==endLeft;
+					currTop==endTop;
+					window.clearInterval(myTimer);
+				}
+				
+				$("#box").style.left  = currLeft+"px";
+				$("#box").style.top  = currTop+"px";
+			}
+			
+			window.onload = function(){
+				init();
+			
+				$("#btnStart").onclick = function(){
+					myTimer = setInterval(moveBox,100);					
+				}
+			
+				$("#btnStop").onclick = function(){
+					window.clearInterval(myTimer);
+				}
+				
+				bindDrag($("#endDot"));
+				$("#endDot").addEventListener("mouseup",function(){
+					endLeft = parseInt(this.style.left);
+					endTop = parseInt(this.style.top);
+					calDirection();
+					console.log("endLeft="+endLeft+",endTop="+endTop);
+				},true);
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+		<input id="btnStart" type="button" value="动起来" />
+		<input id="btnStop" type="button" value="停下来" />
+		<div id="startDot"></div>
+		<div id="endDot"></div>
+		<div id="box"></div>
+		
+	</body>
+</html>

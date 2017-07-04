@@ -1,0 +1,310 @@
+ballLeft<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+*{
+	margin:0px;
+	padding:0px;
+}
+
+#box{
+	width:500px;
+	height:600px;
+	border:5px solid red;
+	background-color:black;
+	margin:50px auto;
+	position:relative;
+}
+
+.blockRow1{
+	width:96px;
+	height:16px;
+	background-color:green;
+	border:2px solid white;
+	float:left;
+}
+.blockRow2{
+	width:96px;
+	height:16px;
+	background-color:red;
+	border:2px solid white;
+	float:left;
+}
+.blockRow3{
+	width:96px;
+	height:16px;
+	background-color:yellow;
+	border:2px solid white;
+	float:left;
+}
+
+#bottomBlock{
+	position:absolute;
+	bottom:0px;
+	left:100px;
+	width:96px;
+	height:16px;
+	background-color:green;
+	border:2px solid white;
+	border-radius:8px;
+}
+
+#ball{
+	position:absolute;
+	left:120px;
+	bottom:20px;
+	width:20px;
+	height:20px;
+	background-color:pink;
+	border-radius:50%;
+}
+
+</style>
+
+		
+<script type="text/javascript">
+
+//二维数组；
+//1:代表对应的板砖在；0：代表对应的板砖不在
+var arr =[
+		  [1,1,1,1,1],
+		  [1,1,1,1,1],
+		  [1,1,1,1,1]
+		  ];
+		  
+function $(id){
+	return document.getElementById(id);
+}
+function $create(str){
+	return document.createElement(str);
+}
+
+//上面每个板砖宽100；
+var floorBlockWidth =100;
+//上面每个板砖的高：20；
+var floorBlockHeight =20;
+
+var bottomBlockLeft=100; //板砖的左边
+var bottomBlockWidth=100;
+var bottomBlockTop = 580;//板砖的顶部
+
+var ballLeft = 10;//弹力球的left
+var ballTop = 100;//弹力球的top
+var ballWidth=20;//弹力球的宽度
+var ballHeight=20;//弹力球的高度
+var winWidth=500;//盒子的宽
+var winHeight=600;//盒子的高。
+
+//方向：横向是朝左还是朝右；纵向是朝下还是朝上。
+//横向增量
+var leftInc=1;//假定一开始，横向朝右
+//纵向增量
+var topInc=1;//假定一开始，纵向朝下。
+var speed=5;
+
+function moveBall(){
+	ballLeft+=(leftInc*speed);
+	ballTop+=(topInc*speed);//100   100-ballHeight
+
+	if(ballLeft<=0){
+		leftInc=1;
+	}else if(ballLeft+ballWidth>=winWidth){
+		leftInc=-1;
+	}
+	
+	if(ballTop<=0){
+		topInc=1;
+	}
+	
+	/*
+	if(弹力球的底部==板砖的上部){
+	//当弹力球碰到板砖的上面(弹力球的底部等于板砖上部)
+		if(当弹力球的右边>=板砖的左边 && 当弹力球的左边<=板砖的右边){
+		//当弹力球的left在板砖的横向跨度范围内。
+			反弹topInc=-1;
+		}
+	}else if(弹力球的底部>板砖的上部){////当弹力球的底部大于板砖上部，
+		//当弹力球的left不在板砖的横向跨度范围内。
+		if(当弹力球的右边<板砖的左边 && 当弹力球的左边>板砖的右边){
+		//当弹力球的left在板砖的横向跨度范围内。
+			则gameover；
+		}
+	}
+	*/
+		
+	if(ballTop+ballHeight==bottomBlockTop){
+		console.log("1");
+	//当弹力球碰到板砖的上面(弹力球的底部等于板砖上部)
+		var imgRight = ballLeft+ballWidth;
+		var bottomBlockRight = bottomBlockLeft+bottomBlockWidth;
+		if(imgRight>=bottomBlockLeft && ballLeft<=bottomBlockRight){
+			console.log("2");
+		//当弹力球的left在板砖的横向跨度范围内。
+			topInc=-1;
+		}
+	}else if(ballTop+ballHeight>bottomBlockTop){////当弹力球的底部大于板砖上部，
+		//当弹力球的left不在板砖的横向跨度范围内。
+		if(ballLeft+ballWidth<bottomBlockLeft || bottomBlockLeft>bottomBlockWidth){
+		//当弹力球的left在板砖的横向跨度范围内。
+			gameover();
+		}
+	}
+	//最后再改变外观
+	$("ball").style.left = ballLeft+"px" ;
+	$("ball").style.top =  ballTop+"px";	
+	
+	//判断是否要删除某个楼板
+	removeBlock();
+}
+
+function gameover(){
+	window.clearInterval(myTimer);
+	//？？让弹力球继续消失在box外？？？
+	alert("亲，游戏结束！");
+}
+
+//判断弹力球与上面哪个板砖碰上了。
+function removeBlock(){
+	//循环所有的板砖，判断弹力球的左右是否再它们对应的区域，并且弹力球的顶部和板砖的底部接触；
+	//1、先横向判断；（弹力球的left和每个板砖的左右对比）
+	var ballRight = ballLeft+ballWidth;//弹力球的右边
+	for(var i=0;i<5;i++){
+		if(ballLeft>=i*floorBlockWidth && ballLeft<=(i+1)*floorBlockWidth){
+			break;
+		}
+	}
+	
+	var isPeng = false;
+	//2、纵向判断（弹力球的顶部和板砖的底部是否有接触）；
+	for(var j=2;j>=0;j--){		
+		if(arr[j][i]==0){//此处没有板砖；
+			continue;
+		}
+		if(ballTop==(j+1)*floorBlockHeight){
+			isPeng = true;
+			break;
+		}		
+	}
+	
+	//如果有碰上了，则让对应的板砖消失,并且让弹力球改变纵向的方向；
+	//被碰撞的楼板是 arr[j][i];
+	if(isPeng){
+		console.log("j="+j+",i="+i);
+		topInc = 1;
+		arr[j][i]=0;
+		//改变外观；
+		document.getElementsByClassName("blockRow"+(j+1))[i].style.visibility = "hidden";
+	}
+}
+
+var myTimer = null;
+
+window.onload=function(){
+	myTimer = setInterval(moveBall,20);
+	/*
+	document.body.onkeydown =function(e){
+		var evt = window.event || e;
+		moveBottomBlock(evt.keyCode);
+	}
+	*/
+	document.body.onmousemove = function(e){
+		var evt = window.event || e;
+		moveBottomBlock(evt);
+	}
+	$("btn01").onclick = function(){
+		window.clearInterval(myTimer);
+	}
+}
+
+function moveBottomBlock(e){
+	var offsetLeft = e.x-$("box").offsetLeft;//鼠标横向相对于box的距离
+	/*
+	if(offsetLeft<0 || offsetLeft>(winWidth-bottomBlockWidth)){
+		return;
+	}
+	*/
+	if(offsetLeft<0){
+		offsetLeft=0;
+	}
+	if(offsetLeft>(winWidth-bottomBlockWidth)){
+		offsetLeft=winWidth-bottomBlockWidth;
+	}
+	bottomBlockLeft = offsetLeft;
+	$("bottomBlock").style.left = offsetLeft+"px";
+}
+	
+	/*
+function moveBottomBlock(keyCode){
+	if(keyCode==37){//左
+		bottomBlockLeft--;
+	}else if(keyCode==39){
+		bottomBlockLeft+=2;	
+	}
+	$("bottomBlock").style.left = bottomBlockLeft+"px";	
+}*/
+
+
+</script>
+
+</head>
+<body>
+	<input  id="btn01" type="button" value="暂停" />
+	<div id="box">
+		<div class="blockRow1">
+			1-1
+		</div>
+		<div class="blockRow1">
+			1-2
+		</div>
+		<div class="blockRow1">
+			1-3
+		</div>
+		<div class="blockRow1">
+			1-4
+		</div>
+		<div class="blockRow1">
+			1-5
+		</div>
+		<div class="blockRow2">
+			2-1
+		</div>
+		<div class="blockRow2">
+			2-2
+		</div>
+		<div class="blockRow2">
+			2-3
+		</div>
+		<div class="blockRow2">
+			2-4
+		</div>
+		<div class="blockRow2">
+			2-5
+		</div>
+		<div class="blockRow3">
+			3-1
+		</div>
+		<div class="blockRow3">
+			3-2
+		</div>
+		<div class="blockRow3">
+			3-3
+		</div>
+		<div class="blockRow3">
+			3-4
+		</div>
+		<div class="blockRow3">
+			3-5
+		</div>
+		
+		<div id="bottomBlock"> 
+		</div>
+		
+		<div id="ball"> 
+		</div>
+		
+	
+	</div>
+</body>
+</html>

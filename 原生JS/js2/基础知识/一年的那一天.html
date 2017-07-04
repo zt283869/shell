@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		year:<input type="text" name="text1" id="text1" value="" /><br /> monyh:
+		<input type="text" name="text2" id="text2" value="" /><br /> day:
+		<input type="text" name="text3" id="text3" value="30" /><br /> 请点击输入框：
+		<input type="text" name="text4" id="text4" value="" />
+		<script>
+			function getId(str) {
+				return document.getElementById(str);
+			}
+
+			function aa() {
+				var result = 0;
+				var _text4 = getId("text4");
+				var _text1 = getId("text1");
+				var _text2 = getId("text2");
+				var _text3 = getId("text3");
+				switch (Number(_text2.value)) {
+					case 1:
+						result = Number(_text3.value);
+						break;
+					case 2:
+						result = 31 + Number(_text3.value);
+						break;
+
+					case 3:
+						result = 31 + 28 + Number(_text3.value);
+						break;
+
+					case 4:
+						result = 31 + 28 + 31 + Number(_text3.value);
+						break;
+
+					case 5:
+						result = 31 + 28 + 31 + 28 + Number(_text3.value);
+						break;
+
+					case 6:
+						result = 31 + 28 + 31 + 28 + 31 + Number(_text3.value);
+						break;
+
+					case 7:
+						result = 31 + 28 + 31 + 28 + 31 + 28 + Number(_text3.value);
+						break;
+
+					case 8:
+						result = 31 + 28 + 31 + 28 + 31 + 28 + 31 + Number(_text3.value);
+						break;
+
+					case 9:
+						result = 31 + 28 + 31 + 28 + 31 + 28 + 31 + 28 + Number(_text3.value);
+						break;
+
+					case 10:
+						result = 31 + 28 + 31 + 28 + 31 + 28 + 31 + 28 + 31 + Number(_text3.value);
+						break;
+
+					case 11:
+						result = 31 + 28 + 31 + 28 + 31 + 28 + 31 + 28 + 31 + 28 + Number(_text3.value);
+						break;
+
+					case 12:
+						result = 31 + 28 + 31 + 28 + 31 + 28 + 31 + 28 + 31 + 28 + 31 + Number(_text3.value);
+						break;
+				}
+
+				if (Number(_text2.value) > 2) {
+					if (_text1.value % 400 == 0 || (_text1.value % 100 !== 0 && _text1.value % 4 == 0)) {
+						result += 1;
+						_text4.value = "是润年的第" + result + "天。";
+					} else {
+						_text4.value = "是本年的第" + result + "天。";
+					}
+
+				} else if (Number(_text2.value)) {
+					if (_text1.value % 400 == 0 || (_text1.value % 100 !== 0 && _text1.value % 4 == 0)) {
+						result += 1;
+						_text4.value = "是润年的第" + result + "天。";
+					} else {
+						_text4.value = "是本年的第" + result + "天。";
+					}
+				}
+			}
+			getId("text4").onclick = function() {
+				aa();
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+<body>
+	<div id="box">
+		邮编：<input id="postcal" type="text" /><span id="showPostcalMsg"></span>
+	</div>
+	
+</body>
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript">
+
+	window.onload = function(){
+		$("postcal").onblur = function(){
+			//邮编： 六位数字；第一位不能为0；
+			var reg = /^[1-9]\d{5}$/;
+			var str= $("postcal").value;
+			if(reg.test(str)){
+				$("showPostcalMsg").innerHTML= "√";
+			}else{
+				$("showPostcalMsg").innerHTML= "×";
+			}
+		}
+	}
+
+	
+	
+	
+	
+	
+</script>

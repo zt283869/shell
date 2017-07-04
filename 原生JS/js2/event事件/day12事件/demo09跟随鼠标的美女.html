@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+	 
+		#box{
+			width:300px;
+			height:250px;
+			border:1px solid red;
+		}
+	</style>
+
+
+   
+<body>
+	<input id="btn" type="button" value="点我" />
+	<br/><br/><br/><br/><br/><br/>
+	<img id="imgId" src="images/01.jpg" style="position:absolute;width:200px;height:150px"/>
+	<div id="box">
+		
+	</div>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	
+	
+	
+</body>
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript">
+
+document.body.onmousemove = function(event){
+	var evt = event||window.event;
+	var scrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
+	var scrollTop= document.body.scrollTop || document.documentElement.scrollTop;	
+	
+	$("imgId").style.left = (evt.clientX+scrollLeft)+"px";
+	$("imgId").style.top = (evt.clientY+scrollTop)+"px";
+	
+}
+
+	
+</script>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+	 
+		div{
+			width:300px;
+			height:250px;
+			border:1px solid red;
+			float:left;
+		}
+	</style>
+
+
+   
+<body>
+	<input id="btn1" type="button" value="点我1" />
+	<input id="btn2" type="button" value="点我2" />
+	<input id="btn3" type="button" value="点我3" />
+	
+	
+	
+</body>
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript">
+/*
+	$("btn1").onclick= function(event){
+		var evt = event||window.event;
+		//document.getElementById("btn1")
+		alert(evt.srcElement.value);		
+	}
+	*/
+	
+	var btns = document.getElementsByTagName("input");
+	for(var i=0;i<btns.length;i++){
+		btns[i].onclick = function(event){
+			var evt = event||window.event;
+			alert(evt.srcElement.value);		
+		}
+	}
+	
+	
+	
+	
+</script>

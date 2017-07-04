@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+		//冒泡
+			(function (){
+				
+				//封装排序方法
+				var arr = new Array();
+					arr.push(8,7,2,6,1,5,3,9,4,10);
+					arr.push(11)
+					for(var i=0;i<arr.length;i++){
+						for(var j=0;j<arr.length-1;j++){
+							if(arr[j]<arr[j+1]){//大到小排序
+								var tmep = arr[j];
+									arr[j]=arr[j+1];
+									arr[j+1]=tmep;
+							}
+						}
+						
+					}
+					console.log(arr);
+					
+//					console.log(arr)
+				
+				//sort排序方法
+				var _arr = [8,7,2,6,1,5,3,9,4,10];
+			//	小到大排序
+					
+				function add(m,n){
+				return m-n;
+			}
+				//大到小排序
+				function add1(m,n){
+				return n-m;
+			}
+			_arr.sort(add)
+			console.log(_arr);
+				_arr.sort(add1)
+			console.log(_arr);
+			})();
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		工资：<input type="text" name="text1" id="text1" value="" />
+		多少年退休：<input type="text" name="text2" id="text2" value="" />
+		<input type="button" name="but" id="but" value="计算" />
+			<script>
+				function getId(str){
+					return document.getElementById(str);
+				}
+				function num(){
+					
+					var v;
+					var _text2 = getId("text2");
+					var _text1 = getId("text1");
+					for(var i=0;i<parseInt(_text2.value);i++){						
+						
+						
+						 v = _text1.value*(1+0.5);
+						 
+					}
+					alert(v);
+					
+				}
+				getId("but").onclick = function(){
+					num();
+					
+				}
+			</script>
+	</body>
+</html>

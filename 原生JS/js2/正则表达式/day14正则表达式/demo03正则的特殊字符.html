@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+<body>
+	<div id="box">
+	</div>
+	
+</body>
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript">
+// ^
+/*
+	var reg = /^a/i;
+	//var str="aoe";
+	var str="Aoe";
+	//var str="baoe";
+	
+	alert(reg.test(str));
+*/	
+
+//$
+/*
+	var reg = /a$/i;
+	var str="AoeA";
+	alert(reg.test(str));
+*/
+
+//*
+
+	//var reg = /ba*/g;
+	var reg = /b/g;
+	var str="ababbcccdd";
+	
+	var arr = str.match(reg);
+	
+	for(var i in arr){
+		$("box").innerHTML = $("box").innerHTML+arr[i]+",";
+	}	
+	
+</script>

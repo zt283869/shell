@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+	
+	</style>
+	<script type="text/javascript">
+		function exchange(){		
+			//1、输入：得到x。
+			var  x = parseInt(document.getElementById("xId").value);
+			var y ;
+			//2、逻辑
+			if(x<0){
+				y = -1;
+			}else{
+				if(x>0){
+					y = 1;
+				}else{
+					y = 0;
+				}
+			}
+			
+			
+			//3、输出
+			document.getElementById("yId").value = y;
+			
+		}
+	</script>
+	<body>
+		
+		请输入x：<input id="xId" type = "text" /><br/>
+		<input type="button" value="  求y  "  onclick="exchange()" />
+		y=<input id="yId" type = "text" />
+		
+		
+	</body>
+</html>

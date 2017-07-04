@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		*{margin: 0;padding: 0;}
+		ul li{list-style: none;}
+		
+			#box{
+				width: 300px;
+				height: 500px;
+				position: relative;
+					
+			}
+			#sidebar{
+				width: 100px;
+				height: 500px;
+				background: rgba(0,0,0,0.4);
+			}
+			#sidebar li{
+				margin: 20px;
+				border: 1px solid #2371D3;
+				font-size: 20px;
+				color: white;
+			}
+			#box2{
+				width: 200px;
+				height: 500px;
+			
+				position: absolute;
+				top: 0;
+				left: 100px;
+				background: rgba(0,0,0,0.1);
+			}
+			#sidebar2 {
+				width: 200px;
+				height: 500px;
+			
+				position: absolute;
+				top: 0;
+				/*left: 100px;*/
+				background: rgba(0,0,0,0.1);
+			}
+			#sidebar2 li{
+				width: 200px;
+				height: 500px;
+				position: absolute;
+				top: 0;
+				/*left: 100px;*/
+				/*background: rgba(0,0,0,0.1);*/
+				display: none;
+				
+			}
+			#sidebar2 .baner{
+				display: block;
+			}
+			#box2{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul id="sidebar">
+				<li><span>我</span></li>
+				<li><span>钱包</span></li>
+				<li><span>直播</span></li>
+				<li><span>看过</span></li>
+				<li><span>直播</span></li>
+			</ul>
+			<div id="box2">
+				<ul id="sidebar2">
+				<li><span>我的div</span></li>
+				<li class="baner"><span>钱包的div</span></li>
+				<li><span>直播的div</span></li>
+				<li><span>看过的div</span></li>
+				<li><span>直播的div</span></li>
+			</ul>
+			</div>
+		</div>
+		<script>
+//			"user strict"
+			function $(str){
+				return document.getElementById(str);
+			}
+			//
+			function getStyle(obj,arr){
+			if(obj.currentStyle){
+			return obj.cuurentStyle[arr];
+				}else{
+					return getComputedStyle(obj,null)[arr];
+				}
+			}
+			//
+			function Tmove(obj,josn){
+				var that = this;
+				//that.playSelf = this;
+				clearInterval(that.timer)//清除正在执行的定时器
+				var iSpeed = 0;
+				that.timer=setInterval(function(){
+	//			console.log(this);
+				var Bover = true;//假设运动完成
+				for(var attr in josn){//每个属性的遍历修改
+					var iCur = 0;
+					var iTager = 0;
+					 iCur = parseFloat(this.getStyle(obj,attr));//拿到dom的left
+					 
+					iTager = parseInt(josn[attr]);//拿到json的left
+					iSpeed = Math.floor((iTager-iCur)/5);
+					if(iTager!=iCur){
+						Bover = false;
+						obj.style.left = iCur+iSpeed+"px";
+					}
+					
+				}
+				
+				if(Bover){
+					var that = this;
+					clearInterval(that.timer)
+					}
+				}.bind(that),30)
+			}
+			function move(){
+				$("box").style.left = "-90px";
+				$("sidebar").onmouseover = function(){
+					Tmove($("box"),{"left":3})
+				}
+				$("box").onmouseout = function(){
+					Tmove($("box"),{"left":-90})
+					$("box2").style.display = "none"	
+				}
+				
+			}
+			
+			function disblk(){			
+				var Osidebar = $("sidebar").children;
+				var sidebar_2 = $("sidebar2").children;
+				for(var i=0;i<Osidebar.length;i++){
+					Osidebar[i].index = i;					
+					Osidebar[i].onmouseover = function(){						
+						for(var l=0;l<sidebar_2.length;l++){
+								sidebar_2[l].className="";
+								$("box2").style.display = "block"							
+						}						
+							sidebar_2[this.index].className="baner";		
+					}
+				}
+			}
+			window.onload = function(){
+				 move();
+				 disblk();
+			}
+			
+		</script>
+	</body>
+</html>

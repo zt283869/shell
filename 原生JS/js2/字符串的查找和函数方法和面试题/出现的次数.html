@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="字符串的查找方法.js"></script>
+		请输入小写字母a-z:帮你查看你输入的所有字母出现了几次<input type="text" name="text1" id="text1" value="" />
+		<input type="text" name="text3" id="text3" value="" />
+		<input type="button" name="but1" id="but1" value="开始" onclick="time('text1','text3')"/><br /><br />
+		老师的做法：弊端在与不能乱输<input type="text" name="" id="text2" value="" />
+		<input type="button" name="but2" id="but2" value="开始" onclick="Strcomprs('text2')"/>
+		<script>
+		function time(str,str2){
+			var _str2 = document.getElementById(str2);
+			var arr1 = document.getElementById(str).value;
+			var	arr = arr1.split("");
+				console.log(arr);
+			var num = 0;
+			var x;
+			var str = false;
+			var _arr = new Array();
+			var obj = {};
+			for(var i=0;i<arr.length;i++){
+				for(var j=0;j<_arr.length;j++){
+					if(arr[i]==_arr[j])
+					str = true;
+					break;
+				}
+				if(str==false){
+				_arr.push(arr[i]);
+				if(!obj[arr[i]]){
+					obj[arr[i]]=[];
+				}
+				obj[arr[i]].push(arr[i]);
+			}
+				if(str==true){					
+					if(!obj[arr[i]]){
+						obj[arr[i]]=[];
+				}
+					obj[arr[i]].push(arr[i]);					
+				}
+			}
+			for(var i=0;i<_arr.length;i++){
+				
+					if(_arr[i]=='a'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.a.length+"次");
+					}
+					if(_arr[i]=='b'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.b.length+"次");
+					}
+					if(_arr[i]=='c'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.c.length+"次");
+					}
+					if(_arr[i]=='d'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.d.length+"次");
+					}
+					if(_arr[i]=='e'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.e.length+"次");
+					}
+					if(_arr[i]=='f'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.f.length+"次");
+					}
+					if(_arr[i]=='g'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.g.length+"次");
+					}
+					if(_arr[i]=='h'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.h.length+"次");
+					}
+					if(_arr[i]=='i'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.i.length+"次");
+					}
+					if(_arr[i]=='j'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.j.length+"次");
+					}
+					if(_arr[i]=='k'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.k.length+"次");
+					}
+					if(_arr[i]=='l'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.l.length+"次");
+					}
+					if(_arr[i]=='m'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.m.length+"次");
+					}
+					if(_arr[i]=='n'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.n.length+"次");
+					}
+					if(_arr[i]=='o'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.o.length+"次");
+					}
+					if(_arr[i]=='p'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.p.length+"次");
+					}
+					if(_arr[i]=='q'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.q.length+"次");
+					}
+					if(_arr[i]=='r'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.r.length+"次");
+					}
+					if(_arr[i]=='s'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.s.length+"次");
+					}
+					if(_arr[i]=='t'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.t.length+"次");
+					}
+					if(_arr[i]=='u'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.u.length+"次");
+					}
+					if(_arr[i]=='v'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.v.length+"次");
+					}
+					if(_arr[i]=='w'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.w.length+"次");
+					}
+					if(_arr[i]=='x'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.x.length+"次");
+					}
+					if(_arr[i]=='y'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.y.length+"次");
+					}
+					if(_arr[i]=='z'){
+						alert(_arr[i]+"出现了"+_arr[i]+obj.z.length+"次");
+					}
+						
+				
+			}
+			_str2.value = _arr;
+		}
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<style type="text/css">
+		*{
+			margin:0px;
+			padding:0px;
+		}
+		
+		#box{
+			width:400px;
+			height:300px;
+			border:2px solid red;
+			margin:0 auto;
+			position:relative;
+		}	
+		
+		img{
+			position:absolute;
+			left:0px;
+			top:0px;
+			width:400px;
+			height:300px;
+		}
+		
+		#img01{
+			opacity:1;
+		}
+		
+		#img02{
+			opacity:0;
+		}
+		
+		ul{
+			position:absolute;
+			bottom:20px;
+			right:50px;
+		}
+		
+		ul li{
+			list-style:none;
+			float:left;
+			margin-left:20px;
+			width:20px;
+			height:20px;
+			background-color:pink;
+			border-radius:50%;
+			text-align:center;
+		}
+		
+	</style>
+<body>	
+	<div id="box">
+		<img id="img01"  src="images/1a.jpg" />
+		<img id="img02"  src="images/2a.jpg" />
+		<img id="img03"  src="images/3a.jpg" />
+		<img id="img04"  src="images/4a.jpg" />
+		<img id="img05"  src="images/5a.jpg" />
+		<ul id="ulBtn">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</div>
+	
+</body>
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript">
+"use strict";
+
+//当前透明度（1-0）
+let currOpacity=1;
+//淡入淡出的定时器：
+let myTimer;
+//轮播的定时器;
+let bannerTimer;
+//方向
+let direction = -1;
+
+//当前图片序号（淡入）
+let currInOrd = 1;
+//当前图片序号（淡出）
+let currOutOrd;
+
+//一、自动播放图片的代码
+//顺序走一步
+function goStep(){
+	//1、改变淡入的图片序号和淡出图片序号
+	changeInOutOrdSeq();	
+	//2、改变图片（淡入淡出效果）
+	fadeInOutAll();
+	//3、改变按钮背景颜色；
+	changeBtnBgColor(currInOrd);	
+}
+//改变淡入淡出的图片序号（顺序）
+function changeInOutOrdSeq(){
+	//1.1 改变淡入的图片序号
+	currInOrd++;
+	if(currInOrd>5){
+		currInOrd = 1;
+	}
+	//1.2 求出淡出的图片序号
+	currOutOrd = currInOrd-1;
+	if(currOutOrd<=0){
+		currOutOrd=5;
+	}	
+}
+
+function fadeInOutAll(){
+	//2.1淡入淡出前的初始化
+	fadeInOutInit();//淡入淡出的初始化	
+	//2.2淡入淡出
+	myTimer=setInterval(fadeInOut,200);	
+}
+
+function fadeInOutInit(){
+	//1、恢复透明度的初始值
+	currOpacity = 1;
+	
+	//2、让淡入图片定位到盒子里，其它图片放在盒子外。
+	for(let i=0;i<5;i++){
+		$("img0"+(i+1)).style.left = "-1000px";
+	}			
+	$("img0"+currInOrd).style.left = "0px";
+	$("img0"+currOutOrd).style.left = "0px";
+}
+
+//淡入淡出
+//已知淡入图片序号，和淡出图片序号，完成淡入淡出的过程。
+function fadeInOut(){
+	currOpacity=currOpacity-0.05;
+	
+	if(currOpacity<0.05){//切换完成（淡入淡出）
+		clearInterval(myTimer);
+		return;
+	}
+		
+	$("img0"+currOutOrd).style.opacity = currOpacity;  //1  2
+	$("img0"+currInOrd).style.opacity = 1-currOpacity;//2   3
+}
+
+function changeBtnBgColor(ord){
+	for(var i=0;i<5;i++){
+		$("ulBtn").children[i].style.backgroundColor="pink";	
+	}
+	$("ulBtn").children[ord-1].style.backgroundColor="red";	
+}
+
+
+
+//跳转到指定的图片；
+//假定ord是3；
+
+function goImg(ord){
+	//1、确定淡入的图片序号，和淡出的图片序号修改淡入的图片序号
+	//1.1修改淡出图片的序号
+	currOutOrd = currInOrd;//把淡入的图片序号赋给淡出的序号。	
+	//1.2 修改淡入的图片序号
+	currInOrd=ord;
+	if(currInOrd>5){
+		currInOrd = 1;
+	}	
+	
+	//2、改变图片（淡入淡出效果）
+	fadeInOutAll();	
+	//3、改变按钮背景颜色；
+	changeBtnBgColor(currInOrd);
+}
+
+//初始化
+function init(){
+	for(let i=0;i<5;i++){
+		$("img0"+(i+1)).style.left = "-1000px";
+	}	
+	$("img01").style.left = "0px";
+	$("img02").style.left = "0px";
+
+	$("img01").style.opacity = 1;
+	for(let i=1;i<5;i++){
+		$("img0"+(i+1)).style.opacity = 0;
+	}	
+	$("ulBtn").children[0].style.backgroundColor="red";	
+}
+
+
+
+window.onload = function(){
+	init();
+	bannerTimer = setInterval(goStep,3000);
+	$("box").onmouseover = function(){
+		window.clearInterval(bannerTimer);
+	}
+	$("box").onmouseout = function(){
+		bannerTimer = setInterval(goStep,3000);
+	}
+	
+	let ul_li = $("ulBtn").children;
+	for(let i=0;i<ul_li.length;i++){
+		ul_li[i].ord = i;//ord是li的自定义属性。
+		ul_li[i].onmousedown = function(){
+			goImg(this.ord);
+		}
+	}
+	
+}
+
+
+</script>

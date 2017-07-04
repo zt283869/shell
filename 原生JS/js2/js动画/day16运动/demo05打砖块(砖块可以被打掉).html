@@ -1,0 +1,248 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<style type="text/css">
+		*{
+			margin:0px;
+			padding:0px;
+		}
+		#box{
+			width:450px;
+			height:600px;
+			border:2px solid red;
+			margin:0 auto;
+			position:relative;
+		}
+	
+
+		#ball{
+			position:absolute;
+			width:20px;
+			height:20px;
+			left:200px;
+			top:400px;
+			border-radius:50%;
+			background-color:red;
+		}
+		
+		#bottomBrick{
+			position:absolute;
+			width:148px;
+			height:20px;
+			left:50px;
+			top:578px;
+			background-color:red;
+			border:1px solid green;
+		}
+		.topBrick{
+			position:absolute;
+			width:148px;
+			height:28px;
+			border:1px solid green;
+			background-color:yellow;
+			
+		}
+	</style>
+<body>
+	<div id="box">		
+		<span id="ball">
+		
+		</span>
+		<p id="bottomBrick">
+		</p>
+	</div>
+</body>
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript">
+"use strict";
+
+//容器的尺寸;
+let boxWidth;
+let boxHeight;
+
+//每个顶砖块的尺寸；
+let topBrickWidth ;
+let topBrickHeight ;
+
+//顶部横向有三砖
+let HBrickCount;
+//纵向的砖块层数
+let VBrickCount;
+
+//弹力球的初始位置；
+let ballLeft;
+let ballTop;
+let ballWidth;
+let ballHeight;
+
+//横向的增量（包括方向）
+let leftInc;
+//纵向的增量（包括方向）
+let topInc;
+//速度
+let speed ;
+
+//地砖
+let bottomBrickWidth;
+let	bottomBrickHeight;
+let	bottomBrickLeft;
+let bottomBrickTop;
+
+let myTimer;
+
+//初始化函数
+function init(){
+	initData();
+	initUI();
+}
+
+//1、初始化数据(js中的变量)
+function initData(){
+	//顶部横向有三块砖
+	HBrickCount = 3;
+	VBrickCount = 3;
+	
+	//容器的尺寸;
+	boxWidth=480;
+	boxHeight=650;
+
+	//每个顶砖块的尺寸；
+	topBrickWidth = boxWidth/HBrickCount-2;
+	topBrickHeight = 28;
+
+	//地砖
+	bottomBrickWidth=148;
+	bottomBrickHeight=20;
+	bottomBrickLeft=50;
+	bottomBrickTop=boxHeight-(bottomBrickHeight+2);//盒子的高度-底砖高度//弹力球的初始位置；
+	
+	//弹力球（弹力球的初始位置在底砖的中间）
+	ballWidth=20;
+	ballHeight=20;
+	ballLeft=bottomBrickLeft+(bottomBrickWidth-ballWidth)/2;//底砖left+（底砖宽度-弹力球宽度）/2
+	ballTop=bottomBrickTop-ballHeight-2;//（底砖top-弹力球的高度）
+
+
+	//横向的增量（包括方向）
+	leftInc = 1;
+	//纵向的增量（包括方向）
+	topInc = 1;
+	//速度
+	speed = 10;
+	
+}
+
+//2、初始化界面
+function initUI(){
+	//容器的尺寸;
+	$("box").style.width = boxWidth+"px";
+	$("box").style.height = boxHeight+"px";
+	
+	//生成顶砖（	HBrickCount = 3;VBrickCount = 3;）
+	for(let i=0;i<HBrickCount;i++){
+		for(let j=0;j<VBrickCount;j++){
+			//1、生成div；
+			var divObj = document.createElement("div");
+			divObj.id = "topBrick"+(i+1)+(j+1);
+			divObj.className = "topBrick";
+			divObj.style.left = (j*(topBrickWidth+2))+"px";
+			divObj.style.top =  (i*(topBrickHeight+2))+"px";
+			divObj.innerHTML = "第"+(i+1)+"行第"+(j+1)+"块";
+			//2、放在容器里
+			$("box").appendChild(divObj);
+		}
+	}
+
+	//每个顶砖块的尺寸；
+	let topBricks = document.getElementsByClassName("topBrick");
+	for(let i=0; i<topBricks.length;i++){
+		topBricks[i].style.width = topBrickWidth+"px";
+		topBricks[i].style.height = topBrickHeight+"px";
+	}
+	
+	//弹力球的初始位置；
+	$("ball").style.cssText = "left:"+ballLeft+"px;top:"+ballTop+"px;width:"+ballWidth+"px;height:"+ballHeight+"px";
+	//地砖
+	$("bottomBrick").style.cssText="width:"+bottomBrickWidth+"px;height:"+bottomBrickHeight+"px;left:"+bottomBrickLeft+"px;top:"+bottomBrickTop+"px;";
+}
+
+
+function goStep(){
+	ballLeft+=leftInc;
+	ballTop+=topInc;	
+	
+	//if(ballTop+20>=600){ //底部(弹力球的top+弹力球的高>=盒子的高)
+	
+	if(ballTop+ballHeight>boxHeight-(bottomBrickHeight+2)){
+		alert("game over");
+		//停止定时器；
+		clearInterval(myTimer);
+		return false;		
+	}
+	//1）、弹力球的top+弹力球的高==盒子的高-底砖的高度
+	//2）、弹力球的left在底砖的横向坐标跨度范围内。
+	if((ballTop+ballHeight==boxHeight-(bottomBrickHeight+2)) && (ballLeft>=bottomBrickLeft && ballLeft<=bottomBrickLeft+(bottomBrickWidth+2))){
+		topInc = -1;
+	}else if(ballTop<=(topBrickHeight+2)*VBrickCount){//顶部(弹力球的top<=楼板的底部)
+		//1、让碰到砖消失
+		let ballTopCenter = ballLeft+ballWidth/2;
+		if(ballTopCenter>=0 && ballTopCenter<=150){//判断弹力球的left在哪块砖的横向区域，弹力球的顶部中点和每块砖的坐标跨度比较
+			//删除第三行第一块
+			$("box").removeChild($("topBrick31"));
+		}else if(ballTopCenter>150 && ballTopCenter<=300){
+			//第三行第二块
+			$("box").removeChild($("topBrick32"));
+			
+		}else if(ballTopCenter>300 && ballTopCenter<=450){
+			//第三行第三块
+			$("box").removeChild($("topBrick33"));			
+		}
+		//2、反弹
+		topInc = 1;
+		
+	}else if(ballLeft<=0){//左边：弹力球left<=0
+		leftInc = 1;
+	}else if(ballLeft+ballWidth>=boxWidth){//右边：弹力球的left+弹力球的宽度>=盒子的宽度
+		leftInc = -1;
+	}
+	
+	$("ball").style.left =ballLeft+"px";
+	$("ball").style.top =ballTop+"px";
+	
+	
+}
+
+
+
+
+window.onload = function(){
+	init();
+	myTimer=setInterval(goStep,speed);	
+	
+	document.body.onkeydown = function(event){
+		let evt = event||window.event;
+		if(evt.keyCode==37){
+			//左移
+			bottomBrickLeft-=10;
+			if(bottomBrickLeft<=0){
+				bottomBrickLeft=0;
+			}
+			$("bottomBrick").style.left = bottomBrickLeft+"px";
+			
+		}else if(evt.keyCode==39){
+			//右移
+			bottomBrickLeft+=10;
+			if(bottomBrickLeft+bottomBrickWidth>=boxWidth){
+				bottomBrickLeft=boxWidth-bottomBrickWidth;
+			}
+			$("bottomBrick").style.left = bottomBrickLeft+"px";
+		}
+	}
+}
+
+
+</script>

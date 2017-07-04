@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<style type="text/css">
+		*{
+			margin:0px;
+			padding:0px;
+		}
+		
+		#box1{
+			width:400px;
+			height:300px;
+			border:2px solid red;
+			margin:0 auto;
+			position:relative;
+		}
+
+		#box2{
+			width:500px;
+			height:400px;
+			border:2px solid red;
+			margin:0 auto;
+			position:relative;
+		}		
+		
+	</style>
+<body>	
+	
+	<div id="box1">
+		
+	</div>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<div id="box2">
+		
+	</div>
+
+</body>
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript" src="js/eventTools.js"></script>
+<script type="text/javascript" src="js/banner.js"></script>
+<script type="text/javascript">
+"use strict";
+window.onload = function(){
+	let b1 = new Banner(
+						{
+							boxId : "box1",//轮播图所在容器的id
+							imgArr : ["images/1.jpg","images/2.jpg","images/3.jpg","images/4.jpg"],//图片数组,这里面存放着每张图片的路径
+							//轮播图的宽和高
+							width : 400,
+							height : 300,			
+							//淡入淡出过程需要的时间；
+							fadeInOutTime : 2000,			
+							//停顿时间；
+							pauseTime : 1000,
+							//按钮的颜色（原始颜色，高亮颜色）；
+							btnColor : "pink",
+							btnHighColor : "red",
+							btnWidth : 20,
+							btnHeight : 20,
+							btnLeft : 130,
+							btnTop : 270,
+							//按钮的间隔
+							btnSpace : 20,
+							//按钮上是否有序号
+							btnHasOrd : true
+						}
+					);
+					
+	let b2 = new Banner(
+					{
+						boxId : "box2",//轮播图所在容器的id
+						imgArr : ["images/10.jpg","images/6.jpg","images/7.jpg","images/8.jpg","images/9.jpg"],//图片数组,这里面存放着每张图片的路径
+						//轮播图的宽和高
+						width : 500,
+						height : 400,			
+						//淡入淡出过程需要的时间；
+						fadeInOutTime : 1000,			
+						//停顿时间；
+						pauseTime : 1000,
+						//按钮的颜色（原始颜色，高亮颜色）；
+						btnColor : "green",
+						btnHighColor : "yellow",
+						btnWidth : 30,
+						btnHeight : 30,
+						btnLeft : 130,
+						btnTop : 270,
+						//按钮的间隔
+						btnSpace : 20,
+						//按钮上是否有序号
+						btnHasOrd : false
+					}
+				);
+}
+
+</script>

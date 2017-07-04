@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin:0;padding:0}
+			#box{
+				position:relative;
+			}
+			
+			li{
+				list-style:none;
+				position:absolute;
+				left:0px;
+				top:0px;
+			}
+			
+			img{
+				filter:alpha(opacity=50);
+				opacity:1;
+			}
+			
+		</style>
+		<script type="text/javascript" src="js/tools.js"></script>
+		<script type="text/javascript" src="js/Dragtools.js"></script>
+		<script type="text/javascript">
+			var myTimer;
+			var t = 1;
+			function fadeOut(){
+				t = t-0.05;
+				if(t<=0){
+					clearInterval(myTimer);
+				}
+				$("img")[0].style.opacity = 1-t;//让该图片清晰
+				$("img")[1].style.opacity = t;//让该图片消失
+			}
+			window.onload = function(){
+				myTimer = setInterval(fadeOut,100);			
+			}		
+		</script>
+	</head>
+	<body>
+		<ul id="box">
+			<li><img src="images/a0.jpg"/></li>
+			<li><img src="images/a1.jpg"/></li>
+		</ul>
+	</body>
+</html>

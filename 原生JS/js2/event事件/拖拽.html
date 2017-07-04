@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{position: relative;}
+			div{position: absolute;
+			top: 0;left: 0;
+			width: 100px;
+			height: 100px;
+			background: red;
+			cursor: move;
+			text-align: center;
+			line-height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1">我是DIV</div>
+		<script>
+			var d1 = document.getElementById("d1");
+			var flag=0;
+			var _left;
+			var _top;
+		
+		d1.onmousedown = function(event){
+				var evt = event||window.event;
+				flag=1;
+				_left = evt.pageX-d1.offsetLeft;
+				_top = evt.pageY-d1.offsetTop;
+			}
+			onmousemove = function(event){
+			var evt = event||window.event;
+			if(flag){
+				d1.style.left = evt.pageX-_left+"px";
+				d1.style.top = evt.pageY-_top+"px";
+			}
+			}
+			d1.onmouseup = function(){
+				flag=0;
+			}
+			//键盘指向
+			window.onkeydown = function(event){
+				var  eve = event||window.event;
+				var keyCode = eve.keyCode;
+				switch(keyCode){
+					case 37:d1.style.left = d1.offsetLeft-10+"px";break;
+					case 38:d1.style.top = d1.offsetTop-10+"px";break;
+					case 39:d1.style.left = d1.offsetLeft+10+"px";break;
+					case 40:d1.style.top = d1.offsetTop+10+"px";break;
+				}
+			}
+		</script>
+	</body>
+</html>

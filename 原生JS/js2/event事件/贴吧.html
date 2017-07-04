@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		*{margin: 0;padding: 0;}
+			textarea{
+				width: 500px;
+				
+					height:100px;
+					margin-top: 10px;		}
+			#but1{margin-left: 350px;}
+			ul li{list-style: none;}
+			ul{max-height: 300px;width: 500px;}
+			ul{overflow: auto;}
+							
+		</style>
+	</head>
+	<body>
+		<ul>
+			
+		</ul>
+		<textarea></textarea><br />
+		<input type="button" name="1" id="but1" value="发送留言" />
+		<script>
+			var ul = document.getElementsByTagName("ul")[0];
+			var textare = document.getElementsByTagName("textarea")[0];
+			var inp = document.getElementById("but1");
+			
+			inp.onclick = function(event){
+				
+				var eve = event||window.event;
+				if( textare.value==false){
+					alert("留言不能为空")
+					return;
+				}
+				var _li = document.createElement("li");
+				 _li.style.cssText= "border-bottom: 1px solid darkred";
+				 _li.innerHTML = "**说:"+textare.value;
+				 ul.appendChild(_li);
+				 textare.value = "";
+				
+			}
+			document.onkeydown = function(event){
+				var eve = event||window.event;
+					if(eve.ctrlKey&&eve.keyCode==13){
+						if( textare.value==false){
+							alert("留言不能为空")
+							return;
+						}
+						var _li = document.createElement("li");
+						 _li.style.cssText= "border-bottom: 1px solid darkred";
+						 _li.innerHTML = "**说:"+textare.value;
+						 ul.appendChild(_li);
+						 textare.value = "";
+						}
+					
+					
+					
+				}
+			
+		</script>
+	</body>
+</html>

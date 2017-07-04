@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script type="text/javascript">
+
+function testF1(){
+	opener.document.getElementById("txtId").value="敢在太岁头上动土！";
+}
+function testF2(){
+	var t = window.dialogArguments;
+	//alert(t);
+	window.returnValue = 10000;
+	window.close();
+}
+
+
+
+</script>
+</head>
+
+<body>
+	我是子页面。
+	
+	<input type="button" value="我能改变父窗口的内容" onclick="testF1()"/>
+	<input type="button" value="获得父窗口传来的数据" onclick="testF2()"/>
+</body>
+</html>

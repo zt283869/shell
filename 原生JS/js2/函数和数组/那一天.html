@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		年<input type="text" name="text1" id="text1" value="" />
+		月<input type="text" name="text2" id="text2" value="" />
+		日<input type="text" name="text3" id="text3" value="" />
+		<input type="button" name="" id="" value="计算" onclick="a()"/>
+		<script src="工资.js"></script>
+		<script>
+			function a(){
+				var _text1 = document.getElementById("text1").value;
+				var _text2 = document.getElementById("text2").value;
+				var _text3 = document.getElementById("text3").value;
+//				console.log(_text3);
+				getDage(_text1,_text2,_text3);
+			}
+		</script>
+	</body>
+</html>

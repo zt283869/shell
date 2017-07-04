@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin:0;padding:0}
+			#box{
+			}
+			
+			li{
+				position:relative;
+				list-style:none;				
+				left:0px;
+				top:0px;
+			}
+			
+			img{
+				position:absolute;
+				filter:alpha(opacity=50);
+				opacity:1;
+			}
+			
+			#imgId01{
+				z-index:2;
+			}
+			#imgId02{
+				z-index:1;
+			}
+			
+		</style>
+		<script type="text/javascript" src="js/tools.js"></script>
+		<script type="text/javascript" src="js/Dragtools.js"></script>
+		<script type="text/javascript">
+			
+			//用图片的id表示上下关系；
+			
+			var imgArr = ["a0","a1","a2","a3","a4","a5"];			
+			var opacityValue = 1;
+			var myTimer;
+			//渐隐渐现（改变透明度）
+			function fadeOutIn(){
+				opacityValue -=0.05;
+				if(opacityValue<=0){
+					opacityValue=0;
+				}
+				//1、让当前显示的图片（上面的那个）慢慢消失；
+				$("#imgId01").style.opacity = opacityValue;
+				//2、让下一张图片慢慢显示
+				$("#imgId02").style.opacity = 1-opacityValue;
+				
+				//3、当完全显示（消失）；
+				if(opacityValue<=0){
+					//1)、清除定时器；
+					window.clearInterval(myTimer);
+					//2）、改变z-index;同时改变下面那张图片的src；
+					$("#imgId01").style.zIndex = 1;
+					$("#imgId02").style.zIndex = 2;
+					var obj = $("#imgId01");
+					$("#imgId02").id = "imgId01";
+					obj.id = "imgId02";
+					
+					var nextOrd = ord+1;
+					if(nextOrd>imgArr.length-1){
+						nextOrd = 0;
+					}
+					//同时改变下面那张图片的src；
+					$("#imgId02").src = "images/"+imgArr[nextOrd]+".jpg";
+					//3）、让透明度恢复1；
+					opacityValue = 1;
+				}
+			}
+			
+			function showImgByOrd(){
+				myTimer=setInterval(fadeOutIn,200);
+			}
+		
+			var ord=0//;当前图片序号，从0开始；
+			function changeImg(){
+				//1、改变当前图片序号
+				ord++;//1
+				if(ord>5){
+					ord=0;
+				}				
+				//2、显示对应序号的图片；
+				showImgByOrd();
+				
+			}
+			
+			window.onload = function(){
+				setInterval(changeImg,6000);			
+			}		
+		</script>
+	</head>
+	<body>
+		<ul id="box">
+			<li>
+				<img id="imgId01" src="images/a0.jpg"/>
+				<img id="imgId02" src="images/a1.jpg"/>
+			</li>   
+		</ul>
+	</body>
+</html>

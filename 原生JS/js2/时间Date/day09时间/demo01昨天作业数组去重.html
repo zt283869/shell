@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script type="text/javascript" src="arrayTools.js"></script>
+<script type="text/javascript">
+
+//数组去重：
+function noRepeat(){
+	
+	
+/*	法一：
+	var arr = [12,23,34,12,23,45,22,12,56,12];
+	for(var i=0;i<arr.length;i++){
+		for(j=i+1;j<arr.length;j++){
+			if(arr[i]==arr[j] ){
+				arr.splice(j,1);
+				j--;
+			}
+		}
+	}
+	*/
+	
+//法二：
+/*
+	var arr = [12,23,34,12,23,45,22,12,56,12];
+	for(var i=0;i<arr.length;i++){
+		for(j=i+1;j<arr.length;j++){
+			if(arr[i]==arr[j] ){
+				arr[j]="";
+			}
+		}
+	}
+	
+	var index = 0;//3
+	while(index<arr.length){
+		if(arr[index]==""){
+			arr.splice(index,1);
+			continue;
+		}
+		index++;
+	}
+	*/
+	
+//法三：
+	var arr = [12,23,34,12,23,45,22,12,56,12];
+	//var arrNew=[12,23,34,45,22,56];
+	var arrNew = [];
+	
+	for(var i=0;i<arr.length;i++){
+		if(arrNew.indexOf(arr[i])>-1){
+			continue;
+		}
+		arrNew.push(arr[i]);
+	}
+	
+	for(var i in arrNew){
+		document.write(arrNew[i]+",");
+	}
+	
+	
+
+}
+
+//
+
+
+</script>
+</head>
+
+<body onload="testF()">
+	<input type="button" value="测试" onclick="noRepeat()"/>
+</body>
+</html>

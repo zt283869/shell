@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="tetx" name="text1" id="text1" value="" onblur="test()"/>
+		<script>
+			var a;
+			var b;
+			var c;
+			function sum1(n1,n2){
+				var n3 = n1+n2;
+					a = a+n3+",";
+					b++;
+					if(b>=c){
+						alert(a);
+						return;
+					}
+					sum1(n2,n3);
+			}
+			function test(){
+				c = parseInt(document.getElementById("text1").value);
+				var n1 = 1;
+				var n2 = 1;
+				a = n1+","+n2+",";
+				b =2;
+				sum1(n1,n2);
+			}
+		</script>
+	</body>
+</html>

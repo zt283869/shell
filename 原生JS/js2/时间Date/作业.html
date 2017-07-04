@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body onload="DateBom('ap1','ap2')">
+		系统当前时间：<span id="ap1"></span><br />
+		你停留了：<span id="ap2"></span><br />
+		<input type="text" name="txt" id="txt" value="" placeholder="请输入字符"/>
+		<input type="button" name="but" id="but" value="执行" onclick="CharCode('txt','ap3','ap4')"/><br />
+		你输入的代码是：<span id="ap3"></span>
+		他的ASCII码为：<span id="ap4"></span>
+		<script src="时间封装.js"></script>
+		<script>
+			
+			function DateBom(str,arr){
+				var d = new Date();
+				var comS = Date.parse('Apr 18, 2015');
+					d.setTime(comS);
+				
+					setInterval(function(){
+						var t = d.getTime(1000)+1000;
+							d.setTime(t);
+							document.getElementById(str).innerHTML = showTimer(d);
+							document.getElementById(arr).innerHTML = timer(d);
+					},1000)
+				}
+			
+				function CharCode(txt,str,arr){
+					var _txt = document.getElementById(txt).value;
+					var _str = document.getElementById(str);
+					var _arr = document.getElementById(arr);
+					var isASC = new Array();
+					//把每个字符串的ASCII码输出
+					for(var i=0;i<_txt.length;i++){
+						isASC[i] = _txt.charCodeAt(i);
+					}
+					//把数组的ASCII码遍历出来
+					var m = '';
+					for(var j=0;j<isASC.length;j++){
+						m+=isASC[j]+",";
+						
+					}
+					//把字符串的长度遍历出来
+					var a = '';
+					for(var i=0;i<_txt.length;i++){
+						a+=_txt[i]+",";
+					}
+					
+					_str.innerHTML = a;
+					_arr.innerHTML = m;
+				}
+			
+		</script>
+		
+	</body>
+</html>

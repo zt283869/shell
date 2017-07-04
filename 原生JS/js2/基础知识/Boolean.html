@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="text1" id="text1" value="" />
+		<script>
+		function getId(str){
+			return document.getElementById(str);
+		}
+		function w(){
+			var num = 15;
+			var _text1 = getId("text1");
+				_text1.value = num;
+				console.log(typeof _text1.value);
+		}
+		window.w();
+//			var a = "";
+//			alert(Boolean(a));
+//			alert(0.1+0.2);
+//			var person = {
+//					age:10,
+//					name:"zhangsan"
+//			}
+//			console.log(typeof person.age);
+//			console.log(String(person.age));					
+//			console.log(typeof person.age.toString());			
+//			console.log(typeof String(person.age));
+//			function a(){
+//				var ms = "Hello world";
+//				if(ms){
+//				alert("this.Hello world");
+//				}
+//			}
+//			window.a();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script type="text/javascript" src="js/dateTools.js"></script>
+<script type="text/javascript">
+
+//getTime()//获得毫秒数，只是获取，不会改变；
+
+//setTime(t);修改（设置）毫秒数，相当于赋值；
+	
+var count = Date.parse("Jul 8, 2005");//把日期字符串转换为毫秒数；
+var d = new Date();
+d.setTime(count);
+
+
+
+function startTime(){
+	var t = d.getTime()+1000;	
+	d.setTime(t);
+	
+	document.getElementById("timeSpan").innerHTML  = showTime(d);
+}
+
+function testF(){
+	setInterval("startTime()",1000);	
+}
+
+
+</script>
+</head>
+
+<body onload="testF()">
+	亲，北京时间：<span id="timeSpan"></span>
+	
+</body>
+</html>

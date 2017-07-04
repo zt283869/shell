@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+	 
+	</style>
+   
+<body>
+	<textarea id="allInfo" type="text" rows="20" cols="50" ></textarea><br/>
+	<input id="txtId" type="text"  />
+	<input id="btnSend" type="button" value="发送"  onclick = "return ff()" />
+	
+	
+	
+</body>
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript">
+	document.body.oncontextmenu = function(event){
+		alert("右键被点了");
+		var evt = event||window.event;		
+		if(navigator.userAgent.indexOf("MSIE")>-1){
+			evt.returnValue = false;
+		}else{
+			evt.preventDefault();
+		}
+		
+		//1、显示自己的右键菜单，把它的左上角和鼠标距离页面左上角的坐标。
+		
+		
+		
+	}
+	
+	function ff(){
+		return false;
+	}
+	
+</script>

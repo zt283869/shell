@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				width: 320px;height: 504px;box-shadow: 0 0 10px 10px #DB7093;
+				position: relative;
+				float: left;
+			}
+			#box img{
+				width: 100%;
+			}	
+			#maxbox{
+				position: relative;
+				width: 320px;height: 504px;
+				float: left;
+				box-shadow: 0 0 10px 10px #DB7093;
+				overflow: hidden;
+				margin-left: 50px;
+				display: none;
+			}
+			#maxbox img{
+				position: absolute;
+				top: 0px;left: 0px;
+			}
+			#opbox{
+				position: absolute;
+				top: 0px;left: 0px;
+				width: 160px;height: 252px;
+				background: rgba(0,0,0,0.5);
+				cursor: move;
+				display: none;
+			}
+		</style>
+	</head>
+	<body onload="funaAll()">
+		<div id="box">
+			<img src="zhiling2.jpg"/>
+			<div id="opbox"></div>
+		</div>
+		<div id="maxbox">
+			<img src="zhiling2.jpg" id="omg"/>
+		</div>
+		<script>
+			function $(str){
+				return document.getElementById(str);
+			}
+			let boxWidth;
+			let boxHeight;
+			let opboxWidth;
+			let opboxHright;
+			
+			//初始化
+			function init(){
+				boxWidth = 320;
+				boxHeight = 504;
+				opboxWidth = 160;
+				opboxHright = 252;
+			}
+			//鼠标放入放出
+			function onMouseover_out(){
+				$("box").onmouseover = function(){
+					$("opbox").style.display = "block";
+					$("maxbox").style.display = "block";
+				}
+				$("box").onmouseout = function(){
+					$("opbox").style.display = "none";
+					$("maxbox").style.display = "none";					
+				}
+			}
+			//鼠标定位
+			function getMove(){				
+				$("box").onmousemove = function(event){
+					let e = event||window.event;
+					let _left;//left距离
+					let _top;//top距离
+					//left
+					if(e.pageX-$("box").offsetLeft<opboxWidth/2){//判断左边界
+						_left = 0;
+					}else if(e.pageX-$("box").offsetLeft>(boxWidth-opboxWidth/2)){//右边界
+						_left = boxWidth-opboxWidth;
+					}else{
+						//鼠标坐标的位置除2是把鼠标放到中间
+						_left = e.pageX - $("box").offsetLeft-opboxWidth/2;
+					}
+					//top
+					if(e.pageY-$("box").offsetTop<opboxHright/2){//上边界
+						_top = 0;
+					}else if(e.pageY-$("box").offsetTop>(boxHeight-opboxHright/2)){//下边界
+						_top = boxHeight-opboxHright;
+					}else{
+						//鼠标坐标的位置除2是把鼠标放到中间
+						_top = e.pageY-$("box").offsetTop-opboxHright/2;
+					}
+						$("opbox").style.left = _left+"px";
+						$("opbox").style.top = _top+"px";
+						$("omg").style.left  = -1*2*_left+"px";
+						$("omg").style.top  = -1*2*_top+"px";
+					}
+				
+				}
+			//整合
+			function funaAll(){
+				window.init();
+				window.onMouseover_out();
+				window.getMove();
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+	
+	</style>
+	<script type="text/javascript">
+		function exchange(){			
+			var num = parseInt(document.getElementById("numId").value);
+			/*
+			if(num%2==0){
+				alert("亲，您输入"+num+"的是偶数");
+			}else{
+				alert("亲，您输入"+num+"的是奇数");
+			}
+			*/
+			var str ="亲，您输入"+num+"的是";
+			if(num%2==0){
+				str = str+"偶";
+			}else{
+				str = str+"奇";
+			}
+			alert(str+"数");
+			
+		}
+	</script>
+	
+	<body>
+		请输入一个数字：<input id="numId" type = "text" />我给你说是不是偶数<br/>
+		<input type="button" value="  测试；  "  onclick="exchange()" />
+		
+	</body>
+</html>

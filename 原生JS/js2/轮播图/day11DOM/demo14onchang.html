@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>		
+		<style type="text/css">
+			*{
+				margin:0px;
+				padding:0px;
+			}
+			
+			#box{
+				position:relative;
+				width:500px;
+				height:30px;
+				border:1px dashed black;
+			}
+			
+			
+			#inBox{
+				width:0px;
+				height:30px;
+				background-color:red;
+			}
+		
+		
+		</style>
+	</head>
+	
+	<body id="bodyId">
+		<select id="bgColorList" onChange="changeBg()">
+		  <option value="">---------</option>
+		  <option value="#FFCCFF">粉红浪漫</option>
+		  <option value="#6699FF">蓝色忧郁</option>
+		  <option value="#9966FF">紫色诱惑</option>
+		  <option value="#009966">绿色环保</option>
+		</select>
+
+	</body>
+
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript" >
+
+function changeBg(){
+	if($("bgColorList").value!=""){
+		document.body.style.backgroundColor = $("bgColorList").value;
+	}
+	
+}
+
+</script>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		*{margin: 0;padding: 0;}
+		ul li{list-style: none;}
+			#box{
+				width: 500px;
+				text-align: center;
+				background: firebrick;
+				height: 40px;
+				line-height: 30px;
+			}
+			input{border:none;height: 25px;border-radius: 5%;}
+			#ss{background: blueviolet;color: #fff;border:none;border-radius: 10%;width:50px;}
+			#txt{width: 200px;}
+			#sele{position: absolute;top: 27px;left: 123px;}
+			#sele li{background: rgba(0,0,0,0.5);width: 200px;
+			margin-top: 2px;border-radius: 5%;
+			opacity: 0;
+			transform: rotateY(90deg);
+			transition: opacity .4s,transform .8s;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box" onmouseout="tomove()">
+			<input type="text" name="txt" id="txt" value="" onclick="apper()"/>
+			<input type="button" name="" id="ss" value="搜索" />
+			<ul id="sele">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>
+		</div>
+		<script>
+			function apper(){
+				var m = 0;
+				var strul = document.getElementById("sele");
+				var strli = strul.getElementsByTagName("li");
+				for(var i=0;i<strli.length;i++){
+					strli[i].style.cssText = "opacity: 1;transform: none;transition-delay: "+m+"ms";
+					m+=50;
+				}
+			}
+			function tomove(){
+				var m = 300;
+				var strul = document.getElementById("sele");
+				var strli = strul.getElementsByTagName("li");
+				for(var i=0;i<strli.length;i++){
+					strli[i].style.cssText = "transition-delay: "+m+"ms";
+					m-=50;
+				}
+			}
+			
+		</script>
+	</body>
+</html>

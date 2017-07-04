@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#ball{
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				left: 0px;
+				top: 0px;
+				border-radius: 50%;
+				background: red;
+				box-shadow: ;
+			}
+		</style>
+	</head>
+	<body>
+<br/><br/><br/><br/>
+<br/><br/><br/><br/>
+<br/><br/><br/><br/>
+
+<br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/>
+<br/><br/>
+<br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<br/>
+	<br/>
+		<script>
+			"use strict";
+			function $(str){
+				return document.getElementById(str);
+				
+			}
+			//浏览器初始化重新获取
+			var clientWindow=new Object();
+			function getclientWindow(){
+				clientWindow.clientHeight=document.documentElement.clientHeight || document.body.clientHeight;
+				clientWindow.clientWidth=document.documentElement.clientWidth || document.body.clientWidth;
+				clientWindow.scrollTop=document.documentElement.scrollTop || document.body.scrollTop;
+				clientWindow.scrollLeft=document.documentElement.scrollLeft || document.body.scrollLeft;
+			}
+		
+		
+			//弹力球对象
+			function Ball(left,top,leftInc,topInc,speed,width,height,id,imgFile){
+				//对象属性
+				this.left = left;
+				this.top = top;
+				this.leftInc = leftInc;
+				this.topInc = topInc;
+				this.speed = speed;
+				this.width = width;
+				this.height = height;
+				this.id = id;
+				this.timer = null;
+				this.imgFile = imgFile;
+			//方法初始化界面
+				this.initUl = function(){
+					let imgObj = document.createElement("img");
+					imgObj.id = this.id;
+					imgObj.src = this.imgFile;
+					imgObj.style.cssText = "position: absolute;width: "+this.width+"px;height:"+this.height+"px;left:"+this.left+"px;top:"+this.top+"px;border-radius:50%;";
+					document.body.appendChild(imgObj);
+				}
+				//运动的逻辑
+			this.goStep = function(){
+				
+				this.left = this.left+this.leftInc;
+				this.top = this.top+this.topInc;
+				
+		if(this.top-clientWindow.scrollTop>=(clientWindow.clientHeight-this.height)){// (弹力球的top-clientWindow.scrollTop)和（可视区域高-弹力球高度）进行比较
+			this.topInc = -1*Math.abs(this.topInc);
+		}else if(this.top-clientWindow.scrollTop<=0){
+			this.topInc = Math.abs(this.topInc);
+		}else if(this.left-clientWindow.scrollLeft<=0){
+			this.leftInc = Math.abs(this.leftInc);
+		}else if(this.left-clientWindow.scrollLeft>=(clientWindow.clientWidth-this.width)){
+		
+
+			this.leftInc = -1*Math.abs(this.leftInc);
+		}
+				
+			$(this.id).style.left = this.left+"px";
+			$(this.id).style.top = this.top+"px";
+			}
+			//动起来
+			this.startMove = function(){
+				let that = this;
+				this.timer = setInterval(function(){
+					that.goStep();
+				},this.speed);
+			}
+			
+			}
+			//用法
+		window.onload = function(){	
+			getclientWindow();
+			window.onscroll = function(){getclientWindow()};
+			window.onresize = function(){getclientWindow()};
+			var b1 = new Ball(100,30,30,30,30,50,50,"ball01","1.jpg");		
+				
+				b1.initUl();
+				b1.startMove();
+		}	
+		
+		</script>
+	</body>
+</html>

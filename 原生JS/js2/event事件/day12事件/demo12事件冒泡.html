@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+		#grandpa{
+			width:500px;
+			height:400px;
+			border:1px solid red;
+		}
+	 
+		#father{
+			width:400px;
+			height:300px;
+			border:1px solid yellow;
+		}
+	 
+		#me{
+			position:absolute;
+			left:1000px;
+			top:0px;
+			width:300px;
+			height:200px;
+			border:1px solid blue;
+		}
+	 
+	</style>
+   
+<body id="b">
+	<div id="grandpa">
+		<div id="father">
+			<div id="me" >
+				我是宝宝
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript">
+	$("me").onclick = function(){
+		alert("我被打了！");
+	}
+	
+	$("father").onclick = function(){
+		alert("爸爸被打了！");
+	}
+	
+	$("grandpa").onclick = function(){
+		alert("爷爷被打了！");
+	}
+	
+	$("b").onclick = function(){
+		alert("老祖宗被打了！");
+	}
+	
+</script>

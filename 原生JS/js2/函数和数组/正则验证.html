@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="text1" id="text1" value="123465551" />
+		<script>
+			var _text1 = document.getElementById("text1");
+				(function (){
+					var reg = /^[^0-9]$/;
+				if(reg.test(_text1.value)){
+					alert("数字");
+				}else{
+					alert("不是数字")
+				}
+				})();
+				
+		</script>
+	</body>
+</html>

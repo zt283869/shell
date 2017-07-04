@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>		
+		<style type="text/css">
+			*{
+				margin:0px;
+				padding:0px;
+			}
+			
+			#box{
+				position:relative;
+				width:500px;
+				height:300px;
+				border:1px solid #f7f7f7;
+				overflow:hidden;
+			}
+		
+		</style>
+	</head>
+	
+	<body>
+		<table id="stuInfo" border="1" width="500" align="center"><tr>
+				<td>学号</td>
+				<td>姓名</td>
+				<td>性别</td>
+				<td>年龄</td>
+				<td>大头贴</td>
+			</tr>
+			
+			<tr>
+				<td>01001</td>
+				<td>刘玉玲</td>
+				<td>女</td>
+				<td>16</td>
+				<td><img src="images/big1.jpg" style="width:80px;height:60px" /></td>
+			</tr>
+			<tr>
+				<td>01002</td>
+				<td>畅子威</td>
+				<td>男</td>
+				<td>17</td>
+				<td><img src="images/big2.jpg" style="width:80px;height:60px" /></td>
+			</tr>
+			<tr>
+				<td>01003</td>
+				<td>李江</td>
+				<td>男</td>
+				<td>18</td>
+				<td><img src="images/big3.jpg" style="width:80px;height:60px" /></td>
+			</tr>			
+		</table>
+		
+		学号：<input id="stuId" type="text" value="01004" /><br/>
+		姓名：<input id="stuName" type="text" value="程海" /><br/>		
+		性别：<input id="stuSex" name="sex" type="radio" checked="checked" />女<input id="stuSex" name="sex" type="radio" />男<br/>
+		年龄：<input id="stuAge" type="number" value="18" /><br/>
+		大头贴：<input id="imgId" type="file" /><br/>	
+		<input id="btn01" type="button" value="添加学生" onclick="addStu()"/>
+	</body>
+
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript"  >
+
+function addStu(){
+	//1、创建tr
+	var trObj = document.createElement("tr");
+	var firstStudent = $("stuInfo").firstChild.childNodes[1];
+	$("stuInfo").firstChild.insertBefore(trObj,firstStudent);
+	//2、学号
+	var tdObj = document.createElement("td");
+	trObj.appendChild(tdObj);
+	var textObj = document.createTextNode($("stuId").value);
+	tdObj.appendChild(textObj);
+	
+	//3、姓名
+	tdObj = document.createElement("td");
+	trObj.appendChild(tdObj);
+	textObj = document.createTextNode($("stuName").value);
+	tdObj.appendChild(textObj);
+	
+	//4、性别：
+	tdObj = document.createElement("td");
+	trObj.appendChild(tdObj);
+	
+	var sexs = document.getElementsByName("sex");
+	var str="女";
+	if(sexs[1].checked==true){
+		str="男";
+	}	
+	textObj = document.createTextNode(str);
+	tdObj.appendChild(textObj);
+	
+	//5、年龄
+	tdObj = document.createElement("td");
+	trObj.appendChild(tdObj);
+	textObj = document.createTextNode($("stuAge").value);
+	tdObj.appendChild(textObj);
+	
+	//6、大头贴
+	tdObj = document.createElement("td");
+	trObj.appendChild(tdObj);
+	//textObj = document.createTextNode($("stuAge").value);
+	var imgObj = document.createElement("img");
+	var str = $("imgId").value;
+	var index = str.lastIndexOf("\\");
+	str = str.substring(index+1);
+	imgObj.src="images/"+str;
+	imgObj.style.width="80px";
+	imgObj.style.height="60px";
+	tdObj.appendChild(imgObj);
+	
+	
+}
+
+
+</script>

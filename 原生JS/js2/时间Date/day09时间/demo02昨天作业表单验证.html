@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+		
+	</style>
+<script type="text/javascript">
+
+function register(){
+/*
+名字只能包含数字、字母和下划线，数字不可以开头，长度不低于6，不高于20
+
+密码必须一致
+
+输入框中要有默认提示
+
+昵称一栏要将敏感词或特殊符号自动过滤，将输入的非法字符自动清除
+
+所有输入框不能为空，并数据合法，点击提交才可以正确提交表单数据
+*/  
+	var userName = document.getElementById("txtUserName").value;
+	if(userName.length<6 || userName.length>20){
+		alert("亲，用户名长度不低于6，不高于20");
+		return;
+	}
+	
+	//数字不可以开头
+	if(userName.charAt(0)>="0" && userName.charAt(0)<="9"){
+		alert("亲，用户名不能以数字开头");
+		return;
+	}
+	//名字只能包含数字、字母和下划线
+	for(var i=0;i<userName.length;i++){
+		var ch = userName.charAt(i);
+		if((ch>="0" && ch<="9") || (ch>="a" && ch<="z") || (ch>="A" && ch<="Z") || ch=="_"){
+			
+		}else{
+			alert("亲，用户名只能包含数字、字母和下划线");
+			return;
+		}		
+	}
+	
+	/*
+	var pass1 = document.getElementById("txtPass").value;
+	var pass2 = document.getElementById("txtCheckPass").value;
+	if(pass1!==pass2){
+		
+	}
+	*/
+	
+	//昵称一栏要将敏感词或特殊符号自动过滤，将输入的非法字符自动清除
+	var minGanArr=["td","zd","sb","tmd"];
+	var nick = document.getElementById("txtNick").value;
+	for(var i=0;i<minGanArr.length;i++){
+		nick = nick.replace(eval("/"+minGanArr[i]+"/g"),"");
+	}
+	document.getElementById("txtNick").value = nick;
+	
+
+	alert("亲，提交成功！");
+
+	
+}
+
+</script>
+   
+<body>
+	用户名：&nbsp;<input type="text" id="txtUserName" placeholder="用户名不能为空">*名字只能包含数字、字母和下划线，数字不可以开头，长度不低于6，不高于20<br><br>
+	密&nbsp;&nbsp;码：<input type="password" id="txtPass" value="aaaaaa">*<br><br>
+	再次输入：<input type="password" id="txtCheckPass" value="aaaaaa">*<br><br>
+	昵&nbsp;&nbsp;称：<input type="text" id="txtNick">*<br><br>
+	
+	<input type="button" value="快速注册" onClick="register()">
+
+	
+</body>
+</html>

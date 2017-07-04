@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li>1第一行</li>
+				<li>1第二行</li>
+			</ul>
+			<p>段落</p>
+			我是文字1
+			<ul>
+				<li>2第一行</li>
+				<li>2第二行</li>
+			</ul>
+			我是文字2
+		</div>
+		<input id="btn01" type="button" value="测试" onclick="testF()"/>
+		<script>
+			function testF(){
+				//alert(document.getElementById("box").childNodes[0].nodeName);
+				var box =document.getElementById("box");
+				var boxChilds = box.childNodes;
+			for(var i=0;i<boxChilds.length;i++){
+					alert(boxChilds[i].nodeName);
+					alert(boxChilds[i].nodeValue);
+				}
+			}
+			var atts = document.getElementById("btn01").attributes;
+			alert(atts["type"].nodeValue);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			 *{margin: 0;padding: 0;}
+			
+			 .goods{width: 320px;height: 504px;border:1px solid red;
+			 position: relative;float: left;}
+			
+			
+			 .goods img{
+				width: 100%;
+			}
+			.pop{
+				width: 160px;
+				height: 252px;
+				position: absolute;
+				left: 0;
+				top:0;
+				background: rgba(0,0,0,0.4);
+				cursor: move;
+				display: none;
+			}
+			.bigPic{
+				width: 320px;
+				height: 504px;
+				position: relative;
+				border: 1px solid gray;
+				overflow: hidden;
+				float: left;
+				margin-left: 50px;
+				/*display: none;*/
+			}
+			.bigPic img{
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		</style>
+	</head>
+	<body>
+	
+			<div class="goods">
+				<img src="images/zhiling1.jpg" />
+				<div class="pop"></div>
+			</div>
+			      //
+			<div class="bigPic">
+				<img src="images/zhiling1.jpg" />
+			</div>
+	
+		<script src="new_file.js"></script>
+	</body>
+</html>

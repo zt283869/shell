@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+		function getStrlr(obj,arr){
+			if(obj.currentStyle){
+				return obj.currentStyle[arr];
+			}else{
+				return getComputedStyle(obj,null)[arr];
+			}
+			
+		}
+		</script>
+	</body>
+</html>

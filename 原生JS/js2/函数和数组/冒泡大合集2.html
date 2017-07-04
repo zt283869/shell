@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="冒泡大合集2.js"></script>
+		<script>
+		var arr = [2,4,8,7,9,8,6]
+			console.log(getArr(arr));
+			
+		var arr = [2, 5, 7, 6, 9, 8, 1];
+		var w = arr.sort(getFunc()); 
+			console.log(w);
+			//	反向
+		var q = arr.reverse();
+     	console.log(q);
+     	//反转下标数
+		var arr1 = [2, 5, 7, 6, 9, 8, 1];			
+		function getRev(arr1) {
+		var str = arr1.shift();
+     	var str2 = arr1.pop();				
+     	arr1.unshift(str2);
+		arr1.push(str);
+		return arr1;		
+		}
+	console.log(getRev(arr1)); 
+	
+	var q = [4,7,8,6,5,8,3]
+	var y = [6,2,5,2,6,7,0]
+	var m =q.concat(y);
+	console.log(m);
+     	</script>
+	</body>
+</html>

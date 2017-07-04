@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			#but{width: 50px;height: 30px;border: none;
+			border-radius:10% ;background: #1C1C1C;color: #fff;
+				margin-left: 40%;}
+			
+		</style>
+	</head>
+	<body>
+		<table border="1px" width="300px" height="100px">
+			<tr>
+				<td>用户名：</td>
+				<td>
+					<input type="text" name="txt" id="txt" value="" />
+					<span id="spname" ></span>
+				</td>
+			</tr>
+			<tr>
+				<td>密码：</td>
+				<td>
+					<input type="text" name="" id="password1" value="" />
+					<span id="spname1" ></span>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="button" name="" id="but" value="登录" /></td>
+			</tr>
+		</table>
+		<script>
+			var txt1 = document.getElementById("txt");
+		
+			var password1 = document.getElementById("password1");
+			var but = document.getElementById("but");
+			var spname = document.getElementById("spname");
+			var spname1 = document.getElementById("spname1");
+			txt1.onblur = function(){
+	
+				var ergStr = /^([a-zA-Z0-9]|[u4E00-u9FA5]){1}([a-zA-Z0-9]|[u4E00-u9FA5]|[-_]){5,15}$/;
+				if(ergStr.test(txt1.value)){
+					spname.innerHTML = "√";
+				}else{
+					spname.innerHTML = "×";
+				}
+			}
+			password1.onblur = function(){
+				var refs = /^([0-9a-zA-Z]){4}([a-zA-Z0-9]){5,15}$/;
+				if(refs.test(password1.value)){
+					spname1.innerHTML = "√";
+				}else{
+					spname1.innerHTML = "×";
+				}
+			}
+		</script>
+	</body>
+</html>

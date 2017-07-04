@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;font-family: "幼圆";font-size: 14px;color: #454545}
+			table{border-spacing: 10px; }
+			#idation img{width:41px;height: 39px;}
+		</style>
+	</head>
+	<body onload="verift()">
+		<table style="min-width: 400px;margin:0 auto;" <!--border="1px"-->> 
+			<tr>
+				<td width="85px">我是：</td>
+				<td>
+					<input type="text" name="" id="mename" value="" />
+					<span id="Name"></span> 会员登录账号
+				</td>
+			</tr>
+			<tr>
+				<td>登录账号：</td>
+				<td>
+					<input type="text" name="" id="account" value="" />
+					<span id="saccount"></span> 密码6-20个英文字母区分大小写或数字组成
+				</td>
+			</tr>
+			<tr>
+				<td>密码：</td>
+				<td><input type="text" name="" id="passwd" value="" />
+					<span id="spasswd"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>确认密码：</td>
+				<td><input type="text" name="" id="passwdpasswd" value="" />
+				<span id="spasswdpasswd"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>采购商名称：</td>
+				<td><input type="text" name="" id="chasername" value="" />
+				<span id="schasername"></span> 3-10位中文名称
+				</td>
+			</tr>
+			
+			<tr>
+				<td>手机：</td>
+				<td><input type="text" name="" id="Modepone" value="" /><span id="sModepone"></span> 由于工作人员联系
+				</td>
+			</tr>
+			<tr>
+				<td>联系人：</td>
+				<td><input type="text" name="" id="contactpeo" value="" /><span id="scontactpeo"></span> 3-5位中文名称
+				</td>
+			</tr>
+			<tr>
+				<td>邮箱：</td>
+				<td><input type="text" name="" id="meemail" value="" />
+				<span id="smeemail"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>分仓信息：</td>
+					<td>
+						<select>
+							<optgroup label="分仓">
+							<option>北京分仓</option>
+							<option>西安分仓</option>	
+							<option>安康分仓</option>	
+							<option>渭南分仓</option>	
+							<option>四川分仓</option>	
+							<option>广东分仓</option>	
+							</optgroup>
+						</select>
+					选择最近的分仓
+					</td>
+			</tr>
+			
+			<tr>
+				<td>地址：</td>
+				<td>
+					<select id="pro">
+						<option>请选择省份</option>
+					</select >
+					<select id="city">
+						<option>请选择城市</option>
+					</select>
+					<select id="area">
+						<option>请选择区县</option>
+					</select><br />
+					
+					
+					<textarea id="userly" style="border:1px solid #A9A9A9;min-height: 20px;min-width: 154px;margin-top: 5px;"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>验证码：</td>
+				<td>
+					<span id="idation" style="border:1px solid #AAAAAA;" ></span>
+					<input type="button" name="nxet" id="nxet" value="下一张" style="margin-left: 20px;"/>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="text" name="" id="dationcode" value="" style="margin-left: 97px;text-align: center;" placeholder="请输入验证码"/>
+					<span id="dationcodejudge"></span>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="button" name="" id="verify" value="登录" / style="border: none;border-radius:10%;background: #DB7093;color: #fff;margin-left: 20%;width: 20%;height: 30px;margin-top: 10px;">
+				</td>
+			</tr>
+		</table>
+		<script src="ajax.js"></script>
+		<script src="作业表单的.js"></script>
+		<script src="cookie.js"></script>
+		
+	</body>
+</html>

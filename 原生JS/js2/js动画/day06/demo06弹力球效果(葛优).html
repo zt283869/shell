@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+<style type="text/css">
+*{
+	margin:0px;
+	padding:0px;
+}
+
+#imgId{
+	position:absolute;
+	left:100px;
+	top:100px;
+	width:200px;
+	height:150px;
+}
+	
+</style>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript">
+
+var left;//图片的left
+var top1 ;//图片的top
+var incLeft;//横向的增量
+var incTop;//纵向的增量
+var imgWidth;
+var imgHeight;
+
+function init(){
+	left =100;
+	top1 =100;
+	incLeft = 2;
+	incTop = 2;
+	imgWidth = 200;
+	imgHeight = 150;
+	
+	$("imgId").style.width =imgWidth+"px";
+	$("imgId").style.height =imgHeight+"px";
+}
+
+function goStep(){
+
+	//改变数据
+	left = left + incLeft;
+	top1 = top1 + incTop;
+	var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+	if((left-scrollLeft)<0){
+		incLeft = 1;
+	}else if((left-scrollLeft)>=(document.documentElement.clientWidth-imgWidth)){
+		incLeft = -1;
+	}
+	
+	var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+	if((top1-scrollTop)<0){
+		incTop = 1;
+	}else if((top1-scrollTop)>=(document.documentElement.clientHeight-imgHeight)){
+		incTop = -1;
+	}
+	
+	//改变外观；
+	$("imgId").style.left = left+"px";
+	$("imgId").style.top = top1+"px";
+	
+}
+
+window.onload =function(){
+	init();
+	//console.log("offsetWidth="+$("imgId").offsetWidth);
+	setInterval(goStep,20);
+}
+</script>
+   
+<body>
+	<img id="imgId" src="img/fr.png"/>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+

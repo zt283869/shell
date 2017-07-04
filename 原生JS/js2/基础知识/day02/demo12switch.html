@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+	
+	</style>
+	<script type="text/javascript">
+	/*
+		switch(表达式){
+				case 表达式1:语句1;break;
+				case 表达式2:语句2;break;
+				case 表达式3:语句3;break;
+				case 表达式4:语句4;break;
+				………………
+				case 表达式n:语句n;break;
+				default:语句;break;
+		}
+		*/	
+		
+		function exchange(){			
+			//1、获取界面的数据（输入），成绩
+			var  level = document.getElementById("levelId").value;
+			var result ;
+			
+			//2、根据用户是输入进行数据处理（逻辑判断）
+			switch(level){
+				case "a":
+				case "A":result="85-100之间";break;
+				case "b":
+				case "B":result="70-84之间";break;
+				case "c":
+				case "C":result="60-69之间";break;
+				case "d":
+				case "D":result="60以下";break;
+				default:result="您胡输入呢";break;			
+			}
+			
+			//3、输出
+			document.getElementById("scoreId").value = result;
+			
+		}
+	</script>
+	<body>
+		
+		请输入您的成绩等级：<input id="levelId" type = "text" />（成绩等级在A-D）<br/>
+		<input type="button" value="  显示成绩范围  "  onclick="exchange()" />
+		您的成绩范围是：<input id="scoreId" type = "text" />
+		
+		
+		
+	</body>
+</html>

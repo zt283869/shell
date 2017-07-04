@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		
+		入职薪水 ：&nbsp;&nbsp; <input type="text" name="" id="ip1" /><br /> 每年涨幅 ：&nbsp;&nbsp; <input type="text" name="" id="ip2" /><br /> 多少年后 ：&nbsp;&nbsp; <input type="text" name="" id="ip3" /><br />
+		<p style="border: 1px solid #aaa;width: 200px;height: 20px;" id="ip4"></p>
+
+		<input type="button" name="" id="ip5" value="计算" style="width:260px" /><br />
+
+	输入小时数：<input type="text" name="text1" id="text1" value="" />
+	
+	华氏温度：<input type="text" id="wd" />
+	保留小数三维：<input type="text" id="number1" />
+		<script type="text/javascript">
+		
+		
+		
+			function getId(str) {
+				return document.getElementById(str);
+			}
+
+			var Ip5 = getId("ip5");
+			console.log(Ip5);
+
+			function m(s, y, r) {
+
+				var Ip4 = getId("ip4");
+
+				for (var i = 0; i < y; i++) {
+					s = s * (1 + r);
+				};
+
+				Ip4.innerHTML = s;
+
+			}
+
+			Ip5.onclick = function() {
+				var Ip1 = getId("ip1").value;
+				var Ip2 = getId("ip2").value;
+				var Ip3 = getId("ip3").value;
+
+				m(Ip1, Ip3, Ip2)
+			}
+			var textor = getId("text1");
+			textor.onblur = function(){
+				var Text = getId("text1");
+//				console.log(Text);
+					var a = parseInt(Text.value/24);
+					
+					var b = Text.value%24;
+
+				   Text.value = a+"天"+b+"小时";
+			}
+			
+			var Wd = getId("wd");
+				Wd.onblur = function(){
+				var Text = getId("wd");
+				var a = (5/9.0*(Text.value-32));
+					Text.value = a.toFixed(2)+"度";
+				}
+				
+				var nume = getId("number1");
+					nume.onblur = function(){
+					
+					var a = nume.value/0.2;
+					nume.value = a.toFixed(3);
+				}
+		</script>
+	</body>
+
+</html>

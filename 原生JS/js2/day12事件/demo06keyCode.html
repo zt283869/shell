@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+	 
+		div{
+			width:300px;
+			height:250px;
+			border:1px solid red;
+			float:left;
+		}
+	</style>
+
+
+   
+<body>
+	<input id="btn" type="button" value="点我" />
+	
+	<input id="txtId" type="text" />
+	<div id="box1" >
+		1
+	</div>
+
+	
+	
+</body>
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript">
+/*
+	$("txtId").onkeypress = function(event){
+		var evt = event||window.event;
+		
+		$("box1").innerHTML = "您按的键的unicode码是："+evt.keyCode;
+	
+	}
+	*/
+	
+	
+	$("txtId").onkeydown= function(event){
+		var evt = event||window.event;
+		
+		$("box1").innerHTML = "您按的键的虚拟码是："+evt.keyCode;
+	
+	}
+	
+</script>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			body{font-family: "幼圆";font-size: 15px;}
+			ul li{list-style: none;}
+			a{text-decoration: none;}
+			#banner{width: 300px;height: 300px;overflow: auto;border: 1px solid #AAAAAA;margin-left: 100px;}
+			#banner li{border-bottom: 1px solid #2371D3;color: #E84A7E;}
+			#box{width: 500px;height: 500px;border:1px solid #aaa;
+					position:absolute;left: 40%;top: 10%;
+			display: none;}
+			#bt1{width: 80px;height: 33px;background: #EA6F30;text-align: center;color: #fff;line-height: 33px;border:none;border-radius: 10%;margin-left: 300px;
+			
+			}
+			#clos{width: 100%;height: 30px;background: #E84A7E;color: #fff;text-align: center;line-height: 30px;cursor: move;}
+			#clos a{position: absolute;right: 10px;font-size: 30px;cursor: pointer;}
+			textarea{width: 86%;height: 424px;margin-left: 36px;}
+			#bt2{width: 70px;height: 30px;line-height: 20px;background: #E84A7E;color: #fff;border: none;text-align: center;border-radius: 10%;margin-left: 230px;}
+		</style>
+	</head>
+	<body>
+		
+			<ul id="banner">
+				<li>前言--这个世界很疯狂。</li>
+			</ul>
+			<input type="button" name="bt1" id="bt1" value="点击留言" />
+			
+			<div id="box">
+				<div id="" onmouseover="move('box')">
+					<div id="clos">
+						留言板
+						<a id="close">×</a>
+					</div>
+					<textarea id="textvalue">
+					</textarea>
+					<input type="button" name="bt2" id="bt2" value="提交" />
+				</div>
+			</div>
+		
+		<script>
+			var banner = document.getElementById("banner");
+			var bt1 = document.getElementById("bt1");
+			var box = document.getElementById("box");
+			var close = document.getElementById("close");
+			var textvalue = document.getElementById("textvalue");
+			var bt2 = document.getElementById("bt2");
+			var flag = 0;
+			var _left =0;
+			var _top = 0;
+			bt1.onclick = function(){
+				box.style.display = "block";
+				document.body.style.background="rgba(0,0,0,0.2)";
+				document.getElementById("banner").style.display= "none"
+				document.getElementById("bt1").style.display= "none"
+			}
+			close.onclick = function(){
+				box.style.display = "none";
+				document.body.style.background="";
+				document.getElementById("banner").style.display= "block";
+				document.getElementById("bt1").style.display= "block"
+			}
+			bt2.onclick = function(){
+				if(textvalue.value==false){
+					alert("留言不能为空");
+					return;
+				}
+				document.body.style.background="";
+				document.getElementById("banner").style.display= "block";
+				document.getElementById("bt1").style.display= "block"
+				var d = (new Date()).toLocaleString();
+				var _li = document.createElement("li");
+				var arr = ["张三","李四","王五","赵六","刘能"];
+				var orm = parseInt(Math.random()*arr.length);
+				var code = arr[orm];
+					
+					_li.innerHTML = code+"说:"+textvalue.value+"<br />"+"时间:"+d;
+				banner.appendChild(_li);	
+				textvalue.value = "";
+				box.style.display = "none";
+				
+				
+			
+			}
+			function move(str){
+				var att = document.getElementById(str);
+				
+				att.onmousedown = function(event){
+					
+					var e = event||window.event;
+					flag = 1;
+					_left = e.pageX-att.offsetLeft;
+					_top = e.pageY-att.offsetTop;
+				}
+				onmousemove = function(event){
+					var e = event||window.event;
+					if(flag){
+						att.style.left = e.pageX-_left+"px";
+						att.style.top = e.pageY-_top+"px";
+					}
+				}
+				att.onmouseup = function(){
+					flag = 0;
+				}
+			}
+		</script>
+	</body>
+</html>

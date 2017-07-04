@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		*{margin: 0;padding: 0;}
+			#box{
+				width: 249px;
+				margin-top: 4px;
+				margin-left: 80px;
+			}
+			#bagr{
+				
+				display: flex;
+				justify-content: flex-start;
+			}
+			#bagr div{
+				background: #999999;
+				
+				margin-left: 5px;
+				height: 7px;
+				border-radius: 10px 10px 10px 10px;
+				width: 78px;
+			}
+			#textgr{
+				
+				display: flex;
+				justify-content: flex-start;
+			}
+			#textgr div{
+				
+				flex-grow: 1;
+				margin-left: 5px;
+				height: 10px;
+				text-align: center;
+				color: #808080;
+				font-size: 12px;
+			}
+			#contin{
+				width: 242px;
+			}
+			#bagr div:first-child div{background: #EA6F30;margin-left: 0px;width: 0px;}
+			#bagr div:nth-child(2) div{background: #C4302B;margin-left: 0px;width: 0px;}
+			#bagr div:nth-child(3) div{background: #FF0000;margin-left: 0px;width: 0px;}
+		</style>
+	</head>
+	<body onload="judge()">
+		设置密码：
+		<input type="text" name="contin" id="contin" value="" /><span id="texts"></span>
+		<div id="box">
+			<div id="bagr">
+				<div><div id="weak"></div></div>
+				<div><div id="the"></div></div>
+				<div><div id="strong"></div></div>
+			</div>
+			<div id="textgr">
+				<div>弱</div>
+				<div>中</div>
+				<div>强</div>	
+			</div>
+			
+		</div>
+		<script>
+			
+			function judge(){
+				var weak = document.getElementById("weak");
+				var the = document.getElementById("the");
+				var strong = document.getElementById("strong");
+				var contin = document.getElementById("contin");
+				var correct = false;
+				var yz = /^[a-zA-Z0-9-+_]{6,15}$/;
+				contin.onblur = function(){
+					if(yz.test(contin.value)){
+						texts.innerHTML = "√";
+						correct = true;
+					}else{
+						texts.innerHTML = "×";
+						correct = false;
+					}
+				}
+				
+				document.onkeyup = function(){
+					if(correct == false){
+						weak.style.cssText="";
+						the.style.cssText="";
+						strong.style.cssText="";
+					}
+						if(contin.value.length>6&&contin.value.length<9){
+							clearInterval(timer);
+							var r = 0;
+							var timer=null;
+							timer=setInterval(function(){
+								r+=10;
+								if(r==100){
+									clearInterval(timer);
+								}
+							weak.style.cssText="width: "+r+"%";
+							},20)
+						
+						
+						}else{
+							weak.style.cssText="";
+						}
+						if(contin.value.length>8&&contin.value.length<13){
+							clearInterval(timer);
+							var z = 0;
+							var timer=null;
+							timer=setInterval(function(){
+								z+=10;
+								if(z==100){
+									clearInterval(timer);
+								}
+							the.style.cssText="width: "+z+"%";
+							},20)
+							weak.style.cssText="width: 100%";
+							
+						}else{
+							
+							the.style.cssText="";
+						}
+						if(contin.value.length>11&&contin.value.length<15){
+							clearInterval(timer);
+							var q = 0;
+							var timer=null;
+							timer=setInterval(function(){
+								q+=10;
+								if(q==100){
+									clearInterval(timer);
+								}
+							strong.style.cssText="width: "+q+"%";
+							},20)
+							
+							weak.style.cssText="width: 100%";
+							the.style.cssText="width: 100%";
+							
+							
+						}else{
+							
+							strong.style.cssText="";
+						}
+					
+					
+				}
+			}
+		</script>
+	</body>
+</html>

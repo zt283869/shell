@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script type="text/javascript">
+
+function moveWin(){
+	setInterval("moveStep()",100);
+}
+
+function moveStep(){
+	window.moveBy(5,0);
+
+}
+
+</script>
+</head>
+
+<body >
+	<input type="text" id="txtId"/>
+	<input type="button" value="我能移动" onclick="moveWin()"/>
+</body>
+</html>

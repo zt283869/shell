@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		请输入园的半径<input type="text" name="text1" id="text1" value="" /><br />
+		请输入年份<input type="text" name="text2" id="text2"/>
+		<script>
+			function getId(str){
+				return document.getElementById(str);
+			}
+			var _text1 = getId("text1");
+				_text1.onblur = function(){
+					var a = getId("text1").value;
+					getId("text1").value = (Math.PI*(a*a)).toFixed(2);
+				}
+				var _text2 = getId("text2");
+				_text2.onblur = function(){
+					var a = getId("text2").value;
+					if(a%400==0||(a%100!=0&&a%4==0)){
+						getId("text2").value = "闰年";
+					}else{
+						getId("text2").value = "平年";
+					}
+				}
+		</script>
+	</body>
+</html>

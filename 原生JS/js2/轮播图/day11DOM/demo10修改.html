@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>		
+		<style type="text/css">
+			*{
+				margin:0px;
+				padding:0px;
+			}
+			
+			#box{
+				position:relative;
+				width:500px;
+				height:300px;
+				border:1px solid #f7f7f7;
+				overflow:hidden;
+			}
+		
+		</style>
+	</head>
+	
+	<body>
+		<table id="stuInfo" border="1" width="500" align="center"><tr>
+				<td>学号</td>
+				<td>姓名</td>
+				<td>性别</td>
+				<td>年龄</td>
+				<td>大头贴</td>
+				<td>操作</td>
+			</tr>
+			<tr>
+				<td>01001</td>
+				<td>刘玉玲</td>
+				<td>女</td>
+				<td>16</td>
+				<td><img src="images/big1.jpg" style="width:80px;height:60px" /></td>
+				<td><input type="button" value="删除" onclick="delStu(this)"/></td>
+			</tr>
+			<tr>
+				<td>01002</td>
+				<td>畅子威</td>
+				<td>男</td>
+				<td>17</td>
+				<td><img src="images/big2.jpg" style="width:80px;height:60px" /></td>
+				<td><input type="button" value="删除" onclick="delStu(this)"/></td>
+			</tr>
+			<tr>
+				<td>01003</td>
+				<td>李江</td>
+				<td>男</td>
+				<td>18</td>
+				<td><img src="images/big3.jpg" style="width:80px;height:60px" /></td>
+				<td><input type="button" value="删除" onclick="delStu(this)"/></td>
+			</tr>			
+		</table>
+		
+		<input id="btn01" type="button" value="删除最后一个学生" onclick="delLastStu()"/>
+		<input id="btn01" type="button" value="替换学生" onclick="replaceStu()"/>
+	</body>
+
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript"  >
+
+
+function replaceStu(){
+	var tbody = $("stuInfo").firstChild;	
+	tbody.replaceChild(tbody.lastChild,tbody.lastChild.previousSibling);
+	
+}
+
+
+//this表示当前DOM对象；
+
+function delStu(obj){
+	if(confirm("亲，您真的要删除吗？")==true){
+		var tbody = $("stuInfo").firstChild;	
+		tbody.removeChild(obj.parentNode.parentNode);
+	}
+}
+
+
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="but1" id="but1" value="选择日期" onclick="year()" />
+		<script>
+			function getId(str){
+				return document.getElementById(str);
+			}
+			function year(){
+				document.write("<select>")
+				for(var year=1995;year<2019;year++){
+					document.write("<option>"+year+"</option>")
+				}
+				document.write("</select>年")
+			
+				document.write("<select>")
+				for(var month=1;month<13;month++){
+					document.write("<option>"+month+"</option>")
+				}
+				document.write("</select>月")
+				
+				document.write("<select>")
+				for(var _date=1;_date<32;_date++){
+					document.write("<option>"+_date+"</option>")
+				}
+				document.write("</select>日")
+			
+			}
+			
+			
+		</script>
+	</body>
+</html>

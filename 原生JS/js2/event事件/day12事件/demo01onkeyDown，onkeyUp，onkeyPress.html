@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+		
+	</style>
+
+<script type="text/javascript">
+
+function testDown(){
+	console.log("按下");
+}
+
+function testUp(){
+	console.log("松开");
+}
+
+function testPress(){
+	console.log("press按下松开");
+}
+	
+</script>
+   
+<body>
+	<input id="txtId" type="text" onkeyDown="testDown()"  onkeyUp="testUp()"/>
+	
+	<input type="text" onkeypress="testPress()"/>
+
+
+	
+	
+	
+</body>
+</html>

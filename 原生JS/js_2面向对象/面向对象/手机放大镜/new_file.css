@@ -1,0 +1,112 @@
+*{
+	margin: 0;padding: 0;
+}
+ul li{
+	list-style: none;
+}
+#box{
+	width: 500px;height: 600px;
+	border:1px solid #FFC0CB;
+	/*overflow: hidden;*/
+	position: relative;
+}
+#moveimg{
+	width: 500px;height: 400px;
+	position: absolute;
+	border:1px solid black;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+}
+#moveimg img{
+	width: 500px;height: 400px;
+	position: absolute;
+	display: none;
+}
+#moveimg .block{
+	display: block;
+}
+#box #logodiv{
+	position: absolute;
+	width: 250px;
+	height: 200px;
+	background: rgba(0,0,0,0.5);
+	top: 0;
+	left: 0;
+	display: none;
+}
+#bannerimg{
+	width: 500px;
+	height: 197px;
+	border: 1px solid #7DC234;
+	position: absolute;
+	left: 0;
+	top: 402px;
+	overflow: hidden;
+}
+#bannerimg ul{
+	width: 9999px;
+	height: 197px;
+	border:1px solid brown;
+	position: absolute;
+	left: 0;
+	top: 0;
+	
+}
+#bannerimg ul li{
+	float: left;
+	
+}
+#bannerimg ul img{
+	width: 166px;
+	height: 197px;
+}
+#moveleft{
+	width: 50px;
+	height: 197px;
+	background: rgba(0,0,0,0.5);
+	text-align: center;
+	color: white;
+	font-size: 57px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	line-height: 197px;
+	cursor: pointer;
+}
+#moveright{
+	width: 50px;
+	height: 197px;
+	background: rgba(0,0,0,0.5);
+	text-align: center;
+	color: white;
+	font-size: 57px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	line-height: 197px;
+	cursor: pointer;
+}
+#rightimg{
+	width: 502px;
+	height: 401px;
+	border:1px solid #7DC234;
+	position: absolute;
+	top: 0;
+	left: 503px;
+	overflow: hidden;
+	display: none;
+}
+#rightimg img{
+	width: 1000px;
+	height: 800px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: none;
+	
+}
+#rightimg .block{
+	display: block;
+	
+}

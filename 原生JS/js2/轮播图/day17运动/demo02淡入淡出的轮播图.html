@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<style type="text/css">
+		*{
+			margin:0px;
+			padding:0px;
+		}
+		
+		#box{
+			width:400px;
+			height:300px;
+			border:2px solid red;
+			margin:0 auto;
+			position:relative;
+		}	
+		
+		img{
+			position:absolute;
+			left:0px;
+			top:0px;
+			width:400px;
+			height:300px;
+		}
+		
+		#img01{
+			opacity:1;
+		}
+		
+		#img02{
+			opacity:0;
+		}
+		
+		ul{
+			position:absolute;
+			bottom:20px;
+			right:50px;
+		}
+		
+		ul li{
+			list-style:none;
+			float:left;
+			margin-left:20px;
+			width:20px;
+			height:20px;
+			background-color:pink;
+			border-radius:50%;
+			text-align:center;
+		}
+		
+	</style>
+<body>	
+	<div id="box">
+		<img id="img01"  src="images/1a.jpg" />
+		<img id="img02"  src="images/2a.jpg" />
+		<img id="img03"  src="images/3a.jpg" />
+		<img id="img04"  src="images/4a.jpg" />
+		<img id="img05"  src="images/5a.jpg" />
+		<ul id="ulBtn">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</div>
+	
+</body>
+</html>
+<!--<script type="text/javascript" src="js/tools.js"></script>-->
+<script type="text/javascript">
+
+//轮播图逻辑：
+//1、自动播放的图片
+//  1)、当前图片是哪一张。
+//  2）、对于需要有两种图片切换的效果；	（明确当前将要显示的是哪一张inOrd，消失的是哪一张 outOrd）
+//  3)、变换图片
+//       A：直接变换的方式，就改src就行
+//       B：有切换效果的方式（切换效果的定时器），让将要进入的（inOrd）慢慢显示，让将要出去的（outOrd）慢慢消失
+//  4)、改变按钮的显示。让将要进入的（inOrd）图片对应的按钮高亮显示。
+
+//2、鼠标放入停止：清除轮播定时器
+	
+//3、鼠标离开继续播放：启动轮播定时器；
+
+//4、鼠标点击按钮，跳转到对应的图片
+//   1）、改变将要进入的图片的（inOrd）序号。
+//   2）、变换图片（同 1  --》 3））
+
+
+//淡入淡出的轮播图
+
+"use strict";
+function $(str){
+	return document.getElementById(str);
+}
+//当前透明度（1-0）
+let currOpacity=1;
+//淡入淡出的定时器：
+let myTimer;
+//轮播的定时器;
+let bannerTimer;
+//方向
+let direction = -1;
+
+//当前图片序号（淡入）
+let currInOrd = 1;
+//当前图片序号（淡出）
+let currOutOrd=1;
+
+//顺序走一步（自动播放的其中一次）
+function goStep(){
+	//修改淡入的图片序号
+	currInOrd++;
+	if(currInOrd>5){
+		currInOrd = 1;
+	}
+	//求出淡出的图片序号
+	currOutOrd = currInOrd-1;
+	if(currOutOrd<=0){
+		currOutOrd=5;
+	}
+	fadeInOutFunc();//完成淡入淡出的过程。
+}
+
+//跳转到指定的图片；
+//假定ord是3；
+
+function goImg(ord){
+	//修改淡入的图片序号
+	currInOrd=ord;
+	if(currInOrd>5){
+		currInOrd = 1;
+	}
+	fadeInOutFunc();//完成淡入淡出的过程。
+}
+
+//完成淡入淡出的过程。
+function fadeInOutFunc(){
+	//1)、//淡入淡出的初始化
+	fadeInOutInit();
+	//2）、变换图片//变换图片（1--》3）--》 B）
+	myTimer=setInterval(fadeInOut,200);	
+	//1、改变按钮背景颜色；
+	for(var i=0;i<5;i++){
+		$("ulBtn").children[i].style.backgroundColor="pink";	
+	}
+	$("ulBtn").children[currInOrd-1].style.backgroundColor="red";	
+}
+
+
+function fadeInOutInit(){
+	//恢复透明度的初始值
+	currOpacity = 1;
+	for(let i=0;i<5;i++){
+		$("img0"+(i+1)).style.left = "-1000px";
+	}		
+	//让淡入图片定位到盒子里。
+	$("img0"+currInOrd).style.left = "0px";
+	$("img0"+currOutOrd).style.left = "0px";
+	
+}
+
+//淡入淡出
+//已知淡入图片序号，和淡出图片序号，完成淡入淡出的过程。
+
+function fadeInOut(){
+
+	currOpacity=currOpacity+direction*0.05;
+	if(currOpacity<=0.05){//切换完成（淡入淡出）
+		currOpacity=0;
+		currOutOrd = currInOrd;//把淡入的图片序号赋给淡出的序号。
+		clearInterval(myTimer);
+		return;
+	}
+	
+	$("img0"+currOutOrd).style.opacity = currOpacity;  //1  2
+	$("img0"+currInOrd).style.opacity = 1-currOpacity;//2   3
+}
+
+//初始化
+function init(){
+	for(let i=0;i<5;i++){
+		$("img0"+(i+1)).style.left = "-1000px";
+	}
+	
+	$("img01").style.left = "0px";
+	$("img02").style.left = "0px";
+
+	$("img01").style.opacity = 1;
+	for(let i=1;i<5;i++){
+		$("img0"+(i+1)).style.opacity = 0;
+	}
+	
+	$("ulBtn").children[0].style.backgroundColor="red";	
+}
+
+window.onload = function(){
+	init();
+	bannerTimer = setInterval(goStep,3000);
+	$("box").onmouseover = function(){
+		window.clearInterval(bannerTimer);
+	}
+	$("box").onmouseout = function(){
+		bannerTimer = setInterval(goStep,3000);
+	}
+	
+	let ul_li = $("ulBtn").children;
+	for(let i=0;i<ul_li.length;i++){
+		ul_li[i].ord = i+1;//ord是li的自定义属性。
+		ul_li[i].onmousedown = function(){
+			goImg(this.ord);
+		}
+	}
+	
+}
+
+
+</script>

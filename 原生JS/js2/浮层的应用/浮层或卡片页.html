@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			a{text-decoration: none;}
+			ul li{list-style: none;}
+			
+			#box{border:1px solid #999;width: 300px;height: 300px;}
+			#cancel{float: right;}
+			#box{display: none;margin-left: 300px;}
+			#box2{width: 300px;height: 300px;border:1px solid red;overflow: hidden;margin-left: 100px;}
+			#u1 li{float: left;margin-left: 10px;background: #aaa;border:1px solid black}
+			#u2 li{float: left;width: 295px;height: 200px;border:1px solid black;display: none;}
+			#u2{width: 10000px;margin-top: 50px;}
+			#u2 .opi{display: block;}
+			#dy{margin-left:100px;background: yellowgreen;width: 300px;}
+			.zz{background: red;}
+			.kb{background: darkred;}
+			.xj{background: palevioletred;}
+			.kh{background: darkgrey;}
+			#kh,#xj,#kb,#zz{display: none;}
+		</style>
+	</head>
+	<body onload="disPlay(),TAB(),lookdy()">
+		<div id="box">
+			<table width="300px"height="300px" id="">
+				<tr >
+					<td colspan="2" height="20px"><input type="button" name="" id="cancel" value="×" /></td>
+				</tr>
+				<tr >
+					<td height="10px">用户名：</td>
+					<td ><input  type="text"  /></td>
+				</tr>
+				<tr >
+					<td height="10px">密　码：</td>
+					<td ><input  type="password"  /></td>
+				</tr>
+				<tr height="20px">
+					<td colspan="2" align="center">
+						<input class="btnClass" type="button" value="登录" />
+					</td>					
+				</tr>
+			</table>
+		</div>
+		<input type="button" name="" id="suspension" value="回复显示悬浮框" />
+		
+		
+		
+		
+		
+		<div id="box2">
+			<ul id="u1">
+				<li>动漫</li>
+				<li>笑话</li>
+				<li>推荐</li>
+				<li>动漫</li>
+				<li>笑话</li>
+				<li>推荐</li>
+			</ul>
+			<ul id="u2">
+				<li>1</li>
+				<li class="opi">2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+			</ul>
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<ul id="dy">
+			<li class="kh">科幻</li>
+			<ul id="kh">
+				<li>神探狄仁杰</li>
+				<li>神探狄仁杰</li>
+				<li>神探狄仁杰</li>
+			</ul>
+			<li class="xj">喜剧</li>
+			<ul id="xj">
+				<li>神探狄仁杰</li>
+				<li>神探狄仁杰</li>
+				<li>神探狄仁杰</li>
+			</ul>
+			<li class="kb">恐怖</li>
+			<ul id="kb">
+				<li>神探狄仁杰</li>
+				<li>神探狄仁杰</li>
+				<li>神探狄仁杰</li>
+			</ul>
+			<li class="zz">战争</li>
+			<ul id="zz">
+				<li>神探狄仁杰</li>
+				<li>神探狄仁杰</li>
+				<li>神探狄仁杰</li>
+			</ul>
+		</ul>
+		<script src="new_file.js"></script>
+	</body>
+</html>

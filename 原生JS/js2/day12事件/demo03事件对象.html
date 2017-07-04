@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+		
+	</style>
+
+
+   
+<body>
+	<input id="btn" type="button" value="点我" />
+	
+	<input id="txtId" type="text" onkeyDown="testDown()"  onkeyUp="testUp()"/>
+	
+	<input type="text" onkeypress="testPress()"/>
+
+
+	
+	
+	
+</body>
+</html>
+<script type="text/javascript">
+
+document.getElementById("btn").onclick = function(event){
+	//console.log(event);
+	//alert(event);
+	//获取event对象
+	//var evt = event?event:window.event;	
+	var evt = event || window.event;	
+	//alert(evt);
+	
+	//event对象的属性
+	console.log(evt.button);
+	console.log(evt.altKey);
+	
+};
+
+
+
+document.getElementById("btn").onmouseover = function(event){
+	//console.log(event);
+	//alert(event);
+};
+	
+</script>

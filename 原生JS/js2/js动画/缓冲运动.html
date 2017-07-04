@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{width: 100px;height: 100px;background: red;box-shadow: 0 0 10px red;border-radius: 50%;;position: absolute;left: 500px;}
+		</style>
+	</head>
+	<body>
+		<div id="box" onmouseover="hcmover('box')">
+			
+		</div>
+		<script>
+			function getStyle(obj,att){
+					if(obj.currentStyle){
+						return obj.currentStyle[att];
+					}else{
+						return getComputedStyle(obj,null)[att];
+					}
+				}
+			function hcmover(obj){
+				var timer;
+				var Obj = document.getElementById(obj)
+				var sX;
+				var num;
+				timer = setInterval(function(){
+					var _left = parseInt(getStyle(Obj,"left"));
+					sX = (0-_left)/15;
+					sX = sX>0?Math.ceil(sX):Math.floor(sX);
+					num = _left+sX;
+					if(num==0){
+						clearInterval(timer);
+					}
+					Obj.style.left = num+"px";
+				},20)
+			}
+		</script>
+	</body>
+</html>

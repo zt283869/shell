@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="text1" id="text1" value="" onblur="getLook()" />
+		<script>
+			function getLook(){
+				var arr = [3,4,6,8,9,12,23,34,45,56];
+				var str = parseInt(document.getElementById("text1").value)
+					var index = 0;
+					var palg = false;
+					for(var i=0;i<arr.length;i++){
+						index++;
+						if(str == arr[i]){
+							palg = true;
+							alert("找到了在"+index+"位");
+							break;
+						}
+						
+				}
+					
+				alert("你要找的数字不存在");	
+			}
+		</script>
+	</body>
+</html>

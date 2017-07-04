@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+		input{
+			width:200px;
+			}
+	</style>
+<script type="text/javascript">
+
+function rar(){
+	var sourceStr = document.getElementById("txtSource").value;//aaaabbbbbbbccdaaaaa
+	//定义一个变量，保存这当前要比较的字符a
+	var currChar = sourceStr.charAt(0);
+	
+	//定义一个变量，保存当前字符重复的次数（计数器）1
+	var count = 1;
+	
+	//定义一个变量，保存最终的字符串（压缩字符串）""
+	var rarStr = "";
+	for(var i=1;i<sourceStr.length;i++){ //i=4;5
+		//取出字符串中的字符
+		//判断是否和currChar相等，如果相等；count++
+		if(sourceStr.charAt(i)==currChar){
+			count++;//5
+		}else{
+			//如果不相等；把currChar和count拼接到rarStr后。还需要给currChar重新赋值；count重新置为1
+			rarStr = rarStr+currChar+count;//a4b7
+			currChar = sourceStr.charAt(i);//c
+			count=1;
+		}
+	}
+	rarStr = rarStr+currChar+count;
+	document.getElementById("txtRar").value = rarStr;
+}
+
+function unRar(){
+	var sourceStr = document.getElementById("txtRar").value;//a4b7c2d1a5f5t3
+	/*
+	//解压缩
+	var str = "";
+	for(var i=0;i<sourceStr.length;i=i+2){
+		var ch = sourceStr.charAt(i);
+		var count = sourceStr.charAt(i+1);
+		for(var j=0;j<count;j++){
+			str = str+ch;
+		}
+	}
+	*/
+	//a14b17c2d1a5t4
+	
+	/*
+	var currChar =sourceStr.charAt(0);//当前字符 a 
+	var count = "";//当前字符的重复次数；14
+	var str ="";
+	for(var i=1;i<sourceStr.length;i++){
+		if(isNaN(sourceStr.charAt(i))==true){
+			//把前面的字符循环出来
+			for(var j=0;j<parseInt(count);j++){
+				str = str+currChar;
+			}
+			currChar = sourceStr.charAt(i);//t
+			count = "";
+		}else{
+			count = count+sourceStr.charAt(i);//4
+		}
+	
+	}
+
+	for(var j=0;j<parseInt(count);j++){
+		str = str+currChar;
+	}	
+	
+	*/
+	
+	
+	//把结果显示出来。
+	document.getElementById("txtUnRar").value = str;
+
+}
+
+</script>
+   
+<body>
+	原始字符串：<input type="text" id="txtSource" value="aaaabbbbbbbccdaaaaa"/><br/>
+	<input type="button" value="压缩" onClick="rar()">后字符串：<input type="text" id="txtRar" /><br/>
+	<input type="button" value="解压缩后" onClick="unRar()">字符串：<input type="text"  id="txtUnRar" />
+	
+</body>
+</html>

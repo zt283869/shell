@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body onload="getDater('sp1')">
+		<span id="sp1"></span>
+		<script>
+			function getDater(str){
+				var _str = document.getElementById(str);
+				var d = new Date();
+				var w = new Date();
+				var cont = Date.parse('Jul 8, 2016');
+					d.setTime(cont);
+
+				var t = d.getTime()+1000;
+				var g = w.getTime()+1000;
+				var num = (g-t);
+				var days = Math.floor(num/1000/60/60/24);	
+				_str.innerHTML = d+"===="+w+'----相差'+days+"天";
+				
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		function $(id){
+			return document.getElementById(id);
+		}
+		function $create(str){
+			return document.createElement(str);
+		}
+		
+		window.onload = function(){
+			$("btn").onclick = function(){
+				var xhr = new XMLHttpRequest();
+				xhr.open("get","http://localhost:8080/webXA1608/getJS.jsp",true);
+				xhr.onreadystatechange = function(){
+					if(xhr.readyState==4 && xhr.status==200){
+						eval(xhr.responseText);
+					}
+				}
+				xhr.send();
+			}
+		}
+		</script>
+	</head>
+	<body>
+		<input id="btn" type="button" value="显示数据"/><br/>
+	</body>
+</html>

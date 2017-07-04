@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<textarea name="te1" rows="0" cols="0"></textarea>
+		<input type="button" name="but1" id="but1" value="执行" onclick="sum()"/>
+		<script>
+			function sum(){
+			var str = document.getElementById("te1").value;
+					eval(str);		
+			}
+		</script>
+	</body>
+</html>

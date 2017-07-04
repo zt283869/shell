@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			#box{width: 450px;height: 600px;border:1px solid red;margin: 0 auto;position: relative;box-shadow:  0 0 50px #303030;}
+			#box div{
+			width: 148px;
+			height: 28px;
+			border:1px solid greenyellow;
+			background: #E84A7E;
+			float: left;
+		}
+			#ball{position: absolute;
+					width: 20px;
+					height: 20px;
+					left: 200px;
+					top: 400px;
+					border-radius: 50%;
+					background: #1C1C1C;
+					box-shadow: 0 0 20px #5C4B53;			}
+					
+			#bottomBrick{
+				position: absolute;
+				width: 148px;
+				height: 20px;
+				left: 50px;
+				bottom: 0;
+				background: #2371D3;
+				border-radius: 10px 10px 10px 10px;
+			}		
+		</style>
+	</head>
+	<body>
+	<div id="box">
+			
+		<span id="ball">
+		
+		</span>
+		<p id="bottomBrick"></p>
+	</div>
+		<script>
+			function $(str){ 
+				return document.getElementById(str);
+			}
+			"use strict";
+			//容器的尺寸；
+			let boxWidth;
+			let boxHeight;
+			//每个板砖的尺寸
+			let topBrickWidth;
+			let topBrickHeight;
+			//顶部横向三块砖
+			let HBrickCount;
+			//顶部纵向三块砖
+			let VBrickCount;
+			//弹力球的初始化位置
+			let ballLeft;
+			let ballTop;
+			let ballWidth;
+			let ballHeight;
+			//增量
+			let leftInc;
+			let topInc;
+			//速度
+			let speed;
+			//地砖
+			let bottomBrickWidth;
+			let bottomBrickHeight;
+			let bottomBrickLeft;
+			let bottomBrickTop;
+			//暂停器
+			let arr;
+			let myTimer;
+			//定义初始化
+			let codeMover;
+			function initDate(){
+				//顶部三块砖
+				HBrickCount = 3;
+				VBrickCount = 3;
+				arr = new Array(VBrickCount);//两行；
+				
+				for(let i=0;i<VBrickCount;i++){
+					arr[i] = new Array(HBrickCount);
+					for(let j=0;j<HBrickCount;j++){
+						arr[i][j]=1;
+					}
+				}
+				//容器尺寸
+				boxWidth = 450;
+				boxHeight = 650;
+				//每个板砖的尺寸
+				topBrickWidth = boxWidth/HBrickCount-2;
+				topBrickHeight = 28;
+				//地砖
+				bottomBrickWidth = 148;
+				bottomBrickHeight = 20;
+				bottomBrickLeft = 0;
+				bottomBrickTop = boxHeight-(bottomBrickHeight);
+				ballWidth = 20;
+				ballHeight = 20;
+				ballTop = bottomBrickTop-(ballHeight);
+				ballLeft = bottomBrickLeft+(bottomBrickWidth-ballWidth)/2;
+				//横向增量
+				leftInc = 1;
+				topInc = -1;
+				speed = 10;
+				codeMover = 40;
+			}
+			//初始化界面
+			function initul(){
+				//容器的尺寸
+				$("box").style.width = boxWidth+"px";
+				$("box").style.height = boxHeight+"px";
+				//生成搬砖（	HBrickCount = 3;VBrickCount = 3;）
+				for(let i=0;i<HBrickCount;i++){
+					for(let j=0;j<VBrickCount;j++){
+						//1,生成div
+						var divobj = document.createElement("div");
+							divobj.id = "topBrick"+(i+1)+(j+1);
+							divobj.className = "topBrick";
+							divobj.style.left = (j*(topBrickWidth+2))+"px";
+							divobj.style.top = (i*(topBrickHeight+2))+"px";
+							divobj.innerHTML = "第"+(i+1)+"行第"+(j+1)+"块";
+							$("box").appendChild(divobj);
+					}
+				}
+				let topBricks = document.getElementsByClassName("topBrick");
+				for(let i=0;i<topBricks.length;i++){
+					topBricks[i].style.width = topBrickWidth;
+					topBricks[i].style.height = topBrickHeight;
+				}
+				$("ball").style.cssText = "left:"+ballLeft+"px;top:"+ballTop+"px;width:"+ballWidth+"px;height:"+ballHeight+"px";
+				$("bottomBrick").style.cssText = "width:"+bottomBrickWidth+"px;height:"+bottomBrickHeight+"px;left:"+bottomBrickLeft+"px;top:"+bottomBrickTop+"px";
+			}
+			function isWin(){
+				let count=0;
+				for(let i=0;i<arr.length;i++){
+					for(let j=0;j<arr[i].length;j++){
+						count=count+arr[i][j];
+					}
+				}
+				if(count==0){
+					return true;
+				}
+				return false;
+			}
+			function gameNext(){
+				alert("恭喜亲，您赢了！");
+				clearInterval(myTimer);
+			}
+			//开始运动函数
+			
+			function codemove(){
+				document.body.onkeydown = function(event){
+					let e = event||window.event;
+					if(e.keyCode==37){
+						//坐移
+						bottomBrickLeft-=codeMover;
+						if(bottomBrickLeft<=0){
+							bottomBrickLeft = 0;
+						}
+						$("bottomBrick").style.left = bottomBrickLeft+"px";
+					}else if(e.keyCode==39){
+						//右移
+						bottomBrickLeft+=codeMover;
+						if(bottomBrickLeft+bottomBrickWidth>=boxWidth){
+							bottomBrickLeft=boxWidth-bottomBrickWidth;
+						}
+						$("bottomBrick").style.left = bottomBrickLeft+"px";
+					}
+					
+				}
+				
+			}
+			window.onload = function(){
+				initDate();//初始化
+				initul();//界面初始化
+				codemove();//键盘左右移动
+				
+				
+				
+				myTimer=setInterval(function goStep(){
+	ballLeft+=leftInc;
+	ballTop+=topInc;	
+	
+	//if(ballTop+20>=600){ //底部(弹力球的top+弹力球的高>=盒子的高)
+	
+	if(ballTop+ballHeight>boxHeight){
+		alert("game over");
+		//停止定时器；
+		clearInterval(myTimer);
+		return false;		
+	}
+	
+	//1、顶部是否碰撞；
+	for(let i=0;i<HBrickCount;i++){//横向区域
+		let ballTopCenter = ballLeft+ballWidth/2;
+		//判断弹力球的left在哪块砖的横向区域，弹力球的顶部中点和每块砖的坐标跨度比较
+		if(ballTopCenter>=i*(topBrickWidth+2) && ballTopCenter<=(i+1)*(topBrickWidth+2) ){
+			//1)、计算当前区域砖高度（层数*砖的高度）
+			let count = 0;
+			for(let j=0;j<VBrickCount;j++){
+				count = count+arr[j][i];
+			}
+			if(count==0){//此列无砖；
+				if(ballTop<=0){
+					topInc=1;
+				}
+			}else{
+				let height = count*(topBrickHeight+2);
+				if(ballTop<=height){//如果弹力球的顶部中间碰到了当前区域的所有砖的高度
+					arr[count-1][i] = 0;//把数组中当前位置的元素置为0；
+					//删除第三行第(i+1)块
+					console.log("删除了第"+count+"行第"+(i+1)+"列的元素");
+					$("box").removeChild($("topBrick"+count+(i+1)));	
+					if(isWin()){
+						gameNext();
+					}		
+					//2、反弹
+					topInc = 1;				
+				}
+			}
+		}
+	}
+	
+	
+	//1）、弹力球的top+弹力球的高==盒子的高-底砖的高度
+	//2）、弹力球的left在底砖的横向坐标跨度范围内。
+	if((ballTop+ballHeight==boxHeight-(bottomBrickHeight+2)) && (ballLeft>=bottomBrickLeft && ballLeft<=bottomBrickLeft+(bottomBrickWidth+2))){
+		topInc = -1;
+	}else if(ballLeft<=0){//左边：弹力球left<=0
+		leftInc = 1;
+	}else if(ballLeft+ballWidth>=boxWidth){//右边：弹力球的left+弹力球的宽度>=盒子的宽度
+		leftInc = -1;
+	}
+	
+	$("ball").style.left =ballLeft+"px";
+	$("ball").style.top =ballTop+"px";
+	
+	
+
+				
+			
+			},5)
+					
+				};
+				
+				//鼠標
+
+				
+				
+		
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		用户名和密码需要删除在输入<br />
+		<input type="text" name="" id="exew" value="" /><br />
+		<input type="password" name="tet" id="tet" value="" /><br />
+		<input type="checkbox" name="" id="ck" value="" />记住用户名和密码<br />
+		<input type="button" name="but" id="but" value="登录"/>
+	</body>
+	<script src="内部/cookie.js"></script>
+	<script>
+	
+	var exew = document.getElementById("exew");
+	var tet = document.getElementById("tet");
+	var but = document.getElementById("but");
+	var ck = document.getElementById("ck");
+
+			but.onclick = function(){
+				if(exew.value==""||tet.value==""){
+					alert("输入框不能为空！")
+					return;
+				}
+				if(ck.checked){
+					savecookie("name",exew.value,1);
+					savecookie("password",tet.value,1);
+					alert(document.cookie);
+					alert("cookie注册成功！请牢记你的用户名和密码")
+					window.location = "内部/登录页面.html";
+				}else{
+					alert("请选择记住用户名和密码");
+					return;
+				}
+			}
+	</script>
+</html>

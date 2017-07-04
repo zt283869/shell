@@ -1,0 +1,14 @@
+*{padding: 0;margin: 0;}
+		ul li{list-style: none;}
+		a{text-decoration: none;}
+			#box{border:1px solid red;width: 800px;height: 500px;margin: 0 auto;/*background: rgba(0,0,0,0.8);*/position: relative;}
+		img{width: 800px;height: 500px;}
+		#banner li{display: none;}
+		#banner #fird{display: block;}
+		#a1{position: absolute;top: 30%;left: 0;color: white;background: rgba(0,0,0,0.5);width: 100px;height: 70px;font-size: 50px;color: #fff;text-align: center;border-radius: 0px 50px 50px 0px;}
+		#a2{position: absolute;top: 30%;right: 0;color: white;background: rgba(0,0,0,0.5);width: 100px;height: 70px;font-size: 50px;text-align: center;border-radius: 50px 0px 0px 50px;}
+		#a1,#a2{display:block;display: none;}
+		
+		#ball{position: absolute;bottom: 0;right: 0;}
+		#ball li{width: 40px;height: 40px;border-radius: 50%;background: white;float: left;}
+		#ball .active{background: red;}

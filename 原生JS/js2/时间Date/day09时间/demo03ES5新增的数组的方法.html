@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+		
+	</style>
+<script type="text/javascript">
+
+function testF(){
+	var arr1 = [12,23,34,45,56,67];
+	//arr1.forEach(alert);
+	//arr1.forEach(addInc);
+	
+	var arr2 = arr1.map(arrSqr);
+	
+	for(var i in arr2){
+		document.write(arr2[i]+",");
+	}
+	
+/*
+	for(var i in arr1){
+		document.write(arr1[i]+",");
+	}
+	*/
+}
+
+function addInc(num,index,arr){
+	arr[index] = arr[index] + 1;
+	
+}
+
+function arrSqr(num){
+	return num*num
+}
+
+function testF1(){
+	var arr1 = [-12,23,-34,45,-56,67];
+	//var arr2 = arr1.filter(eqZero);//过滤掉所有小于等于0的数，留下大于0的数
+	var arr2 = arr1.map(eqZero);//过滤掉所有小于等于0的数，留下大于0的数
+		
+	
+	for(var i in arr2){
+		document.write(arr2[i]+",");
+	}
+
+}
+
+function eqZero(num){
+	return num>0;
+}
+
+
+</script>
+   
+<body>
+	
+	<input type="button" value="测试" onClick="testF1()">
+
+	
+</body>
+</html>

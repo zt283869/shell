@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin:0;padding:0}
+			#box{
+				width:20px;
+				height:20px;
+				background:blue;
+				position:absolute;
+				left:200px;
+				top:150px;
+				border-radius:50%;
+			}	
+			#startDot{
+				width:5px;
+				height:5px;
+				background:red;
+				position:absolute;
+				left:200px;
+				top:150px;
+				border-radius:50%;
+			}	
+			#endDot{
+				width:5px;
+				height:5px;
+				background:red;
+				position:absolute;
+				left:500px;
+				top:150px;
+				border-radius:50%;
+			}			
+		</style>
+		<script type="text/javascript" src="js/tools.js"></script>
+		<script type="text/javascript" src="js/Dragtools.js"></script>
+		<script type="text/javascript">
+			//1、运动：让静止的元素动起来。
+			
+			//1)、线性运动：
+			//让某个元素从某个点到另一个点；
+			//包括：起始点，当前点，结束点，速度，方向；
+			//运动肯定要用到定时器；
+			//要求：把界面和程序逻辑分开。
+			var startLeft;
+			var currLeft;
+			var endLeft;
+			var speed;
+			var timeSpace = 100;
+			function init(){
+				startLeft=200;
+				currLeft = startLeft;
+				endLeft=500;
+				speed = 1;
+			}
+			
+			var myTimer = null;
+			function moveBox(){
+				//1、先用程序逻辑把数据处理正确		
+				if(currLeft<startLeft+(endLeft-startLeft)/2){
+					timeSpace--;
+					if(timeSpace<10){
+						timeSpace = 10;
+					}
+				}else{
+					timeSpace++;		
+				}
+												
+				currLeft+=speed;//要加速，在此处处理；				
+				
+				if(currLeft>=endLeft){
+					window.clearTimeout(myTimer);
+					currLeft=endLeft;					
+				}
+				
+				//2、把正确的数据赋给界面元素
+				$("#box").style.left =currLeft+"px";
+				myTimer = setTimeout(moveBox,timeSpace);
+			}
+			
+			window.onload = function(){
+				init();
+				$("#btnStart").onclick = function(){
+					myTimer = setTimeout(moveBox,timeSpace);				
+				}
+			
+				$("#btnStop").onclick = function(){
+					window.clearTimeout(myTimer);
+				}				
+			}
+						
+		</script>
+	</head>
+	<body>
+		<input id="btnStart" type="button" value="动起来" />
+		<input id="btnStop" type="button" value="停下来" />
+		<div id="startDot"></div>
+		<div id="endDot"></div>
+		<div id="box"></div>
+		
+	</body>
+</html>

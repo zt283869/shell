@@ -1,0 +1,27 @@
+*{margin: 0;padding: 0;}
+		ul li{list-style: none;}
+		a{text-decoration: none;}
+			#box{width: 800px;height: 500px;border:1px solid paleturquoise;margin-top: 100px;margin-left: 200px;position: relative;
+			  box-shadow:
+			 	 -10px 0 10px red, /*左边阴影*/  
+    			10px 0 10px yellow, /*右边阴影*/  
+   				 0 -10px 10px blue, /*顶部阴影*/  
+    			0 10px 10px green; /*底边阴影*/  
+   		 overflow: hidden;
+			}
+			#modmg{width: 9999px;height: 500px;position: absolute;}
+			#modmg li{float: left;}
+			#modmg img{width: 800px;height: 500px;}
+			#ball{position: absolute;bottom: 0;right: 0;}
+			#ball li{float: left;width: 40px;height: 40px;border-radius: 50%;background: white;text-align: center;line-height: 40px;}
+			#ball .active{background: red;}
+			#a1{position: absolute;top: 40%;left: 0px;width: 80px;height: 70px;background:rgba(0,0,0,0.5);line-height: 70px;color: white;font-size: 60px;padding-left: 40px;border-radius: 0 20px 20px 0;display: none;}
+			#a2{position: absolute;top: 40%;right: 0px;width: 80px;height: 70px;background:rgba(0,0,0,0.5);line-height: 70px;color: white;padding-left: 40px;font-size: 60px;border-radius: 20px 0 0 20px ;display: none;}
+			#box:hover #a1{
+				display: block;
+				cursor: ne-resize;
+			}
+			#box:hover #a2{
+				display: block;
+				cursor: nw-resize;
+			}

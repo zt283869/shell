@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		请输入你需要的阶乘<input type="text" name="text1" id="text1" value="" />
+		<script>
+			var _text = document.getElementById("text1");
+				function jc(num){
+					if(num<1){
+						return 1;
+					}else{
+						return num*arguments.callee(num-1);
+					}
+				}
+				
+//				var a = jc(_text.value);
+					_text.onblur = function(){
+//						 b = Number(_text.value);
+//						console.log(typeof b);
+						var b = jc(Number(_text.value));
+						alert(b);
+					}
+					
+				
+		</script>
+	</body>
+</html>

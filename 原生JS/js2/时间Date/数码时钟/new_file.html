@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+	
+		img{
+			width: 100px;
+			
+			
+			
+		}
+		
+	</style>
+	<body>
+		<div id="box">
+			<img src="images/0.png" />
+			<img src="images/2.png" />:
+			<img src="images/3.png" />
+			<img src="images/4.png" />:
+			<img src="images/5.png" />
+			<img src="images/6.png" />
+		</div>
+		<script>
+		
+				//n=9  0+9
+				//10 10		
+				function tik(){
+					function to(n){
+					if(n<10){
+						return '0'+n;
+					}else{
+						return ''+n;
+					}
+	
+				}
+					var d = new Date();
+					var str = to(d.getHours())+to(d.getMinutes())+to(d.getSeconds());
+//					console.log(str);
+					var OImg = document.getElementsByTagName("img");
+					for(var i=0;i<OImg.length;i++){
+						OImg[i].src ="images/"+str[i]+".png";
+					}
+					setTimeout('tik()',20)
+				}
+				window.tik();
+				
+		</script>
+	</body>
+</html>

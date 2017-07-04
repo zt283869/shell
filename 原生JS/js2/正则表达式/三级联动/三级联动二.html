@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<select id="pro">
+			<option>请选择省份</option>
+		</select>
+		<select id="city">
+			<option>请选择城市</option>
+		</select>
+		<select id="area">
+			<option>请选择区县</option>
+		</select>
+		<script src="ajax.js"></script>
+		<script>
+			var pro = document.getElementById("pro");
+			var city = document.getElementById("city");
+			var area = document.getElementById("area");
+			ajax("city1.json",function(res){
+				var oChina = JSON.parse(res);
+				// 省份
+					for(var i=0;i<oChina.length;i++){
+			//			oChina[i].name
+						var oOption = document.createElement("option");
+						oOption.value = i;
+						oOption.innerHTML =  oChina[i].name;
+						pro.appendChild(oOption);
+					}
+					
+					//	城市的加载
+					pro.onchange = function(){
+						city.innerHTML = "<option>请选择城市</option>";
+						area.innerHTML = "<option>请选择区县</option>";
+						var x = pro.value;
+					//	console.log(x);
+						var data = oChina[x].city;
+						for(var i=0;i<data.length;i++){
+							var oOption = document.createElement("option");
+							oOption.value = i;
+							oOption.innerHTML =  data[i].name;
+							city.appendChild(oOption);
+						}
+					}
+					
+					//	区县的加载
+					city.onchange = function(){
+						area.innerHTML = "<option>请选择区县</option>";
+						var x = pro.value;
+						var y = city.value;
+					//	console.log(x+"-"+y);
+						var data = oChina[x].city[y].area;
+						for(var i=0;i<data.length;i++){
+							var oOption = document.createElement("option");
+							oOption.value = i;
+							oOption.innerHTML =  data[i];
+							area.appendChild(oOption);
+						}
+					}
+			});
+			
+			
+				
+				
+				
+				
+				
+				
+			
+		</script>
+	</body>
+</html>

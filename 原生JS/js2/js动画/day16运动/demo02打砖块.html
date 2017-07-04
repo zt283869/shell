@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<style type="text/css">
+		*{
+			margin:0px;
+			padding:0px;
+		}
+		#box{
+			width:450px;
+			height:600px;
+			border:2px solid red;
+			margin:0 auto;
+			position:relative;
+		}
+	
+		#box div{
+			width:148px;
+			height:28px;
+			border:1px solid green;
+			background-color:yellow;
+			float:left;
+		}
+		
+		#ball{
+			position:absolute;
+			width:20px;
+			height:20px;
+			left:200px;
+			top:400px;
+			border-radius:50%;
+			background-color:red;
+		}
+		
+		#bottomBrick{
+			position:absolute;
+			width:148px;
+			height:20px;
+			left:50px;
+			top:578px;
+			background-color:red;
+			border:1px solid green;
+		}
+	</style>
+<body>
+	<div id="box">		
+		<div id="brick11">	
+		
+		</div>	
+		<div id="brick12">	
+		
+		</div>	
+		<div id="brick13">	
+		
+		</div>	
+		<div id="brick21">	
+		
+		</div>	
+		<div id="brick22">	
+		
+		</div>	
+		<div id="brick23">	
+		
+		</div>	
+		<div id="brick31">	
+		
+		</div>	
+		<div id="brick32">	
+		
+		</div>	
+		<div id="brick33">	
+		
+		</div>	
+		<span id="ball">
+		
+		</span>
+		<p id="bottomBrick">
+		</p>
+	</div>
+	
+</body>
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript">
+"use strict";
+let left1=150;
+let top1=400;
+
+//横向的增量（包括方向）
+let leftInc = 1;
+//纵向的增量（包括方向）
+let topInc = 1;
+let myTimer;
+
+function goStep(){
+	left1+=leftInc;
+	top1+=topInc;	
+	
+	//if(top1+20>=600){ //底部(弹力球的top+弹力球的高>=盒子的高)
+	
+	//1）、弹力球的top+弹力球的高==盒子的高-底砖的高度
+	//2）、弹力球的left在底砖的横向坐标跨度范围内。
+	//if(top1+20>=600){ //底部(弹力球的top+弹力球的高>=盒子的高)
+	
+	if(top1+20>600-22){
+		alert("game over");
+		//停止定时器；
+		clearInterval(myTimer);
+		return false;		
+	}
+	
+	if((top1+20==600-22) && (left1>=bottomBrickLeft && left1<=bottomBrickLeft+150)){
+		topInc = -1;
+	}else if(top1<=90){//顶部(弹力球的top<=楼板的底部)
+		topInc = 1;
+	}else if(left1<=0){//左边：弹力球left<=0
+		leftInc = 1;
+	}else if(left1+20>=450){//右边：弹力球的left+弹力球的宽度>=盒子的宽度
+		leftInc = -1;
+	}
+	
+	$("ball").style.left =left1+"px"  ;
+	$("ball").style.top =top1+"px"  ;
+}
+
+
+let bottomBrickLeft = 50;
+
+window.onload = function(){
+	myTimer=setInterval(goStep,10);	
+	document.body.onkeydown = function(event){
+		let evt = event||window.event;
+		if(evt.keyCode==37){
+			//左移
+			bottomBrickLeft-=10;
+			if(bottomBrickLeft<=0){
+				bottomBrickLeft=0;
+			}
+			$("bottomBrick").style.left = bottomBrickLeft+"px";
+			
+		}else if(evt.keyCode==39){
+			//右移
+			bottomBrickLeft+=10;
+			if(bottomBrickLeft+150>=450){
+				bottomBrickLeft=450-150;
+			}
+			$("bottomBrick").style.left = bottomBrickLeft+"px";
+		}
+	}
+}
+
+
+
+
+
+</script>

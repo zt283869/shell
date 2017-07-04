@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+<body>
+	<div id="box">
+		邮编：<input id="postcal" type="text" /><span id="showPostcalMsg"></span>
+		邮箱：<input id="eMail" type="text" /><span id="showEMailMsg"></span>
+		手机号码：<input id="mobilePhone" type="text" /><span id="showMobilePhoneMsg"></span>
+		身份证号码：<input id="cardId" type="text" /><span id="showCardIdMsg"></span>
+	</div>
+	
+</body>
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript">
+
+	window.onload = function(){
+	
+		$("postcal").onblur = function(){
+			//邮编： 六位数字；第一位不能为0；
+			var reg = /^[1-9]\d{5}$/;
+			var str= $("postcal").value;
+			if(reg.test(str)){
+				$("showPostcalMsg").innerHTML= "√";
+			}else{
+				$("showPostcalMsg").innerHTML= "×";
+			}
+		}
+		
+		
+		$("eMail").onblur = function(){
+			//邮箱： ****@***.com；开始是数字字母下划线@开始是数字字母下划线.com或者net或者cn
+			var reg = /^\w+@\w+\.(com|net|cn|com\.cn)$/;
+			var str= $("eMail").value;			
+			if(reg.test(str)){
+				$("showEMailMsg").innerHTML= "√";
+			}else{
+				$("showEMailMsg").innerHTML= "×";
+			}
+		}
+		
+		
+		$("mobilePhone").onblur = function(){
+			//手机号码：11位，  1开头（后者13|18|17），其余全是数字
+			//var reg = /^1[0-9]{10}$/;
+			var reg = /^1[35784][0-9]{9}$/;
+			var str= $("mobilePhone").value;			
+			if(reg.test(str)){
+				$("showMobilePhoneMsg").innerHTML= "√";
+			}else{
+				$("showMobilePhoneMsg").innerHTML= "×";
+			}
+		}
+		
+		
+		$("cardId").onblur = function(){
+			//身份证号码：18位，1-9开头，结尾：数字或者X,中间全是数字
+			
+			var reg = /^[1-9]\d{16}(\d|X)$/;
+			var str= $("mobilePhone").value;			
+			if(reg.test(str)){
+				$("showMobilePhoneMsg").innerHTML= "√";
+			}else{
+				$("showMobilePhoneMsg").innerHTML= "×";
+			}
+		}
+		
+		
+		
+		
+	}
+
+	
+	
+	
+	
+	
+</script>

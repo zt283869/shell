@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+<body>
+	<div id="box">
+	</div>
+	
+</body>
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript">
+	//var reg = /b{4}/;
+	
+	//var reg = /b{4,}/;
+	
+	//var reg=/[xyz]/;
+	
+	//var reg = /[a-zA-Z0-9]/;	
+	//var arr = str.match(reg);
+	
+	//for(var i in arr){
+	//	$("box").innerHTML = $("box").innerHTML+arr[i]+",";
+	//}	
+	
+	//var reg = /[^abc]/; //
+	//var reg = /\d/;
+	//var str="abc";	
+	//alert(reg.test(str))
+	
+	var str="how are you are yes are yellowy bye";
+	//var reg = /\by/;
+	//alert(reg.test(str));
+	
+	//var reg = /\by/g;
+	var reg = /y\b/g;
+	var arr = str.match(reg);
+	for(var i in arr){
+		$("box").innerHTML = $("box").innerHTML+arr[i]+",";
+	}	
+	
+	
+</script>

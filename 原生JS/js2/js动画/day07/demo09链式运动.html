@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin:0;padding:0}
+			
+			.ballClass{
+				position:absolute;
+				left:-100px;
+				top:-100px;
+				width:20px;
+				height:20px;
+				background-color:black;
+				border-radius:50%;					
+			}
+			
+			body{
+				height:2000px;
+				width:1000px;
+			}
+			
+		</style>
+		<script type="text/javascript" src="js/tools.js"></script>
+		<script type="text/javascript" src="js/Dragtools.js"></script>
+		<script type="text/javascript">
+			var ballCount = 10;
+			function init(){
+				//1、动态创建div；
+				for(var i=0;i<ballCount;i++){
+					var newDiv = $create("<div>");
+					newDiv.className = "ballClass";
+					$("#ballBox").appendChild(newDiv);
+					newDiv.style.zIndex = ballCount-i+5;
+					var temp = 1-i*(1/ballCount);
+					newDiv.style.background = "rgba(0,0,0,"+temp+")";
+				}
+			}
+			
+			window.onload = function(){
+				init();
+				document.body.onmousemove = function(e){
+					var evt = window.event || e;
+					
+					//1、把除了头以外的其它球球朝前移动
+					var balls = $("#ballBox").children;
+					for(var i=balls.length-1;i>0;i--){
+						balls[i].style.left = balls[i-1].style.left;
+						balls[i].style.top =  balls[i-1].style.top;
+					}
+					
+					//2、根据鼠标的位置，改变头的位置
+					$("#ballBox").children[0].style.left = evt.clientX+"px";
+					$("#ballBox").children[0].style.top = evt.clientY+"px";
+					
+				}
+			
+			}		
+		</script>
+	</head>
+	<body>
+		我在文档流上；<br/>
+		我在文档流上；<br/>
+		我在文档流上；<br/>
+		我在文档流上；<br/>
+		我在文档流上；<br/>
+		我在文档流上；<br/>
+		我在文档流上；<br/>
+		我在文档流上；<br/>
+		我在文档流上；<br/>
+		我在文档流上；<br/>
+		我在文档流上；<br/>
+		我在文档流上；<br/>
+		我在文档流上；<br/>
+		我在文档流上；<br/>
+		我在文档流上；<br/>
+		<div id="ballBox">			
+		</div>
+	</body>
+</html>

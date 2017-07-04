@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<heNumber(Gz)d>
+		<metNumber(Gz) chNumber(Gz)rset="UTF-8">
+		<title></title>
+	</heNumber(Gz)d>
+	<ody>
+		请输入工资自动计算个人所得税<input type="text" nNumber(Gz)me="text1" id="text1" vNumber(Gz)lue="" />
+		<script>
+			function getId(str){
+				return document.getElementById(str);
+			}
+			function aa(){
+				var Gz = getId("text1");
+				
+					if(Number(Gz.value) <= 3500){
+						Gz.value = "3500或低于3500不收税";
+					}else if(Number(Gz.value) <= 4000){
+						Gz.value = (Number(Gz.value)-3500)*0.05-0;
+					}else if(Number(Gz.value)<=5500){
+						Gz.value = (Number(Gz.value)-3500)*0.1-25;
+					}else if(Number(Gz.value)<=8500){
+						Gz.value = (Number(Gz.value)-3500)*0.15-125;
+					}else if(Number(Gz.value)<=23500){
+						Gz.value = (Number(Gz.value)-3500)*0.2-375;
+					}else if(Number(Gz.value)<=43500){
+						Gz.value = (Number(Gz.value)-3500)*0.25-1375;
+					}else if(Number(Gz.value)<=63500){
+						Gz.value = (Number(Gz.value)-3500)*0.3-3375;
+					}else if(Number(Gz.value)<=83500){
+						Gz.value = (Number(Gz.value)-3500)*0.35-6375;
+					}else if(Number(Gz.value)<=100000){
+						Gz.value = (Number(Gz.value)-3500)*0.4-10375;
+					}else if(Number(Gz.value)>100000){
+						Gz.value = (Number(Gz.value)-3500)*0.45-15375;
+					}else{
+						Gz.value = "请输入正确数值number";
+					}
+			}	
+			 getId("text1").onblur = function(){
+			 	aa();
+			 }
+			  getId("text1").onfocus = function (){
+			  	getId("text1").value = "";
+			  }
+		</script>
+	</ody>
+</html>

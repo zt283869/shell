@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<input type="text" name="num1" id="num1" value="" />
+	<select name="" id="sel1">
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="*">*</option>
+		<option value="/">/</option>
+		<option value="%">%</option>
+	</select>
+	<input type="text" name="num2" id="num2" value="" />
+	<input type="button" name="" id="num3" value="=" />
+	<input type="text" name="" id="num4" value="" />
+		<script>
+			function getId(str){
+				return document.getElementById(str);
+			}
+				
+			var ip3 = getId("num3");
+			
+			function aa(){
+				var Num3 = getId("num3");
+				var sel = getId("sel1");
+				var opl = sel.getElementsByTagName("option");
+				var ip1 = getId("num1").value;
+				var ip2 = getId("num2").value;
+				
+				var ip4 = null;	
+				switch(sel.value){
+					case"+":
+					ip4 = Number(ip1)+Number(ip2);
+					break;
+					case"-":
+					ip4 = Number(ip1)-Number(ip2);
+					break;
+					case"*":
+					ip4 = Number(ip1)*Numeber(ip2);
+					break;
+					case"/":
+					ip4 = Number(ip1)/Number(ip2);
+					break;
+					ip4 = Number(ip1)%Number(ip2);
+					break;
+				}
+				getId("num4").value = ip4;
+				
+			}
+			ip3.onclick = function(){
+				aa();
+			}
+		</script>
+	</body>
+</html>

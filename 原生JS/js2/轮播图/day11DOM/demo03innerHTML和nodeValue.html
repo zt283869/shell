@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>		
+		<style type="text/css">
+			*{
+				margin:0px;
+				padding:0px;
+			}
+			
+			#box{
+				position:relative;
+				width:500px;
+				height:300px;
+				border:1px solid #f7f7f7;
+				overflow:hidden;
+			}
+		
+		</style>
+	</head>
+	
+	<body>
+		<div id="box">			
+			我是文字2
+		</div>
+		<input id="btn01" type="button" value="测试" onclick="testF()"/>
+		
+		<div id="layer" class="divClass1">hello div</div>
+		<form name="f">
+			<input type="button" value="使用nodeValue改" onclick="nodeValueTest()" />
+			<input type="button" value="使用innerHTML改" onclick="innerHTMLTest()" />
+		</form>
+	</body>
+
+</html>
+<script type="text/javascript" >
+
+/*
+function testF(){
+	var box =document.getElementById("box");
+	
+	alert(box.innerHTML);
+	
+	alert(box.firstChild.nodeValue);
+	
+}
+*/
+
+function nodeValueTest(){
+	//因为，文本也是节点，所以要用childNodes[0]先获得它的文本节点，然后把文本几点替换成<strong>这是粗体字吗</strong>
+	document.getElementById("layer").childNodes[0].nodeValue="<strong>这是粗体字吗</strong>";
+}
+
+function innerHTMLTest(){
+	//而innerHTML就是元素节点里的内容
+	document.getElementById("layer").innerHTML="<strong>这确实是粗体字</strong>";
+}
+</script>
+
+
+

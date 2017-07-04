@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script type="text/javascript" src="arrayTools.js"></script>
+<script type="text/javascript">
+	
+
+function testF(){
+	//var d = new Date();	
+	//alert(d);
+	
+	//var d5 = new Date(1137075575000);
+	//alert(d5);
+	
+	var d = new Date();
+	
+	d.setFullYear(2015);
+	d.setMonth(6);
+	
+	var y1 = d.getFullYear();
+	var m1 = d.getMonth()+1;//0-11
+	var d1 = d.getDate();
+	
+	
+	var week = d.getDay();
+	var hh = d.getHours();
+	var mm = d.getMinutes();
+	var ss = d.getSeconds();
+	
+	mm = mm<10?"0"+mm:mm;
+	ss = ss<10?"0"+ss:ss;
+	
+	alert(y1+"年"+m1+"月"+d1+"日"+" "+hh+":"+mm+":"+ss+" "+toWeek(week));
+	
+}
+
+
+
+function toWeek(num){			
+	var result ;
+	
+	//2、根据用户是输入进行数据处理（逻辑判断）
+	switch(num){
+		case 0:result = "礼拜天";break;
+		case 1:result = "礼拜一";break;
+		case 2:result = "礼拜二";break;
+		case 3:result = "礼拜三";break;
+		case 4:result = "礼拜四";break;
+		case 5:result = "礼拜五";break;
+		case 6:result = "礼拜六";break;
+		default:result = "请，您的输入有误，请输入0-6之间的数字";break;			
+	}
+	
+	return result;
+	
+}
+</script>
+</head>
+
+<body onload="testF()">
+	
+	
+</body>
+</html>

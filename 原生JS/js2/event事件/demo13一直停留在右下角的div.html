@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+		/*#grandpa{
+			width:500px;
+			height:400px;
+			border:1px solid red;
+		}
+	 
+		#father{
+			width:400px;
+			height:300px;
+			border:1px solid yellow;
+		}*/
+	 
+		#me{
+			position:absolute;
+			
+			width:300px;
+			height:200px;
+			border:1px solid blue;
+		}
+	 
+	</style>
+   
+<body id="b">
+	<br><br><br><br>
+	<br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br>
+	<div id="me">
+		我是宝宝
+		
+	</div>
+	
+</body>
+</html>
+
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript">
+function $(str){
+	return document.getElementById(str);
+}
+		//onscroll在滚动时
+	
+		
+			document.body.onscroll = function(event){
+		//div的top = clientHeight-div的高+scrollTop；
+		var clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+		var scrollTop =  document.documentElement.scrollTop || document.body.scrollTop;
+		$("me").style.top = (clientHeight-200+scrollTop)+"px";
+		
+		//divleft = clientWidth - div的宽+scrollLeft；
+		var clientWidth = document.documentElement.clientWidth || document.body.clientWidth;
+		var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+		$("me").style.left = (clientWidth-300+scrollLeft)+"px";
+		};
+		
+</script>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>		
+		<style type="text/css">
+			*{
+				margin:0px;
+				padding:0px;
+			}
+			
+			#box{
+				position:relative;
+				width:500px;
+				height:300px;
+				border:1px solid #f7f7f7;
+				overflow:hidden;
+			}
+			
+			
+			#boxSon{
+				position:relative;
+				width:500px;
+				height:300px;
+				border:1px solid #f7f7f7;
+				overflow:hidden;
+			}
+		
+		</style>
+	</head>
+	
+	<body id="bodyId">
+		<div id="box">
+			<div id="boxSon">
+				<div id="boxGrandSon">
+					
+				</div>
+			</div>
+		</div>
+		<input id="btn01" type="button" value="获得offsetParent" onclick="testF()"/>
+	</body>
+
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript" >
+
+//children：只获取标签节点
+
+function testF(){
+	var boxGrandSon=$("boxGrandSon");
+	
+	alert(boxGrandSon.offsetParent.id);
+
+	
+}
+
+
+
+</script>

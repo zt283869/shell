@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+		
+	</style>
+<script type="text/javascript">
+
+function checkUser(){
+/*
+名字只能包含数字、字母和下划线，数字不可以开头，长度不低于6，不高于20
+
+
+*/  
+	var userName = document.getElementById("txtUserName").value;
+	
+	document.getElementById("userSpan").style.color="red";
+	if(userName.length<6 || userName.length>20){
+		document.getElementById("userSpan").innerHTML="亲，用户名长度不低于6，不高于20";
+		return;
+	}
+	
+	//数字不可以开头
+	if(userName.charAt(0)>="0" && userName.charAt(0)<="9"){		
+		document.getElementById("userSpan").innerHTML="亲，用户名不能以数字开头";
+		return;
+	}
+	//名字只能包含数字、字母和下划线
+	for(var i=0;i<userName.length;i++){
+		var ch = userName.charAt(i);
+		if((ch>="0" && ch<="9") || (ch>="a" && ch<="z") || (ch>="A" && ch<="Z") || ch=="_"){
+			
+		}else{
+			document.getElementById("userSpan").innerHTML="亲，用户名只能包含数字、字母和下划线";
+			return;
+		}		
+	}
+	document.getElementById("userSpan").style.color="green";
+	document.getElementById("userSpan").innerHTML="√";
+	
+
+	
+}
+
+</script>
+   
+<body>
+	用户名：&nbsp;<input type="text" id="txtUserName" placeholder="用户名不能为空" onblur="checkUser()">
+	*名字只能包含数字、字母和下划线，数字不可以开头，长度不低于6，不高于20<br>
+	<span id="userSpan"></span>
+	<br>
+	
+	<input type="button" value="快速注册" >
+
+	
+</body>
+</html>

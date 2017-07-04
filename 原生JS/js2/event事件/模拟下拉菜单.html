@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			ul{position: absolute;display: none;}
+			ul li{list-style: none;border:#aaa 1px solid;width: 70px;text-align: center;}
+			
+		</style>
+	</head>
+	<body>
+		<ul id="banner">
+			<li>复制</li>
+			<li>粘贴</li>
+			<li>发送</li>
+			<li>查看</li>
+			<li>首选项</li>
+		</ul>
+		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />2<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+		<script>
+			var naner = document.getElementById("banner");
+			document.body.oncontextmenu = function(event){
+		var e = event||window.event;
+		if(navigator.userAgent.indexOf("MSIE")>-1){
+			e.returnValue = false;
+		}else{
+			e.preventDefault();
+		}
+		naner.style.display = "block"
+	}
+			onmousemove = function(event){
+				var eve = event||window.event;
+				var x = eve.pageX;
+				var y = eve.pageY;
+				naner.style.left = x+"px";
+				naner.style.top = y+"px";
+				
+			}
+			document.body.onclick = function(event){
+				var e = event||window.event;
+				if(e.button=1){
+					naner.style.display = "none"
+				}
+			}
+		</script>
+	</body>
+</html>

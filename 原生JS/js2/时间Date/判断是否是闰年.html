@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body onload="getTrime('sp1')">
+		<span id="sp1"></span>
+		<script>
+			var d = new Date();
+			function getTrime(str){
+				var _span = document.getElementById(str);
+				var ff = d.getFullYear();
+				var yy = d.getMonth()+1;
+				var dd = d.getDate();
+				var a = '';
+				 yy = yy<10?"0"+yy:yy;
+				 dd = dd<10?"0"+dd:dd;
+				 if(ff%400==0||(ff%100!=0&&ff%4==0)){
+				 	a = "闰年";
+				 }else{
+				 	a = '平年';
+				 }
+				 return _span.innerHTML = ff+"-"+yy+"-"+dd+"-是"+a;
+			}
+			
+		</script>
+	</body>
+</html>

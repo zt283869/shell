@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+	
+	</style>
+	<script type="text/javascript">
+		function exchange(){
+		/*
+			var str = "250.06";
+			var n = Number(str);
+			alert(typeof n)			
+			alert(n);
+			*/
+			
+			//Number和parseInt，parseFloat的区别；
+			//1)、parseFloat
+			//var str = "250.06.08";
+			//var str = "250.06abc";
+			//var n = parseFloat(str);
+			//var n = Number(str);
+			//alert(n);
+			
+			//2)、parseInt
+			var str = "250abc";
+			//var n = parseInt(str);
+			var n = Number(str);
+			alert(n);
+		
+		}
+	</script>
+	
+	<body>
+		<input type="button" value="  测试；  "  onclick="exchange()" />
+		
+	</body>
+</html>
