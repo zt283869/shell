@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="./css/css/index.css">
+    <script src="comm.js"></script>
+    <title></title>
+</head>
+<body onload="loaded()">
+
+<div class="warpper" id="warpper" style="position: absolute">
+   <!-- <div id="PullDown">
+        <img src="timg.jpg" />
+        <span class="title">下拉刷新</span>
+    </div>-->
+    <ul style="position: absolute">
+        <li>2333333</li>
+        <li>2333333</li>
+        <li>2333333</li>
+        <li>2333333</li>
+        <li>2333333</li>
+        <li>2333333</li>
+        <li>2333333</li>
+        <li>2333333</li>
+    </ul>
+   <!-- <div id="Pullup">
+        <img src="timg.jpg" />
+        <span class="title">上拉加载……</span>
+    </div>-->
+</div>
+</body>
+</html>
+<script type="text/javascript" src="iscroll-probe.js"></script>
+<script type="text/javascript" src="../day1/jquery-1.8.3.js"></script>
+<script>
+    var myScroll;
+    function loaded() {
+        myScroll = new IScroll('#warpper');
+    }
+
+</script>
+

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title></title>
+    <style>
+        *{margin: 0; padding: 0}
+        html,body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #wrapper {
+            flex:1;
+            overflow: hidden;
+        }
+
+        #scroller {
+
+        }
+
+        #pullDown {
+            background-color: #007aff;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        #pullUp {
+            background-color: #007aff;
+            text-align: center;
+            line-height: 30px;
+        }
+
+
+        #scroller ul li {
+            padding: 10px 20px;
+            height: 90px;
+            border-bottom: 1px solid gray;
+        }
+
+        header {
+            width: 100%;
+            height: 66px;
+            background-color: red;
+        }
+
+        footer {
+            width: 100%;
+            height: 66px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+
+<header></header>
+<section id="wrapper">
+    <div id="scroller">
+        <div id="pullDown">loading </div>
+        <ul>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>asdfasdfadfasdf</li>
+            <li>3333333333333333</li>
+        </ul>
+        <div id="pullUp">loading</div>
+    </div>
+</section>
+<footer></footer>
+<script src="iscroll.js"></script>
+<script>
+    (function(){
+         var iscroll = new IScroll("#wrapper",{
+             scrollbars: false,
+             probeType: 1,
+             startY:-document.querySelector("#pullDown").offsetHeight
+         });
+
+        iscroll.on("scrollStart",function(){
+
+           console.log("start...");
+        })
+
+        iscroll.on("scroll",function(e){
+            //获取当前的拉动位置
+            console.log(this.y);
+            //获取拉动的列表的最下面的位置
+            console.log(this.maxScrollY);
+
+            console.log(this.directionY);
+
+            if(this.directionY == 1){
+                if( this.maxScrollY - this.y  >5){
+                    document.querySelector("#pullUp").innerHTML="上拉加载更多...";
+                }else if(this.maxScrollY - this.y<3){
+                    document.querySelector("#pullUp").innerHTML="放了你的指...";
+                }
+            }else if(this.directionY == -1){
+                if(this.y <3){
+                    document.querySelector("#pullDown").innerHTML="下拉刷新...";
+                }else if(this.y>5){
+                    document.querySelector("#pullDown").innerHTML="放了你的指...";
+                }
+            }
+
+            console.log("scroll...");
+        })
+
+        iscroll.on("scrollEnd",function(){
+            //重置 this.y =0
+            iscroll.refresh();
+            console.log("scrollend...");
+        })
+    })()
+</script>
+</body>
+</html>
