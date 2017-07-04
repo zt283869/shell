@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/index.css"/>
+</head>
+<body>
+	<div class="box_box">
+		<div id="box">
+
+		</div>
+		<footer>
+				<ul class="foot_ul">
+
+
+				<a href="/#/">
+					<li>
+					<i class="iconfont active">&#xe601;</i>
+					<span  class="active">文字趣闻</span>
+					</li>
+				</a>
+
+
+					<a href="/#/vidoe">
+						<li>
+						<i class="iconfont">&#xe625;</i>
+						<span>图文详情</span>
+						</li>
+					</a>
+
+						<a href="/#/vidoes">
+							<li>
+							<i class="iconfont">&#xe878;</i>
+							<span>微头条</span>
+							</li>
+						</a>
+
+						<a href="/#/login">
+							<li>
+							<i class="iconfont">&#xe8aa;</i>
+							<span>我的账号</span>
+							</li>
+						</a>
+				</ul>
+			</footer>
+	</div>
+
+</body>
+</html>
+<script src="js/mui.js"></script>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/zepto.js"></script>
+<script src="js/comm.js"></script>
+<script src="js/touch.js"></script>
+<script src="js/bundle.js"></script>
+<!--<script src="js/Commend.js"></script>-->
+<script>
+	(function(){
+        $('.butzteClick').on("touchend",function(){
+            $(".aslid_zce").css("display","block");
+            $(".aslid_zce").stop(false).animate({"left":"0"},1000)
+        })
+    })()
+</script>

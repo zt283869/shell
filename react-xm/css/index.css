@@ -1,0 +1,342 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+ul li {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+i {
+  font-style: normal; }
+
+img {
+  width: 100%;
+  height: 100%; }
+
+@font-face {
+  font-family: 'iconfont';
+  src: url("../iconfont/iconfont.eot");
+  src: url("../iconfont/iconfont.eot?#iefix") format("embedded-opentype"), url("../iconfont/iconfont.woff") format("woff"), url("../iconfont/iconfont.ttf") format("truetype"), url("../iconfont/iconfont.svg#iconfont") format("svg"); }
+.iconfont {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden; }
+
+.box_box {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column; }
+  .box_box #box {
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    flex: 1; }
+    .box_box #box .box_divone {
+      overflow-y: hidden;
+      overflow-x: hidden;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column; }
+      .box_box #box .box_divone .box_div {
+        flex: 1;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        display: flex;
+        position: relative;
+        width: 100%;
+        flex-direction: column; }
+        .box_box #box .box_divone .box_div header {
+          width: 100%;
+          height: .44rem;
+          background: #d43d3d; }
+          .box_box #box .box_divone .box_div header ul {
+            width: 100%;
+            height: 100%;
+            display: flex; }
+            .box_box #box .box_divone .box_div header ul li {
+              flex: 1;
+              text-align: center;
+              height: .44rem;
+              line-height: .44rem;
+              color: white;
+              display: flex; }
+              .box_box #box .box_divone .box_div header ul li i {
+                font-size: .25rem;
+                flex: 1;
+                display: inline-block;
+                line-height: .44rem; }
+        .box_box #box .box_divone .box_div .baner {
+          width: 100%;
+          background: white;
+          overflow-x: auto;
+          overflow-y: hidden;
+          height: .30rem;
+          position: relative; }
+          .box_box #box .box_divone .box_div .baner ul {
+            display: flex;
+            width: 150%;
+            align-items: center;
+            z-index: 999999;
+            line-height: .30rem; }
+            .box_box #box .box_divone .box_div .baner ul li {
+              flex: 1;
+              font-size: .15rem;
+              text-align: center;
+              color: #505050; }
+            .box_box #box .box_divone .box_div .baner ul .baractive {
+              color: #d43d3d; }
+        .box_box #box .box_divone .box_div .baner::after {
+          content: "";
+          width: 150%;
+          height: 1px;
+          transform: scaleY(0.8);
+          background: #ACACB4;
+          display: inline-block;
+          position: absolute;
+          bottom: 0;
+          left: 0; }
+        .box_box #box .box_divone .box_div .baner::-webkit-scrollbar {
+          height: 0; }
+        .box_box #box .box_divone .box_div .baner::-o-scrollbar {
+          height: 0; }
+        .box_box #box .box_divone .box_div aside {
+          flex: 1;
+          width: 100%;
+          overflow-y: auto;
+          background: white; }
+          .box_box #box .box_divone .box_div aside .fer_ul {
+            box-sizing: border-box;
+            padding: 2% 3%;
+            width: 100%; }
+            .box_box #box .box_divone .box_div aside .fer_ul li {
+              display: block;
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              box-sizing: border-box;
+              padding: .05rem 0;
+              position: relative; }
+              .box_box #box .box_divone .box_div aside .fer_ul li span {
+                width: 100%;
+                height: .10rem;
+                color: #000000;
+                font-size: .13rem;
+                font-family: "宋体";
+                widows: 100%;
+                display: block; }
+              .box_box #box .box_divone .box_div aside .fer_ul li a {
+                color: #000000;
+                font-size: .13rem;
+                font-family: "宋体";
+                widows: 100%;
+                display: block; }
+            .box_box #box .box_divone .box_div aside .fer_ul li::after {
+              content: "";
+              width: 100%;
+              height: 1px;
+              transform: scaleY(0.8);
+              background: #ACACB4;
+              display: inline-block;
+              position: absolute;
+              bottom: 0;
+              left: 0; }
+          .box_box #box .box_divone .box_div aside .aside_name {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            padding: .2rem 8%; }
+            .box_box #box .box_divone .box_div aside .aside_name .userpass, .box_box #box .box_divone .box_div aside .aside_name .username {
+              color: #242424;
+              border-radius: 0.2rem 0.2rem 0.2rem 0.2rem;
+              outline: medium; }
+          .box_box #box .box_divone .box_div aside .but {
+            width: 100%;
+            background: rgba(0, 98, 204, 0.47);
+            border: none;
+            text-align: center;
+            height: .33rem;
+            color: white;
+            border-radius: 0.2rem 0.2rem 0.2rem 0.2rem; }
+          .box_box #box .box_divone .box_div aside .butzteClick {
+            width: 100%;
+            height: .33rem;
+            text-align: center;
+            background: white;
+            color: #010118;
+            border: none;
+            cursor: pointer; }
+          .box_box #box .box_divone .box_div aside span {
+            display: block;
+            width: 100%;
+            height: .44rem; }
+        .box_box #box .box_divone .box_div .recommend {
+          position: absolute;
+          top: .73rem;
+          left: 0;
+          z-index: 99;
+          width: 100%;
+          height: .33rem;
+          text-align: center;
+          font-size: .15rem;
+          background: #777777;
+          line-height: .33rem;
+          color: white;
+          display: none; }
+        .box_box #box .box_divone .box_div .log_head {
+          width: 100%;
+          height: 1.5rem;
+          background: url(../img/background.gif) no-repeat;
+          background-position: center;
+          background-size: 100% 100%; }
+          .box_box #box .box_divone .box_div .log_head .log_div {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column; }
+            .box_box #box .box_divone .box_div .log_head .log_div ul {
+              width: 100%;
+              flex: 1;
+              display: flex; }
+              .box_box #box .box_divone .box_div .log_head .log_div ul li {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                color: white;
+                align-items: center;
+                border-radius: 100%;
+                box-sizing: border-box;
+                padding: .30rem 4%; }
+                .box_box #box .box_divone .box_div .log_head .log_div ul li span {
+                  width: 100%;
+                  height: 100%;
+                  background: white;
+                  border-radius: 100%;
+                  box-sizing: border-box;
+                  color: #dd524d;
+                  text-align: center;
+                  font-size: .2rem;
+                  padding: .2rem 20%; }
+                  .box_box #box .box_divone .box_div .log_head .log_div ul li span img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 100%; }
+            .box_box #box .box_divone .box_div .log_head .log_div .all_Log {
+              height: .40rem;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 100%; }
+              .box_box #box .box_divone .box_div .log_head .log_div .all_Log span {
+                color: white;
+                background: #393232;
+                box-sizing: border-box;
+                padding: .05rem 3%;
+                border-radius: 0.2rem 0.2rem 0.2rem 0.2rem; }
+        .box_box #box .box_divone .box_div .aslid_zce {
+          display: none;
+          text-align: center;
+          position: absolute;
+          width: 100%;
+          height: 92%;
+          left: -100%;
+          bottom: 0;
+          background: white; }
+          .box_box #box .box_divone .box_div .aslid_zce .ace_neno {
+            width: 100%;
+            height: .33rem;
+            position: relative; }
+            .box_box #box .box_divone .box_div .aslid_zce .ace_neno .span_none {
+              position: absolute;
+              right: 0;
+              height: 100%;
+              line-height: .33rem;
+              display: block;
+              width: 10%;
+              text-align: center; }
+          .box_box #box .box_divone .box_div .aslid_zce .ce_text {
+            display: block;
+            width: 100%;
+            text-align: center; }
+          .box_box #box .box_divone .box_div .aslid_zce .herheig {
+            width: 100%;
+            height: .33rem;
+            display: block; }
+          .box_box #box .box_divone .box_div .aslid_zce .userpass, .box_box #box .box_divone .box_div .aslid_zce .username {
+            width: 80%;
+            color: #242424;
+            border-radius: 0.2rem 0.2rem 0.2rem 0.2rem;
+            outline: medium; }
+          .box_box #box .box_divone .box_div .aslid_zce .but {
+            width: 80%;
+            background: rgba(0, 98, 204, 0.47);
+            border: none;
+            text-align: center;
+            height: .33rem;
+            color: white;
+            border-radius: 0.2rem 0.2rem 0.2rem 0.2rem; }
+          .box_box #box .box_divone .box_div .aslid_zce .butzte {
+            width: 80%;
+            height: .33rem;
+            text-align: center;
+            background: white;
+            color: #010118;
+            border: none; }
+  .box_box footer {
+    width: 100%;
+    height: .44rem;
+    background: white;
+    position: relative; }
+    .box_box footer .foot_ul {
+      width: 100%;
+      height: 100%;
+      display: flex; }
+      .box_box footer .foot_ul a {
+        color: #777777;
+        flex: 1;
+        display: flex; }
+        .box_box footer .foot_ul a li {
+          flex: 1;
+          display: flex;
+          flex-direction: column; }
+          .box_box footer .foot_ul a li i {
+            height: .28rem;
+            font-size: .2rem;
+            text-align: center;
+            line-height: .28rem;
+            display: inline-block; }
+          .box_box footer .foot_ul a li span {
+            display: inline-block;
+            flex: 1;
+            text-align: center;
+            line-height: 100%;
+            font-size: .15rem; }
+      .box_box footer .foot_ul .active {
+        color: #d43d3d; }
+  .box_box footer::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #ACACB4;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+/*# sourceMappingURL=index.css.map */
