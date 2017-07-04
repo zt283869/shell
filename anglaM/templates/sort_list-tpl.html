@@ -1,0 +1,50 @@
+<div class="list-navbar">
+	<ul class="navbar">
+		<li class="active">手机·电话卡</li>
+		<li>笔记本·平板</li>
+		<li>电视·盒子</li>
+		<li>智能硬件·路由器</li>
+		<li>移动电源·插线板·电池</li>
+		<li>耳机·音箱·存储卡</li>
+		<li>小米生活方式</li>
+		<li>保护类配件</li>
+		<li>优惠套装</li>
+	</ul>
+</div>
+<div class="list-wrap">
+	<div class="list-wrap_1" ng-repeat="sort1 in sort">
+		<div class="img">
+			<img lazy-src="{{sort1.img}}" />
+		</div>
+		<div class="box_1">
+			<div class="title_1">{{sort1.title_1}}</div>
+			<ul class="box_1_1">
+				<li ng-repeat="sort2 in sort1.list">
+					<a ui-sref="main.list">
+						<div class="smallImg">
+							<img lazy-src="{{sort2.smallImg}}" />
+						</div>
+						<div class="name">
+							{{sort2.name}}
+						</div>
+					</a>
+				</li>				
+			</ul>
+		</div>
+		<!--<div class="box_1">
+			<div class="title_1">{{sort1.title_2}}</div>
+			<ul class="box_1_1">
+				<li ng-repeat="sort3 in sort1.list2">
+					<a href="###">
+						<div class="smallImg">
+							<img ng-src="{{sort3.smallImg}}" />
+						</div>
+						<div class="name">
+							{{sort3.name}}
+						</div>
+					</a>
+				</li>				
+			</ul>
+		</div>-->
+	</div>
+</div>

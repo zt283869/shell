@@ -1,0 +1,244 @@
+html {
+  background-color: #ebebeb;
+  font-size: 100px;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: Helvetica Neue, Helvetica, STHeiTi, sans-serif;
+}
+
+body,
+div,
+header,
+footer,
+button,
+img,
+dd,
+dl,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+html,
+input,
+ol,
+p,
+td,
+textarea,
+th,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  border: none;
+  outline: 0;
+}
+
+em,
+i {
+  font-style: normal;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+  text-align: left;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  border: 0;
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.clearfloat:after {
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  content: '.';
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.login_page {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  position: relative;
+}
+.login_page .layout {
+  flex: 1;
+  margin: 0 0.2rem;
+}
+.login_page .layout .lgnheader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.4rem 0 0.2rem;
+}
+.login_page .layout .lgnheader .header_tit {
+  width: 0.49rem;
+  height: 0.48rem;
+  display: flex;
+  margin-bottom: 0.22rem;
+}
+.login_page .layout .lgnheader .header_tit img {
+  width: 100%;
+  height: 100%;
+}
+.login_page .layout .lgnheader .header_tit_txt {
+  font-size: .2rem;
+  color: #424242;
+  font-weight: normal;
+  margin-bottom: 0.1rem;
+}
+.login_page .layout .lgn_inputbg {
+  display: flex;
+  flex-direction: column;
+}
+.login_page .layout .lgn_inputbg .login_user {
+  border-radius: 0.16rem 0.16rem 0 0;
+  border: 1px solid rgba(11, 3, 5, 0.1);
+  display: flex;
+  background: #fff;
+  border-bottom: 1px solid rgba(11, 3, 5, 0.1);
+  padding: 0 0.1rem;
+}
+.login_page .layout .lgn_inputbg .login_user #username {
+  display: block;
+  width: 100%;
+  font-size: 0.16rem;
+  padding: 0.1rem 0;
+}
+.login_page .layout .lgn_inputbg .login_pass {
+  border-radius: 0 0 0.16rem 0.16rem;
+  border: 1px solid rgba(11, 3, 5, 0.1);
+  display: flex;
+  background: #fff;
+  padding: 0 0.1rem;
+}
+.login_page .layout .lgn_inputbg .login_pass #userpass {
+  width: 100%;
+  display: block;
+  font-size: 0.16rem;
+  padding: 0.1rem 0;
+}
+.login_page .layout .lgncode {
+  font-size: 0.14rem;
+  height: 0.2rem;
+  line-height: 0.2rem;
+  color: #f56700;
+  margin: 0.05rem 0;
+}
+.login_page .layout .btns_bg {
+  height: 0.42rem;
+  line-height: 0.42rem;
+  text-align: center;
+  background: #33b4ff;
+  font-size: .16rem;
+  color: #fff;
+  border-radius: 0.2rem;
+  margin: 0.25rem 0;
+}
+.login_page .layout .oth_type_tit {
+  border-top: 1px dashed #ccc;
+}
+.login_page .layout .oth_type_tit .oth_type_txt {
+  font-size: .14rem;
+  color: #b0b0b0;
+  text-align: center;
+  margin-top: -0.1rem;
+}
+.login_page .layout .oth_type_tit .oth_type_links {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.1rem;
+}
+.login_page .layout .oth_type_tit .oth_type_links a {
+  display: flex;
+  width: 0.45rem;
+  height: 0.45rem;
+  margin: 0 0.1rem;
+  display: inline-block;
+  border-radius: 50%;
+  font-size: 0.45rem;
+}
+.login_page .layout .oth_type_tit .oth_type_links a:nth-child(1) {
+  color: #0288D1;
+}
+.login_page .layout .oth_type_tit .oth_type_links a:nth-child(2) {
+  color: #D32F2F;
+}
+.login_page .layout .oth_type_tit .oth_type_links a:nth-child(3) {
+  color: #00AAEE;
+}
+.login_page .layout .n_links_area {
+  padding: 0.2rem 0 0.1rem;
+  color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+}
+.login_page .layout .n_links_area a {
+  font-size: .14rem;
+  color: #757575;
+}
+.login_page .layout .n_links_area span {
+  margin: 0 0.05rem;
+   font-size: .14rem;
+  color: #ccc;
+}
+.login_page .footer {
+  height: 0.9rem;
+}
+.login_page .footer .lang-select-list {
+  display: flex;
+  margin-bottom: 0.1rem;
+  justify-content: center;
+}
+.login_page .footer .lang-select-list a {
+  display: inline-block;
+  font-size: 0.14rem;
+  color: #757575;
+}
+.login_page .footer .nf-intro {
+  color: #757575;
+  text-align: center;
+  font-size: .14rem;
+}
+.login_page .footer .nf-intro span{
+	display: inline-block;
+	width: 0.2rem;
+	height: 0.2rem;
+}
+.login_page .ercode {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0.68rem;
+  height: 0.68rem;
+  display: flex;
+}
+
+/*# sourceMappingURL=login.css.map */

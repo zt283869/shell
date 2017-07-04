@@ -1,0 +1,18 @@
+<div ng-repeat="item in list">
+	<div class="lists_2">
+		<img class="img_left" lazy-src="{{item.lists_2}}" />
+	</div>
+	<div class="lists_3">
+		<img class="img_left" lazy-src="{{item.lists_3}}" />
+	</div>
+	<div class="lists_4" ng-repeat="item1 in item.lists_4" >
+		<div class="lists_4_1" ng-repeat="item2 in item1.lists_4_1" >
+			<img lazy-src="{{item2.img}}" />
+			<div class="lists_4_2">
+				<p class="name">{{item2.name}}</p>
+				<p class="brief">{{item2.brief}}</p>
+				<p class="price">{{item2.price | currency: '￥'}}</p>
+			</div>
+		</div>
+	</div>
+</div>

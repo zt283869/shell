@@ -1,0 +1,21 @@
+
+	<div class="lgnheader">
+		<div class="header_tit">
+			<img src="imgs/login/milogo.png" />
+		</div>
+		<h4 class="header_tit_txt" ng-bind="l">{{l}}</h4>
+	</div>
+	<div class="lgn_inputbg">
+		<div class="login_user">
+			<input type="text" ng-blur="b()" id="username" placeholder="邮箱/手机号码/小米帐号" / >
+		</div>
+		<div class="login_pass">
+			<input type="password" ng-blur="p()" id="userpass" placeholder="密码" /  >
+		</div>
+	</div>
+	<div class="lgncode">
+		
+	</div>
+	<div class="btns_bg" ng-bind="l2" ng-click="go()">
+		{{l2}}
+	</div>

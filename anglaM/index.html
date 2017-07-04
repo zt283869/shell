@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="com.xm.xiaomi">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>小米官网</title>   
+    <link rel='stylesheet' href='./assets/css/swiper-3.3.1.min.css' />
+    <link rel='stylesheet' href='./assets/imgs/font/iconfont.css' />
+    <link rel='stylesheet' href='./assets/css/index.css' />
+    <link rel='stylesheet' href='./assets/css/sort.css' />
+    <link rel='stylesheet' href='./assets/css/cart.css' />
+    <link rel='stylesheet' href='./assets/css/my.css' />
+    <link rel='stylesheet' href='./assets/css/login.css' />
+    <link rel='stylesheet' href='./assets/css/register.css' />
+    <link rel='stylesheet' href='./assets/css/list.css' />
+    <link rel='stylesheet' href='./assets/css/detail.css' />
+    <link rel='stylesheet' href='./assets/css/topic.css' />
+    <link rel='stylesheet' href='./assets/css/search.css' />
+    <link rel='stylesheet' href='./libs/public.css' />
+	
+    
+</head>
+<body>
+<div id="preloader">
+    <div id="status">
+      <p class="center-text"><span>拼命加载中···</span></p>
+    </div>
+  </div>
+<div ui-view></div>
+
+
+<script src="./libs/jquery.js" type="text/javascript" charset="utf-8"></script>
+<!--<script src="./libs/jquery.lazyload.js" type="text/javascript" charset="utf-8"></script>-->
+<script src="./libs/angular.js"></script>
+<script src="./libs/me-lazyload.js"></script>
+<script src="configs/com.xm.xiaomi.configs.js"></script>
+<script src="controllers/com.xm.xiaomi.controllers.js"></script>
+<script src="services/com.xm.xiaomi.services.js"></script>
+<script src="filters/com.xm.xiaomi.filters.js"></script>
+<script src="directives/com.xm.xiaomi.directives.js"></script>
+<script src="./libs/angular-ui-router.js"></script>
+<script src="./app.js"></script>
+<script src="./libs/swiper-3.3.1.min.js"></script>
+<script src="./libs/common.js" type="text/javascript" charset="utf-8"></script>
+<script>
+$(window).load(function() {
+	$("#preloader").delay(3000).fadeOut("slow");
+	$("#status").fadeOut(3000);
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<div class="list_1">
+	<ul id="lists">
+		<a href="#/detail/{{l1.id}}" ng-repeat="l1 in l">
+			<li>
+				<div class="img">
+					<img ng-src="{{l1.img}}" />
+				</div>
+				<div class="intro">
+					<p class="intro_name">
+						{{l1.intro_name}}
+					</p>
+					<p class="intro_brief">
+						{{l1.intro_brief}}
+					</p>
+					<p class="intro_price">
+						{{l1.intro_price | currency: '￥'}}
+					</p>
+				</div>
+			</li>
+		</a>
+	</ul>
+</div>

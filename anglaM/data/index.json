@@ -1,0 +1,94 @@
+[
+ {
+	 "lists_2":"imgs/index/67922713-adab-f53a-1fcb-7bb7a9a652eb.webp",
+	 "lists_3":"imgs/index/69f0fbee66175f25b844b107504c7417.jpg",
+	 "lists_4":[
+	            {
+	            	"lists_4_1":[
+		                          {
+					            	"img":"imgs/index/0ec7f77d2a1df7d516263becb7cc7a0a.jpg",
+					            	"name":"红米Note 4 64GB版",
+					            	"brief":"全金属十核旗舰手机",
+					            	"price":"1399"
+		                          },
+		                          {
+					            	"img":"imgs/index/df54926a-f3e2-863a-48b9-c1c861a4e9de.webp",
+					            	"name":"红米Note 4X 32GB",
+					            	"brief":"多彩金属 / 超长续航",
+					            	"price":"999"
+		                          }
+		                        ] 
+	           },
+	           {
+	        	   "lists_4_1":[
+		                          {
+					            	"img":"imgs/index/86566f01e26104c8c36e1201223385b7.jpg",
+					            	"name":"小米手环2",
+					            	"brief":"OLED 显示屏，触摸操作",
+					            	"price":"149"
+		                          },
+		                          {
+					            	"img":"imgs/index/dfe69c08c716689d629717a3513d593b.jpg",
+					            	"name":"小米路由器3",
+					            	"brief":"全向高增益4天线",
+					            	"price":"149"
+		                          }
+		                        ] 
+	           },
+	           {
+	        	   "lists_4_1":[
+		                          {
+					            	"img":"imgs/index/ba9e445e-fe50-d697-1245-a5cde1d15126.webp",
+					            	"name":"红米Note 4 64GB版",
+					            	"brief":"全金属十核旗舰手机",
+					            	"price":"1799"
+		                          },
+		                          {
+					            	"img":"imgs/index/21c9a26c-a154-8ef6-2d3d-ee4ae74409a3.webp",
+					            	"name":"小米插线板",
+					            	"brief":"3个USB充电口，支持快充",
+					            	"price":"49"
+		                          }
+		                        ] 
+	           }		           
+	          ]
+ },
+ {
+	 "lists_2":"imgs/index/014c2ada-72b2-14f8-1f1a-b5703ad12b11.webp",
+	 "lists_3":"imgs/index/e7ce34d231d075b569ef88fa0d20d69c.jpg",
+	 "lists_4":[
+	            {
+	            	"lists_4_1":[
+		                          {
+					            	"img":"imgs/index/805288f5-a1cb-0a7a-4446-b0d39eea162c.webp",
+					            	"name":"尼龙偏光太阳镜",
+					            	"brief":"重塑专业，打造时尚",
+					            	"price":"139"
+		                          },
+		                          {
+					            	"img":"imgs/index/375f60e3-42e4-f0b1-692f-a9f0e7829149.webp",
+					            	"name":"米家运动鞋智能版",
+					            	"brief":"新时尚，“芯”改变",
+					            	"price":"249"
+		                          }
+		                        ] 
+	           },
+	           {
+	        	   "lists_4_1":[
+		                          {
+					            	"img":"imgs/index/53d5004408f302b5837baa4e836c0e93.jpg",
+					            	"name":"米家行车记录仪",
+					            	"brief":"晚上也可以拍清车牌",
+					            	"price":"349"
+		                          },
+		                          {
+					            	"img":"imgs/index/2e2ce66f-b786-4f25-6a38-a175067944b5.webp",
+					            	"name":"小米电视4A 43英寸",
+					            	"brief":"全高清屏，适合餐厅或厨房",
+					            	"price":"2099"
+		                          }
+		                        ] 
+	           }	         
+	          ]
+ }
+]

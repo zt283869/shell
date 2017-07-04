@@ -1,0 +1,205 @@
+html {
+	background-color: #ebebeb;
+	font-size: 100px;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	font-family: Helvetica Neue, Helvetica, STHeiTi, sans-serif;
+}
+
+body,
+div,
+header,
+footer,
+button,
+img,
+dd,
+dl,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+html,
+input,
+ol,
+p,
+td,
+textarea,
+th,
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+input {
+	border: none;
+	outline: 0;
+}
+
+em,
+i {
+	font-style: normal;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	table-layout: fixed;
+	text-align: left;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+img {
+	border: 0;
+	vertical-align: middle;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.clearfloat:after {
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+	content: '.';
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+.page-search {
+	height: 5.68rem;
+	background: #fff;
+}
+
+.page-search .heder {
+	height: 0.41rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #F5F5F5;
+}
+
+.page-search .heder .left {
+	width: 0.45rem;
+	height: 0.25rem;
+	display: flex;
+	color: #999;
+	align-items: center;
+	justify-content: center;
+}
+
+.page-search .heder .left .icon-home {
+	font-size: 0.2rem;
+}
+
+.page-search .heder .tit {
+	flex: 1;
+	display: flex;
+}
+
+.page-search .heder .tit .searchword {
+	flex: 1;
+	display: flex;
+	background: #fff;
+	border: 1px solid #ccc;
+	padding: 0.05rem .1rem;
+}
+
+.page-search .heder .tit .searchword .search {
+	flex: 1;
+	font-size: .15rem;
+	height: 0.15rem;
+	font-weight: 400;
+}
+
+.page-search .heder .searchbtn {
+	width: 0.5rem;
+	height: 0.25rem;
+	display: flex;
+	color: #999;
+	align-items: center;
+	justify-content: center;
+}
+
+.page-search .heder .searchbtn .icon-search01 {
+	font-size: 0.2rem;
+}
+
+.page-search .searchkey {
+	flex: 1;
+	display: flex;
+}
+
+.page-search .searchkey .list-default {
+	flex: 1;
+	display: flex;
+	margin: 0.1rem;
+}
+
+.page-search .searchkey .list-default li {
+	color: #484848;
+	font-size: 0.12rem;
+	display: flex;
+	margin-right: 0.1rem;
+	border: 1px solid #E4E4E4;
+}
+
+.page-search .searchkey .list-default li a {
+	padding: 0.05rem;
+}
+
+.page-search .searchkey .list-default li:nth-child(1) {
+	background: #f8f2ec;
+	border-color: #fac288;
+}
+
+.page-search .searchkey .list-default li:nth-child(2) {
+	background: #e8f6f6;
+	border-color: #8cdade;
+}
+
+.page-search .searchkey .list-default li:nth-child(3) {
+	background: #f2f6e9;
+	border-color: #bbd090;
+}
+
+.page-search .searchkey .list-default li:nth-child(4) {
+	background: #f9eaea;
+	border-color: #fca0a7;
+}
+
+.page-search .search_list {
+	display: none;
+	border-top: 1px solid #eee;
+	background: #F5F5F5;
+}
+
+.page-search .search_list .search_lists {
+	margin: 0 0.15rem;
+}
+
+.page-search .search_list .search_lists li {
+	font-size: 0.14rem;
+	padding: 0.05rem 0;
+	color: #333;
+}
+
+
+/*# sourceMappingURL=search.css.map */

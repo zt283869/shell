@@ -1,0 +1,25 @@
+[
+  {
+	"id":"1",
+    "img":"imgs/list/7737cbb7-e873-8cf9-1f85-9fabb6c35da5.webp",
+    "intro_name":"小米Note 2 4GB ＋ 64GB",
+    "intro_brief":"5.7\" 双曲面柔性屏 / 3D曲面玻璃 / 骁龙 821 性能版 / 2256万超高像素相机 / 4070mAh 超长续航",
+    "intro_price":"2799"
+  },
+  {
+	"id":"2",
+    "img":"imgs/list/12e47783-a132-3035-d753-5e825e1ff2b2.webp",
+    "intro_name":"小米Note 2 6GB ＋ 128G",
+    "intro_brief":"5.7\" 双曲面柔性屏 / 3D曲面玻璃 / 骁龙 821 性能版 / 2256万超高像素相机 / 4070mAh 超长续航",
+    "intro_price":"3299"
+  },
+  {
+	"id":"3",
+    "img":"imgs/list/3e831770-efa9-cc52-1756-b471f9bd046a.webp",
+    "intro_name":"小米Note 2 全球版 6GB ＋ 128GB",
+    "intro_brief":"5.7\" 双曲面柔性屏 / 3D曲面玻璃 / 骁龙 821 性能版 / 2256万超高像素相机 / 4070mAh 超长续航",
+    "intro_price":"3499"
+  }
+]  
+
+	

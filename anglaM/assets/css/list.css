@@ -1,0 +1,239 @@
+html {
+  background-color: #ebebeb;
+  font-size: 100px;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: Helvetica Neue, Helvetica, STHeiTi, sans-serif;
+}
+
+body,
+div,
+header,
+footer,
+button,
+img,
+dd,
+dl,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+html,
+input,
+ol,
+p,
+td,
+textarea,
+th,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  border: none;
+  outline: 0;
+}
+
+em,
+i {
+  font-style: normal;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+  text-align: left;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  border: 0;
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.clearfloat:after {
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  content: '.';
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.page_list {
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+}
+.page_list .header {
+  height: 0.38rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page_list .header .left {
+  width: 0.2rem;
+  height: 0.2rem;
+  margin: 0 0.1rem;
+  display: flex;
+}
+.page_list .header .left .icon-fanhui1 {
+  font-size: 0.2rem;
+  color: #666;
+}
+.page_list .header .title {
+  flex: 1;
+  font-size: .15rem;
+  color: #666;
+  font-weight: 400;
+  text-align: center;
+}
+.page_list .header .right {
+  width: 0.2rem;
+  height: 0.2rem;
+  margin: 0 0.1rem;
+  display: flex;
+}
+.page_list .header .right .icon-search01 {
+  font-size: 0.2rem;
+  color: #666;
+}
+.page_list .list_1 ul {
+  background: #fff;
+}
+.page_list .list_1 ul a {
+  display: flex;
+}
+.page_list .list_1 ul a li {
+  display: flex;
+  align-items: center;
+  height: 1.35rem;
+  border-bottom: 1px solid #e4e4e4;
+  margin-bottom: 0.02rem;
+}
+.page_list .list_1 ul a li .img {
+  width: 1.35rem;
+  height: 1.35rem;
+  display: flex;
+}
+.page_list .list_1 ul a li .img img {
+  width: 100%;
+  height: 100%;
+}
+.page_list .list_1 ul a li .intro {
+  flex: 1;
+  padding: 0.1rem;
+}
+.page_list .list_1 ul a li .intro p {
+  font-size: 0.12rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+.page_list .list_1 ul a li .intro .intro_brief {
+  color: rgba(0, 0, 0, 0.54);
+  margin-top: 0.05rem;
+}
+.page_list .list_1 ul a li .intro .intro_price {
+  font-size: 0.14rem;
+  margin-top: 0.1rem;
+  color: #ff6000;
+}
+.page_list .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #FFF;
+  z-index: 99;
+  border-top: 1px solid #e0e0e0;
+  height: 0.4rem;
+}
+.page_list .footer ul {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.page_list .footer ul a {
+  flex: 1;
+  display: block;
+  display: flex;
+}
+.page_list .footer ul a li {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.page_list .footer ul a li .icon_1 {
+  width: 0.2rem;
+  height: 0.18rem;
+  background: url("../imgs/index/spr1_5b2e09c.png");
+  background-position-y: -1.4rem;
+  background-size: .2rem 1.6rem;
+}
+.page_list .footer ul a li .icon_1.active {
+  background-position-y: -1.2rem;
+}
+.page_list .footer ul a li .icon_2 {
+  width: 0.2rem;
+  height: 0.18rem;
+  background: url("../imgs/index/spr1_5b2e09c.png");
+  background-position-y: -0.2rem;
+  background-size: .2rem 1.6rem;
+}
+.page_list .footer ul a li .icon_2.active {
+  background-position-y: -0rem;
+}
+.page_list .footer ul a li .icon_3 {
+  width: 0.2rem;
+  height: 0.18rem;
+  background: url("../imgs/index/spr1_5b2e09c.png");
+  background-position-y: -0.6rem;
+  background-size: .2rem 1.6rem;
+}
+.page_list .footer ul a li .icon_3.active {
+  background-position-y: -0.4rem;
+}
+.page_list .footer ul a li .icon_4 {
+  width: 0.2rem;
+  height: 0.18rem;
+  background: url("../imgs/index/spr1_5b2e09c.png");
+  background-position-y: -1rem;
+  background-size: .2rem 1.6rem;
+}
+.page_list .footer ul a li .icon_4.active {
+  background-position-y: -0.8rem;
+}
+.page_list .footer ul a li p {
+  font-size: 0.12rem;
+  color: #999;
+}
+
+/*# sourceMappingURL=list.css.map */

@@ -1,0 +1,15 @@
+
+<div class="header_img" ng-model="goodsId">
+	<img id="header_img" ng-src="{{s.img}}" />
+</div>
+<div class="titleView">
+	<div class="name">
+		{{s.intro_name}}
+	</div>
+	<div class="product_desc">
+		{{s.intro_brief}}
+	</div>
+	<div class="price">
+		{{s.intro_price | currency : "￥"}}
+	</div>
+</div>

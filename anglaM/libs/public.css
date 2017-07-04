@@ -1,0 +1,129 @@
+@charset "utf-8";
+html {
+  background-color: #ebebeb;
+  font-size: 100px;
+  height: 100%;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: Arial,Verdana,Sans-serif;
+}
+
+body,
+div,
+header,
+footer,
+button,
+img,
+dd,
+dl,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+html,
+input,
+ol,
+p,
+td,
+textarea,
+th,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h4,
+h5,
+h6,
+b,
+strong {
+  font-weight: normal;
+}
+
+input {
+  border: none;
+  outline: 0;
+}
+
+em,
+i {
+  font-style: normal;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+  text-align: left;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  border: 0;
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.clearfloat:after {
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  content: '.';
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/*# sourceMappingURL=common.css.map */
+
+/*页面加载*/
+#preloader {position:fixed;top:0;left:0;right:0;bottom:0;background-color:#fff; z-index:999999; }
+#status {
+	width:2.50rem;
+	height:1.50rem;
+	position:absolute;
+	left:50%;
+	top:50%;
+	/*background-size:0.32rem 0.32rem;*/
+	margin-top: -0.75rem;
+	margin-left: -1.25rem;
+}
+.center-text{
+	text-align:center;
+	background-image: url(../imgs/loading-2.gif);
+	background-repeat: no-repeat;
+	background-position: center top;
+	height: 0.40rem;
+	width: 2.5rem;	
+}
+.center-text span {	
+	font-size: 0.14rem;
+	color: #999999;		
+}
+

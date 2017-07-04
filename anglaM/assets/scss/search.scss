@@ -1,0 +1,98 @@
+@charset "UTF-8";
+@import "./common";
+.page-search {
+    background: #fff;
+    height: 100%;
+    .heder {
+        height: 0.41rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #F5F5F5;
+        .left {
+            width: 0.45rem;
+            height: 0.25rem;
+            display: flex;
+            color: #999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .icon-home {
+                font-size: 0.2rem;
+            }
+        }
+        .tit {
+            flex: 1;
+            display: flex;
+            .searchword {
+                flex: 1;
+                display: flex;
+                background: #fff;
+                border: 1px solid #ccc;
+                padding: 0.05rem .1rem;
+                .search {
+                    flex: 1;
+                    font-size: .15rem;
+                    height: 0.15rem;
+                    font-weight: 400;
+                }
+            }
+        }
+        .searchbtn {
+            width: 0.5rem;
+            height: 0.25rem;
+            display: flex;
+            color: #999;
+            align-items: center;
+            justify-content: center;
+            .icon-search01 {
+                font-size: 0.2rem;
+            }
+        }
+    }
+    .searchkey {
+        .list-default {
+            display: flex;
+            margin: 0.1rem ;
+            li {
+                color: rgb(72, 72, 72);
+                font-size: 0.12rem;
+                display: flex;
+                margin-right: 0.1rem;
+                border: 1px solid #E4E4E4;
+                a {
+                    padding: 0.05rem;
+                }
+            }
+            li:nth-child(1) {
+                background: rgb(248, 242, 236);
+                border-color: rgb(250, 194, 136);
+            }
+            li:nth-child(2) {
+                background: rgb(232, 246, 246);
+                border-color: rgb(140, 218, 222);
+            }
+            li:nth-child(3) {
+                background: rgb(242, 246, 233);
+                border-color: rgb(187, 208, 144);
+            }
+            li:nth-child(4) {
+                background: rgb(249, 234, 234);
+                border-color: rgb(252, 160, 167);
+            }
+        }
+    }
+    .search_list{
+        display: none;
+        border-top: 1px solid #eee;
+        background: #F5F5F5;
+        .search_lists{           
+          margin: 0 0.15rem;
+            li{
+                font-size: 0.14rem;
+                padding: 0.05rem 0;
+                color: #333;
+            }
+        }
+    }
+}

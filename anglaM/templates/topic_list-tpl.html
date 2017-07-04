@@ -1,0 +1,63 @@
+<div class="lists_1">
+	<img class="img_left" src="imgs/topic/ebb3bf52876b029345737c85ca0543a7.jpg" />
+	<div class="img_right">
+		<img src="imgs/topic/6b535b69ad0f922b4e24035f6e3ee41a.jpg" />
+		<img src="imgs/topic/659f764ac1f729aca17b5f585101ccce.jpg" />
+	</div>
+</div>
+
+<div class="first_1" ng-repeat="t in topic">
+	<div class="big_title">
+		<img lazy-src="{{t.big_title}}" />
+	</div>
+	<div class="list_one">
+		<a href="###">
+			<div class="img">
+				<img lazy-src="{{t.list_one}}"  />
+			</div>
+			<div class="info">
+				<div class="info_1">
+					<div class="name">
+						{{t.name}}
+					</div>
+					<div class="price">
+						{{t.price | currency: '￥'}}
+					</div>
+				</div>
+				<div class="info_2">
+					{{t.info_2}}
+				</div>
+			</div>
+		</a>
+	</div>
+	<div class="lists_4">
+		<div class="lists_4_1" ng-repeat="t1 in t.lists_4_1">
+			<img lazy-src="{{t1.img}}"/>
+			<div class="lists_4_2">
+				<p class="name">{{t1.name}}</p>
+				<p class="brief">{{t1.brief}}</p>
+				<p class="price">{{t1.price | currency: '￥'}}</p>
+			</div>
+		</div>		
+	</div>
+	<div class="list_one">
+		<a href="###">
+			<div class="img">
+				<img lazy-src="{{t.list_one1}}" />
+			</div>
+			<div class="info">
+				<div class="info_1">
+					<div class="name">
+						{{t.name1}}
+					</div>
+					<div class="price">
+						{{t.price1 | currency: '￥'}}
+					</div>
+				</div>
+				<div class="info_2">
+					{{t.info_21}}
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
