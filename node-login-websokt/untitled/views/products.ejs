@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        *{margin: 0;
+            padding:0;}
+        ul li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        h3{
+            text-align: center;
+        }
+        .text_ul{
+            width: 600px;
+            margin: 0 auto;
+            background: #eff1f4;
+        }
+
+    </style>
+</head>
+<body>
+<h3>实时聊天</h3>
+<ul class="text_ul" id="ul">
+<li>dasdsad</li>
+</ul>
+<textarea id="msg" cols="100" rows="10" style="margin: 0 auto;display: block"></textarea>
+<input type="button" value="发言" onclick="send()" style="margin: 0 auto;display: block">
+</body>
+</html>
+<script>
+    var ws = new WebSocket("ws://10.35.163.23:8000");
+    ws.onopen = function(){
+        console.log("连接成功");
+        ws.send("xxx");
+    };
+    ws.onmessage = function(data){
+//        console.log(data)
+        var ul = document.getElementById("ul")
+        var li = document.createElement("li");
+        li.textContent = data.data;
+        console.log(li)
+        console.log(ul.childNodes[0])
+        ul.insertBefore(li,ul.childNodes[0]);
+    }
+    function send(){
+        var msg = document.getElementById("msg").value;
+        ws.send(msg)
+    }
+</script>
